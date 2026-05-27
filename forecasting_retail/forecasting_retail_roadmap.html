@@ -1,0 +1,217 @@
+
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Roadmap del caso práctico de Forecasting Retail basado en el documento analizado</h2>
+
+<style>
+.rm-wrap { padding: 1.5rem 0; font-family: var(--font-sans); }
+.rm-header { margin-bottom: 2rem; }
+.rm-badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 20px; background: #E6F1FB; color: #0C447C; margin-bottom: 8px; }
+.rm-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+.rm-sub { font-size: 14px; color: var(--color-text-secondary); margin: 0; }
+.rm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(0, 1fr)); gap: 12px; margin-bottom: 2rem; }
+.rm-stat { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem; text-align: center; }
+.rm-stat-num { font-size: 24px; font-weight: 500; color: var(--color-text-primary); }
+.rm-stat-lbl { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+.rm-section { margin-bottom: 1.75rem; }
+.rm-section-title { font-size: 13px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 10px; }
+.rm-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 8px; }
+.rm-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.rm-card-icon { font-size: 18px; color: var(--color-text-secondary); }
+.rm-card-name { font-size: 15px; font-weight: 500; color: var(--color-text-primary); margin: 0; }
+.rm-card-body { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; margin: 0; }
+.rm-pill { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; }
+.pill-problem { background: #FCEBEB; color: #A32D2D; }
+.pill-solution { background: #EAF3DE; color: #3B6D11; }
+.rm-steps { counter-reset: step; }
+.rm-step { display: flex; gap: 14px; margin-bottom: 10px; align-items: flex-start; }
+.rm-step-num { width: 28px; height: 28px; min-width: 28px; border-radius: 50%; background: #E6F1FB; color: #185FA5; font-size: 13px; font-weight: 500; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+.rm-step-content { flex: 1; }
+.rm-step-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 2px; }
+.rm-step-desc { font-size: 13px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+.rm-divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
+.rm-tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.rm-tag { font-size: 11px; padding: 2px 8px; border-radius: 10px; background: var(--color-background-secondary); color: var(--color-text-secondary); border: 0.5px solid var(--color-border-tertiary); }
+</style>
+
+<div class="rm-wrap">
+  <div class="rm-header">
+    <div class="rm-badge"><i class="ti ti-chart-line" aria-hidden="true"></i> Python Data Science Mastery</div>
+    <p class="rm-title">Roadmap — Caso práctico: Forecasting Retail</p>
+    <p class="rm-sub">Resumen operativo para retomar el proyecto desde cero</p>
+  </div>
+
+  <div class="rm-grid">
+    <div class="rm-stat">
+      <div class="rm-stat-num">1</div>
+      <div class="rm-stat-lbl">Retailer</div>
+    </div>
+    <div class="rm-stat">
+      <div class="rm-stat-num">2</div>
+      <div class="rm-stat-lbl">Tiendas</div>
+    </div>
+    <div class="rm-stat">
+      <div class="rm-stat-num">10</div>
+      <div class="rm-stat-lbl">Productos/tienda</div>
+    </div>
+    <div class="rm-stat">
+      <div class="rm-stat-num">3 años</div>
+      <div class="rm-stat-lbl">Histórico</div>
+    </div>
+    <div class="rm-stat">
+      <div class="rm-stat-num">8 días</div>
+      <div class="rm-stat-lbl">Horizonte predicción</div>
+    </div>
+  </div>
+
+  <hr class="rm-divider">
+
+  <div class="rm-section">
+    <p class="rm-section-title"><i class="ti ti-target" aria-hidden="true"></i> Objetivo del proyecto</p>
+    <div class="rm-card">
+      <p class="rm-card-body">Construir modelos de ML (scikit-learn) sobre 3 años de datos históricos SQL para predecir ventas a <strong>8 días vista</strong>, a nivel tienda-producto. El sistema final corre en <strong>batch</strong> periódico. El impacto: reducir costes de almacén y capital, y aumentar ingresos reduciendo roturas de stock.</p>
+    </div>
+  </div>
+
+  <div class="rm-section">
+    <p class="rm-section-title"><i class="ti ti-list-check" aria-hidden="true"></i> Arquitectura del pipeline</p>
+    <div class="rm-steps">
+      <div class="rm-step">
+        <div class="rm-step-num">1</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Extracción de datos (SQL)</p>
+          <p class="rm-step-desc">Base de datos con 3 años de histórico de ventas por tienda y producto. Categoría: alimentación.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">2</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Preprocesamiento y feature engineering</p>
+          <p class="rm-step-desc">Lags, variables temporales, variables sintéticas para demanda intermitente, tratamiento de ceros.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">3</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Modelado ML (scikit-learn / LightGBM)</p>
+          <p class="rm-step-desc">Un modelo por SKU o a nivel jerárquico superior. Estrategia directa o recursiva para horizonte multi-día.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">4</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Reconciliación jerárquica</p>
+          <p class="rm-step-desc">Asegurar coherencia entre predicciones a nivel categoría, subcategoría y producto.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">5</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Sistema batch de predicción</p>
+          <p class="rm-step-desc">Despliegue periódico que genera el forecast de los próximos 8 días.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rm-divider">
+
+  <div class="rm-section">
+    <p class="rm-section-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Problemas avanzados y cómo resolverlos</p>
+
+    <div class="rm-card">
+      <div class="rm-card-head">
+        <i class="ti ti-sitemap rm-card-icon" aria-hidden="true"></i>
+        <p class="rm-card-name">Forecasting jerárquico <span class="rm-pill pill-problem">Problema</span></p>
+      </div>
+      <p class="rm-card-body">Diferentes niveles en el catálogo (categoría → subcategoría → producto). Las predicciones probabilísticas no coinciden entre niveles.</p>
+      <div class="rm-tag-row">
+        <span class="rm-tag">Bottom-up</span>
+        <span class="rm-tag">Top-down</span>
+        <span class="rm-tag">Híbrida</span>
+        <span class="rm-tag">Reconciliación</span>
+      </div>
+    </div>
+
+    <div class="rm-card">
+      <div class="rm-card-head">
+        <i class="ti ti-chart-dots rm-card-icon" aria-hidden="true"></i>
+        <p class="rm-card-name">Demanda intermitente <span class="rm-pill pill-problem">Problema</span></p>
+      </div>
+      <p class="rm-card-body">Días con ventas = 0 sin causa clara (rotura de stock o demanda real cero). Genera ruido en el modelo.</p>
+      <div class="rm-tag-row">
+        <span class="rm-tag">Marcas de rotura de stock</span>
+        <span class="rm-tag">Variables sintéticas</span>
+        <span class="rm-tag">Método Croston</span>
+        <span class="rm-tag">Modelo prob. de cero</span>
+      </div>
+    </div>
+
+    <div class="rm-card">
+      <div class="rm-card-head">
+        <i class="ti ti-stack rm-card-icon" aria-hidden="true"></i>
+        <p class="rm-card-name">Cientos / miles de SKUs <span class="rm-pill pill-problem">Problema</span></p>
+      </div>
+      <p class="rm-card-body">Escalar a miles de productos es computacionalmente intensivo si se entrena un modelo por SKU de forma clásica.</p>
+      <div class="rm-tag-row">
+        <span class="rm-tag">LightGBM</span>
+        <span class="rm-tag">Top-down sin modelos inferiores</span>
+        <span class="rm-tag">Cloud / clusters</span>
+      </div>
+    </div>
+
+    <div class="rm-card">
+      <div class="rm-card-head">
+        <i class="ti ti-calendar-time rm-card-icon" aria-hidden="true"></i>
+        <p class="rm-card-name">Predicción multipaso (8 días) <span class="rm-pill pill-problem">Problema</span></p>
+      </div>
+      <p class="rm-card-body">Los modelos ML predicen registro a registro; para horizontes multi-día necesitas info de futuro no disponible.</p>
+      <div class="rm-tag-row">
+        <span class="rm-tag">Estrategia directa (N modelos)</span>
+        <span class="rm-tag">Estrategia recursiva (1 modelo)</span>
+        <span class="rm-tag">Recursiva = más fácil de mantener</span>
+      </div>
+    </div>
+  </div>
+
+  <hr class="rm-divider">
+
+  <div class="rm-section">
+    <p class="rm-section-title"><i class="ti ti-notes" aria-hidden="true"></i> Próximos pasos al retomar</p>
+    <div class="rm-steps">
+      <div class="rm-step">
+        <div class="rm-step-num"><i class="ti ti-check" style="font-size:13px"></i></div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Revisar este roadmap</p>
+          <p class="rm-step-desc">Contexto del negocio, estructura de datos y retos identificados.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">1</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Cargar y explorar la BBDD SQL</p>
+          <p class="rm-step-desc">Verificar calidad de datos, distribución de ceros, cobertura temporal por SKU.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">2</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Decidir estrategia jerárquica y multipaso</p>
+          <p class="rm-step-desc">Bottom-up vs top-down. Directa vs recursiva para los 8 días.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">3</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Construir baseline y modelos ML</p>
+          <p class="rm-step-desc">Empezar con modelo simple, luego iterar con LightGBM y features avanzadas.</p>
+        </div>
+      </div>
+      <div class="rm-step">
+        <div class="rm-step-num">4</div>
+        <div class="rm-step-content">
+          <p class="rm-step-title">Validar y desplegar en batch</p>
+          <p class="rm-step-desc">Métricas de error por SKU, reconciliación y puesta en producción del sistema.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
