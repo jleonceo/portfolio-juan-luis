@@ -39,8 +39,8 @@ export default function Portfolio() {
           <p style={s.eyebrow}>Analista de Datos · IA Aplicada</p>
           <h1 style={s.nombre}>Juan Luis<br/>León Rodríguez</h1>
           <p style={s.tagline}>
-            Analista de datos que construye sus propias<br/>
-            <strong style={{ color: "#e2e8f0" }}>herramientas de IA para trabajar mejor.</strong>
+            Analista de datos que construye y entrena<br/>
+            <strong style={{ color: "#e2e8f0" }}>sus propias herramientas de IA.</strong>
           </p>
           <p style={s.bio}>
             MySQL, Power BI, Python, n8n y Claude trabajando juntos.
@@ -404,7 +404,7 @@ const s = {
   contactCard: { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "24px 40px", display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textDecoration: "none" },
   contactLabel: { fontSize: 10, color: "#475569", fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 },
   contactVal: { fontSize: 14, color: "#60a5fa", fontWeight: 500 },
-  filosofiaBox: { borderLeft: "3px solid #3b82f6", paddingLeft: 28, maxWidth: 700 },
+  filosofiaBox: { maxWidth: 680, margin: "0 auto", textAlign: "center" },
   filosofiaTitulo: { fontSize: 20, fontWeight: 800, color: "#f1f5f9", margin: "0 0 12px" },
   filosofiaTexto: { fontSize: 15, color: "#64748b", lineHeight: 1.8, margin: 0, fontStyle: "italic" },
   footer: { textAlign: "center", padding: "24px", color: "#1e293b", fontSize: 12, borderTop: "1px solid rgba(255,255,255,0.04)" },
