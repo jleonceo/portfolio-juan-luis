@@ -39,14 +39,13 @@ export default function Portfolio() {
           <p style={s.eyebrow}>Analista de Datos · IA Aplicada</p>
           <h1 style={s.nombre}>Juan Luis<br/>León Rodríguez</h1>
           <p style={s.tagline}>
-            Diseño sistemas donde la IA contable<br/>
-            <strong style={{ color: "#e2e8f0" }}>se configura, se evalúa y se mejora sola.</strong>
+            Analista de datos que construye sus propias<br/>
+            <strong style={{ color: "#e2e8f0" }}>herramientas de IA para trabajar mejor.</strong>
           </p>
           <p style={s.bio}>
-            Construí un ecosistema completo de automatización contable —
-            MySQL, Power BI, n8n y Claude — y lo validé con una suite de
-            evals automatizados que mide la precisión del agente al céntimo.
-            No solo uso IA: la ingeniería, la mido y la pongo en producción.
+            MySQL, Power BI, Python, n8n y Claude trabajando juntos.
+            Construí el ecosistema, diseñé las herramientas de IA
+            y validé que funcionan.
           </p>
           <div style={s.heroStats}>
             {[
@@ -72,11 +71,11 @@ export default function Portfolio() {
       <section id="proyecto" style={s.sectionDark}>
         <div style={s.sectionInner}>
           <p style={s.label}>EL PROYECTO</p>
-          <h2 style={s.h2}>TechAcces — ecosistema de automatización contable</h2>
+          <h2 style={s.h2}>TechAcces — ecosistema de análisis de datos con IA</h2>
           <p style={s.sectionSub}>
-            Un e-commerce de accesorios tech con 4 años de contabilidad real simulada.
-            El objetivo: que un agente IA genere, valide e inserte asientos contables
-            sin intervención humana, con trazabilidad completa.
+            Un e-commerce de accesorios tech con 4 años de datos reales simulados.
+            MySQL, Power BI, Python, n8n y Claude conectados en un ecosistema
+            que multiplica la productividad del analista.
           </p>
 
           {/* Arquitectura */}
@@ -156,11 +155,10 @@ export default function Portfolio() {
       <section id="validacion" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>VALIDACIÓN</p>
-          <h2 style={s.h2}>No solo uso IA — la evalúo científicamente</h2>
+          <h2 style={s.h2}>Construyo y valido mis herramientas de IA antes de usarlas</h2>
           <p style={s.sectionSub}>
-            Construí una suite de evals automatizados para medir la precisión del agente contable.
+            Construí una suite de evals automatizados para medir la precisión de mis herramientas de IA.
             Dataset de 10 casos reales, runner Python multimodelo, grader automático con validación al céntimo.
-            Los casos incluyen los ejemplos didácticos de la propia skill como test de regresión.
           </p>
 
           <div style={s.evalWrap}>
@@ -210,10 +208,10 @@ export default function Portfolio() {
       <section id="skills" style={s.sectionDark}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMA DE SKILLS</p>
-          <h2 style={s.h2}>7 skills que definen cómo opera el agente</h2>
+          <h2 style={s.h2}>7 skills que multiplican mi productividad como analista</h2>
           <p style={s.sectionSub}>
-            Las skills son el cerebro del agente. Cada una encapsula criterio profesional,
-            protocolos operativos y casos de uso reales. No son prompts — son sistemas de conocimiento estructurado.
+            Cada skill encapsula conocimiento estructurado en un dominio específico.
+            Juntas forman mi entorno de trabajo con IA.
           </p>
           <div style={s.skillGrid}>
             {[
@@ -223,7 +221,7 @@ export default function Portfolio() {
               { name: "reporting-powerbi", badge: "BI", badgeColor: "#f59e0b", desc: "Modelo semántico Power BI, secuencia de conexión MCP, medidas DAX y validación cruzada contra SQL." },
               { name: "automatizacion-n8n", badge: "Automatización", badgeColor: "#8b5cf6", desc: "Diseño de workflows, integración Gmail, parámetros Claude API para temperatura 0 en tareas contables." },
               { name: "datascience-financiero", badge: "ML", badgeColor: "#6366f1", desc: "Python, Pandas, Scikit-learn. Detección de anomalías contables, clustering, predicción con XGBoost." },
-              { name: "entorno-personal", badge: "Contexto", badgeColor: "#64748b", desc: "Contexto de Juan, reglas de trabajo, estilo iterativo. Hace que el agente recuerde las preferencias entre sesiones." },
+              { name: "entorno-personal", badge: "Contexto", badgeColor: "#64748b", desc: "Contexto, reglas de trabajo y estilo iterativo. Mantiene coherencia entre sesiones de trabajo." },
             ].map(sk => (
               <div key={sk.name} style={{ ...s.skillCard, ...(sk.highlight ? s.skillCardHL : {}) }}>
                 <div style={s.skillTop}>
@@ -233,6 +231,20 @@ export default function Portfolio() {
                 <p style={s.skillDesc}>{sk.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* FILOSOFIA */}
+      <section style={s.sectionDark}>
+        <div style={s.sectionInner}>
+          <div style={s.filosofiaBox}>
+            <p style={s.filosofiaTitulo}>Una skill nunca está terminada.</p>
+            <p style={s.filosofiaTexto}>
+              Igual que una persona con curiosidad aprende cada día, una skill bien construida también.
+              Crear no es el final: observar, refinar, medir, mejorar. Y volver a empezar.
+            </p>
           </div>
         </div>
       </section>
@@ -302,7 +314,7 @@ const s = {
   navLinks: { display: "flex", gap: 4 },
   navBtn: { background: "none", border: "none", color: "#94a3b8", cursor: "pointer", padding: "6px 14px", borderRadius: 6, fontSize: 13, transition: "color 0.2s" },
   // HERO
-  hero: { display: "grid", gridTemplateColumns: "300px 1fr", gap: 64, alignItems: "center", padding: "100px 80px 60px", maxWidth: 1100, margin: "0 auto" },
+  hero: { display: "grid", gridTemplateColumns: "300px 1fr", gap: 64, alignItems: "center", padding: "80px 80px 44px", maxWidth: 1100, margin: "0 auto" },
   heroLeft: { display: "flex", flexDirection: "column", alignItems: "center", gap: 20 },
   foto: { width: 240, height: 240, borderRadius: "50%", objectFit: "cover", objectPosition: "top", border: "3px solid rgba(96,165,250,0.35)" },
   evalBadge: { background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.3)", borderRadius: 12, padding: "12px 20px", textAlign: "center", width: "100%", boxSizing: "border-box" },
@@ -321,8 +333,8 @@ const s = {
   btnPrimary: { background: "#3b82f6", color: "#fff", border: "none", padding: "11px 24px", borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: "pointer" },
   btnOutline: { background: "transparent", color: "#60a5fa", border: "1px solid rgba(96,165,250,0.4)", padding: "11px 24px", borderRadius: 8, fontSize: 14, fontWeight: 600, cursor: "pointer" },
   // SECCIONES
-  sectionDark: { background: "#080d1a", padding: "60px 0" },
-  sectionLight: { background: "#0d1425", padding: "60px 0" },
+  sectionDark: { background: "#080d1a", padding: "44px 0" },
+  sectionLight: { background: "#0d1425", padding: "44px 0" },
   sectionInner: { maxWidth: 1100, margin: "0 auto", padding: "0 80px" },
   label: { color: "#3b82f6", fontSize: 10, fontWeight: 700, letterSpacing: 3, textTransform: "uppercase", margin: "0 0 8px" },
   h2: { fontSize: 32, fontWeight: 800, margin: "0 0 12px", color: "#f1f5f9" },
@@ -392,5 +404,8 @@ const s = {
   contactCard: { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "24px 40px", display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textDecoration: "none" },
   contactLabel: { fontSize: 10, color: "#475569", fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 },
   contactVal: { fontSize: 14, color: "#60a5fa", fontWeight: 500 },
+  filosofiaBox: { borderLeft: "3px solid #3b82f6", paddingLeft: 28, maxWidth: 700 },
+  filosofiaTitulo: { fontSize: 20, fontWeight: 800, color: "#f1f5f9", margin: "0 0 12px" },
+  filosofiaTexto: { fontSize: 15, color: "#64748b", lineHeight: 1.8, margin: 0, fontStyle: "italic" },
   footer: { textAlign: "center", padding: "24px", color: "#1e293b", fontSize: 12, borderTop: "1px solid rgba(255,255,255,0.04)" },
 };
