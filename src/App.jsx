@@ -12,7 +12,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const ids = ["inicio","proyecto","validacion","skills","stack","contacto"];
+    const ids = ["inicio","proyecto","validacion","proceso","skills","stack","contacto"];
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
@@ -32,7 +32,7 @@ export default function Portfolio() {
       <nav style={{ ...s.nav, ...(scrolled ? s.navSolid : {}) }}>
         <div style={s.navInner}>
           <div style={s.navLinks}>
-            {[["proyecto","El proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
+            {[["proyecto","El proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
               <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
             ))}
           </div>
@@ -220,7 +220,7 @@ export default function Portfolio() {
           </div>
 
           {/* EVOLUCIÓN */}
-          <div style={s.evoWrap}>
+          <div id="proceso" style={s.evoWrap}>
             <p style={s.evoHeader}>El camino hasta el 100% — cada fallo fue una mejora</p>
             {[
               {
@@ -374,7 +374,7 @@ export default function Portfolio() {
 
       {/* SIDE NAV DOTS */}
       <div style={s.sideDots}>
-        {[["inicio","Inicio"],["proyecto","Proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
+        {[["inicio","Inicio"],["proyecto","Proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
           <button key={id} onClick={() => go(id)} style={s.sideDot} title={label}>
             <span style={{ ...s.sideDotInner, ...(activeSection === id ? s.sideDotOn : {}) }} />
           </button>
