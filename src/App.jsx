@@ -121,7 +121,7 @@ export default function Portfolio() {
               { val: "19,1M€", label: "Volumen contable total", sub: "debe + haber · 4 años" },
               { val: "5,0M€", label: "Ventas acumuladas", sub: "+35% CAGR 2023→2025" },
               { val: "7.156", label: "Asientos contables", sub: "17.878 líneas contables" },
-              { val: "-0,34€", label: "Descuadre global", sub: "0,000002% sobre 19,1M€" },
+              { val: "0,00€", label: "Descuadre global", sub: "debe = haber exactos · 19,1M€" },
             ].map(k => (
               <div key={k.label} style={s.kpiCard}>
                 <span style={s.kpiVal}>{k.val}</span>
