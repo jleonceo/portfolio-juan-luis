@@ -44,8 +44,8 @@ export default function Portfolio() {
         <div style={s.heroLeft}>
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
-            <span style={s.evalBadgeNum}>96%</span>
-            <span style={s.evalBadgeText}>precisión IA validada</span>
+            <span style={s.evalBadgeNum}>100%</span>
+            <span style={s.evalBadgeText}>3 evals · 110 casos verificados</span>
           </div>
         </div>
         <div style={s.heroRight}>
@@ -100,7 +100,7 @@ export default function Portfolio() {
               { icon: "→", arrow: true },
               { icon: "⚙️", title: "n8n", sub: "Orquestación", desc: "Workflows Gmail→Claude→MySQL · automatización de ingesta · validación en pipeline" },
               { icon: "→", arrow: true },
-              { icon: "🤖", title: "Claude", sub: "Agente IA", desc: "7 skills personalizadas · prompt engineering · evals automatizados · Sonnet 4.6 en producción" },
+              { icon: "🤖", title: "Claude", sub: "Agente IA", desc: "7 skills personalizadas · 3 evals (110 casos) · 100% precisión validada · Sonnet 4.6 en producción" },
             ].map((node, i) =>
               node.arrow ? (
                 <div key={i} style={s.arqArrow}>→</div>
@@ -171,19 +171,22 @@ export default function Portfolio() {
           <h2 style={s.h2}>Construyo y valido mis herramientas de IA antes de usarlas</h2>
           <p style={s.sectionSub}>
             Construí una suite de evals automatizados para medir la precisión de mis herramientas de IA.
-            Dataset de 50 casos reales en 12 categorías contables, runner Python con caché de prompts, grader automático con validación al céntimo.
+            3 frameworks independientes · 110 casos en total · runner Python con caché de prompts · grader automático con validación al céntimo.
+            Tres skills con 100% en benchmark antes de usarlas en producción.
           </p>
 
           <div style={s.evalWrap}>
             <div style={s.evalLeft}>
-              <h3 style={s.evalTitle}>Benchmark — <code style={s.code}>contable-experto</code></h3>
+              <h3 style={s.evalTitle}>Benchmarks — 3 evals · 110 casos · 100% en producción</h3>
               <div style={s.evalRows}>
                 {[
-                  { model: "Claude Sonnet 4.6", score: "96%", detail: "47/50 casos · 12 categorías PGC", winner: true, note: "Modelo en producción" },
+                  { eval: "contable-experto", model: "Claude Sonnet 4.6", score: "100%", detail: "50/50 casos · 12 categorías PGC", winner: true, note: "Asientos, IVA, IRPF, nóminas, cierre" },
+                  { eval: "datos-financieros-sql", model: "Claude Sonnet 4.6", score: "100%", detail: "30/30 casos · 6 categorías SQL", winner: true, note: "KPIs, agregaciones, JOINs, trimestres" },
+                  { eval: "datos-financieros-dax", model: "Claude Sonnet 4.6", score: "100%", detail: "30/30 casos · 6 categorías DAX", winner: true, note: "Medidas DAX validadas vía SQL equivalente" },
                 ].map(r => (
-                  <div key={r.model} style={{ ...s.evalRow, ...(r.winner ? s.evalWinner : {}) }}>
+                  <div key={r.eval} style={{ ...s.evalRow, ...(r.winner ? s.evalWinner : {}) }}>
                     <div style={s.evalRowLeft}>
-                      <span style={s.evalModel}>{r.model}</span>
+                      <span style={s.evalModel}><code style={{ ...s.code, fontSize: 12 }}>{r.eval}</code></span>
                       <span style={s.evalNote2}>{r.note}</span>
                     </div>
                     <div style={s.evalRowRight}>
@@ -231,7 +234,7 @@ export default function Portfolio() {
             {[
               { name: "contable-experto", badge: "Validada con evals", badgeColor: "#22c55e", desc: "PGC español completo, asientos, IVA, IRPF, nóminas, cierre contable. Incluye ejemplos didácticos A/B/C como test de regresión.", highlight: true },
               { name: "orquestador-techacces", badge: "Core", badgeColor: "#3b82f6", desc: "Coordina el ecosistema completo. Define qué skill invocar, cuándo conectar a MySQL o Power BI, y el protocolo de arranque de sesión." },
-              { name: "datos-financieros", badge: "Core", badgeColor: "#3b82f6", desc: "MySQL + DAX + protocolo de arranque. Incluye el doble verificador obligatorio tras cada INSERT contable." },
+              { name: "datos-financieros", badge: "Validada con evals", badgeColor: "#22c55e", desc: "MySQL + DAX + protocolo de arranque. 2 evals independientes (SQL y DAX) · 60 casos · 100%. Doble verificador obligatorio tras cada INSERT contable." },
               { name: "reporting-powerbi", badge: "BI", badgeColor: "#f59e0b", desc: "Modelo semántico Power BI, secuencia de conexión MCP, medidas DAX y validación cruzada contra SQL." },
               { name: "automatizacion-n8n", badge: "Automatización", badgeColor: "#8b5cf6", desc: "Diseño de workflows, integración Gmail, parámetros Claude API para temperatura 0 en tareas contables." },
               { name: "datascience-financiero", badge: "ML", badgeColor: "#6366f1", desc: "Python, Pandas, Scikit-learn. Detección de anomalías contables, clustering, predicción con XGBoost." },
