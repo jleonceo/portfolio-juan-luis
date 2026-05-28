@@ -218,6 +218,58 @@ export default function Portfolio() {
               ))}
             </div>
           </div>
+
+          {/* EVOLUCIÓN */}
+          <div style={s.evoWrap}>
+            <p style={s.evoHeader}>El camino hasta el 100% — cada fallo fue una mejora</p>
+            {[
+              {
+                name: "contable-experto",
+                v1: "94%", v1sub: "47/50", v1Color: "#f59e0b",
+                issue: "2 patrones no cubiertos en la skill",
+                fix: "Periodificación pasiva · traspaso resultado a reservas",
+                action: "Ejemplos F y G añadidos · skill v3.0",
+              },
+              {
+                name: "datos-financieros-dax",
+                v1: "10%", v1sub: "3/30", v1Color: "#ef4444",
+                issue: "Bug crítico en el runner",
+                fix: "Claude añadía backticks al SQL · conexión MySQL se corrompía en cascada",
+                action: "Rediseño: conexión fresca por caso · backticks eliminados",
+              },
+              {
+                name: "datos-financieros-sql",
+                v1: "97%", v1sub: "29/30", v1Color: "#f59e0b",
+                issue: "Dataset incorrecto en caso 20",
+                fix: "trimestre=1 ≠ QUARTER(fecha) — descubierto analizando el fallo",
+                action: "Dataset corregido · aviso añadido a skill y RAG",
+              },
+            ].map(e => (
+              <div key={e.name} style={s.evoRow}>
+                <code style={s.evoName}>{e.name}</code>
+                <div style={s.evoTrack}>
+                  <div style={s.evoStart}>
+                    <span style={{ ...s.evoScore, color: e.v1Color }}>{e.v1}</span>
+                    <span style={s.evoSub}>{e.v1sub}</span>
+                  </div>
+                  <div style={s.evoConnector}>
+                    <div style={s.evoLineLeft} />
+                    <div style={s.evoBox}>
+                      <span style={s.evoIssue}>{e.issue}</span>
+                      <span style={s.evoFix}>{e.fix}</span>
+                      <span style={s.evoAction}>→ {e.action}</span>
+                    </div>
+                    <div style={s.evoLineRight} />
+                  </div>
+                  <div style={s.evoEnd}>
+                    <span style={{ ...s.evoScore, color: "#22c55e" }}>100%</span>
+                    <span style={s.evoSub}>verificado</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
@@ -412,6 +464,23 @@ const s = {
   graderN: { background: "rgba(96,165,250,0.1)", color: "#60a5fa", fontSize: 12, fontWeight: 700, width: 24, height: 24, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
   graderT: { display: "block", fontSize: 13, fontWeight: 600, color: "#e2e8f0", marginBottom: 2 },
   graderD: { display: "block", fontSize: 12, color: "#64748b" },
+  // EVOLUCIÓN
+  evoWrap: { marginTop: 28, background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 14, padding: "22px 24px" },
+  evoHeader: { fontSize: 12, fontWeight: 700, color: "#64748b", textTransform: "uppercase", letterSpacing: 1.5, margin: "0 0 18px" },
+  evoRow: { display: "flex", flexDirection: "column", gap: 6, marginBottom: 18, paddingBottom: 18, borderBottom: "1px solid rgba(255,255,255,0.04)" },
+  evoName: { fontFamily: "monospace", fontSize: 12, color: "#60a5fa" },
+  evoTrack: { display: "flex", alignItems: "center", gap: 0 },
+  evoStart: { display: "flex", flexDirection: "column", alignItems: "center", gap: 2, flexShrink: 0, minWidth: 54 },
+  evoEnd: { display: "flex", flexDirection: "column", alignItems: "center", gap: 2, flexShrink: 0, minWidth: 54 },
+  evoScore: { fontSize: 18, fontWeight: 800, lineHeight: 1 },
+  evoSub: { fontSize: 10, color: "#475569" },
+  evoConnector: { flex: 1, display: "flex", alignItems: "center" },
+  evoLineLeft: { width: 16, height: 2, background: "rgba(255,255,255,0.08)", flexShrink: 0 },
+  evoLineRight: { width: 16, height: 2, background: "rgba(34,197,94,0.3)", flexShrink: 0 },
+  evoBox: { flex: 1, display: "flex", flexDirection: "column", gap: 3, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 8, padding: "8px 12px" },
+  evoIssue: { fontSize: 11, fontWeight: 600, color: "#e2e8f0" },
+  evoFix: { fontSize: 11, color: "#64748b" },
+  evoAction: { fontSize: 11, color: "#22c55e", fontWeight: 500 },
   // SKILLS
   skillGrid: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 },
   skillCard: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "18px" },
