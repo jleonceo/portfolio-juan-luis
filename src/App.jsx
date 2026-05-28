@@ -3,11 +3,24 @@ import foto from "./assets/foto-juanluis.jpg";
 
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("inicio");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const ids = ["inicio","proyecto","validacion","skills","stack","contacto"];
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
+      },
+      { threshold: 0.3 }
+    );
+    ids.forEach(id => { const el = document.getElementById(id); if (el) observer.observe(el); });
+    return () => observer.disconnect();
   }, []);
 
   const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -303,6 +316,15 @@ export default function Portfolio() {
       <footer style={s.footer}>
         © 2026 Juan Luis León Rodríguez · React + Vite · Vercel
       </footer>
+
+      {/* SIDE NAV DOTS */}
+      <div style={s.sideDots}>
+        {[["inicio","Inicio"],["proyecto","Proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
+          <button key={id} onClick={() => go(id)} style={s.sideDot} title={label}>
+            <span style={{ ...s.sideDotInner, ...(activeSection === id ? s.sideDotOn : {}) }} />
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
@@ -411,4 +433,9 @@ const s = {
   filosofiaTitulo: { fontSize: 20, fontWeight: 800, color: "#f1f5f9", margin: "0 0 12px" },
   filosofiaTexto: { fontSize: 15, color: "#64748b", lineHeight: 1.8, margin: 0, fontStyle: "italic" },
   footer: { textAlign: "center", padding: "24px", color: "#1e293b", fontSize: 12, borderTop: "1px solid rgba(255,255,255,0.04)" },
+  // SIDE NAV
+  sideDots: { position: "fixed", right: 20, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", gap: 10, zIndex: 99 },
+  sideDot: { background: "none", border: "none", cursor: "pointer", padding: 4, display: "flex", alignItems: "center", justifyContent: "center" },
+  sideDotInner: { display: "block", width: 8, height: 8, borderRadius: "50%", background: "rgba(255,255,255,0.2)", transition: "all 0.25s" },
+  sideDotOn: { background: "#60a5fa", transform: "scale(1.4)" },
 };
