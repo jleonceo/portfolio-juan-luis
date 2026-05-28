@@ -29,7 +29,7 @@ export default function Portfolio() {
         <div style={s.heroLeft}>
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
-            <span style={s.evalBadgeNum}>90%</span>
+            <span style={s.evalBadgeNum}>96%</span>
             <span style={s.evalBadgeText}>precisión IA validada</span>
           </div>
         </div>
@@ -48,7 +48,7 @@ export default function Portfolio() {
           <div style={s.heroStats}>
             {[
               { n: "19,1M€", l: "volumen contable" },
-              { n: "76", l: "medidas DAX" },
+              { n: "78", l: "medidas DAX" },
               { n: "7", l: "skills creadas" },
               { n: "4 años", l: "de datos reales" },
             ].map(st => (
@@ -81,7 +81,7 @@ export default function Portfolio() {
             {[
               { icon: "🗄️", title: "MySQL", sub: "Motor de datos", desc: "PGC español a 8 dígitos · 5 tablas · 2 vistas de verificación · FK activa · 13 tipos de operación" },
               { icon: "→", arrow: true },
-              { icon: "📊", title: "Power BI", sub: "Reporting", desc: "76 medidas DAX · modelo dimensional · KPIs verificados SQL al céntimo · tema corporativo" },
+              { icon: "📊", title: "Power BI", sub: "Reporting", desc: "78 medidas DAX · modelo dimensional · KPIs verificados SQL al céntimo · tema corporativo" },
               { icon: "→", arrow: true },
               { icon: "⚙️", title: "n8n", sub: "Orquestación", desc: "Workflows Gmail→Claude→MySQL · automatización de ingesta · validación en pipeline" },
               { icon: "→", arrow: true },
@@ -156,7 +156,7 @@ export default function Portfolio() {
           <h2 style={s.h2}>Construyo y valido mis herramientas de IA antes de usarlas</h2>
           <p style={s.sectionSub}>
             Construí una suite de evals automatizados para medir la precisión de mis herramientas de IA.
-            Dataset de 10 casos reales, runner Python multimodelo, grader automático con validación al céntimo.
+            Dataset de 50 casos reales en 12 categorías contables, runner Python con caché de prompts, grader automático con validación al céntimo.
           </p>
 
           <div style={s.evalWrap}>
@@ -164,9 +164,7 @@ export default function Portfolio() {
               <h3 style={s.evalTitle}>Benchmark — <code style={s.code}>contable-experto</code></h3>
               <div style={s.evalRows}>
                 {[
-                  { model: "Claude Sonnet 4.6", score: "90%", cost: "Coste 1×", winner: true, note: "Modelo en producción" },
-                  { model: "Claude Opus 4.7", score: "~90%", cost: "Coste 7×", winner: false, note: "7× más caro, mismo resultado" },
-                  { model: "Claude Haiku 4.5", score: "60%", cost: "Coste 0.3×", winner: false, note: "4 descuadres de 10 — descartado" },
+                  { model: "Claude Sonnet 4.6", score: "96%", detail: "47/50 casos · 12 categorías PGC", winner: true, note: "Modelo en producción" },
                 ].map(r => (
                   <div key={r.model} style={{ ...s.evalRow, ...(r.winner ? s.evalWinner : {}) }}>
                     <div style={s.evalRowLeft}>
@@ -174,12 +172,15 @@ export default function Portfolio() {
                       <span style={s.evalNote2}>{r.note}</span>
                     </div>
                     <div style={s.evalRowRight}>
-                      <span style={{ ...s.evalScore, color: r.winner ? "#22c55e" : "#94a3b8" }}>{r.score}</span>
-                      <span style={s.evalCost}>{r.cost}</span>
+                      <span style={{ ...s.evalScore, color: "#22c55e" }}>{r.score}</span>
+                      <span style={s.evalCost}>{r.detail}</span>
                     </div>
                   </div>
                 ))}
               </div>
+              <a href="https://github.com/jleonceo/llm-eval-contable" target="_blank" rel="noreferrer" style={s.evalLink}>
+                Ver framework completo en GitHub →
+              </a>
             </div>
             <div style={s.evalRight}>
               <h3 style={s.evalTitle}>Cómo funciona el grader</h3>
@@ -307,10 +308,10 @@ export default function Portfolio() {
 const s = {
   root: { fontFamily: "'Segoe UI',system-ui,sans-serif", background: "#080d1a", color: "#e2e8f0", minHeight: "100vh" },
   // NAV
-  nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "12px 48px", transition: "all 0.3s" },
+  nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "12px 24px", transition: "all 0.3s" },
   navSolid: { background: "rgba(8,13,26,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.06)" },
   navLinks: { display: "flex", gap: 4 },
-  navBtn: { background: "none", border: "none", color: "#94a3b8", cursor: "pointer", padding: "6px 14px", borderRadius: 6, fontSize: 13, transition: "color 0.2s" },
+  navBtn: { background: "none", border: "none", color: "#94a3b8", cursor: "pointer", padding: "6px 10px", borderRadius: 6, fontSize: 13, transition: "color 0.2s" },
   // HERO
   hero: { display: "grid", gridTemplateColumns: "300px 1fr", gap: 64, alignItems: "center", padding: "80px 80px 44px", maxWidth: 1100, margin: "0 auto" },
   heroLeft: { display: "flex", flexDirection: "column", alignItems: "center", gap: 20 },
@@ -378,6 +379,7 @@ const s = {
   evalNote2: { fontSize: 11, color: "#475569" },
   evalScore: { fontSize: 22, fontWeight: 800 },
   evalCost: { fontSize: 11, color: "#475569" },
+  evalLink: { display: "inline-block", marginTop: 14, fontSize: 12, color: "#60a5fa", textDecoration: "none", opacity: 0.8 },
   graderRow: { display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 12 },
   graderN: { background: "rgba(96,165,250,0.1)", color: "#60a5fa", fontSize: 12, fontWeight: 700, width: 24, height: 24, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
   graderT: { display: "block", fontSize: 13, fontWeight: 600, color: "#e2e8f0", marginBottom: 2 },
