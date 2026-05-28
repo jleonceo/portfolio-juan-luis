@@ -17,10 +17,12 @@ export default function Portfolio() {
 
       {/* NAV */}
       <nav style={{ ...s.nav, ...(scrolled ? s.navSolid : {}) }}>
-        <div style={s.navLinks}>
-          {[["proyecto","El proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
-            <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
-          ))}
+        <div style={s.navInner}>
+          <div style={s.navLinks}>
+            {[["proyecto","El proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
+              <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
+            ))}
+          </div>
         </div>
       </nav>
 
@@ -308,8 +310,9 @@ export default function Portfolio() {
 const s = {
   root: { fontFamily: "'Segoe UI',system-ui,sans-serif", background: "#080d1a", color: "#e2e8f0", minHeight: "100vh" },
   // NAV
-  nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, display: "flex", justifyContent: "flex-end", alignItems: "center", padding: "12px 24px", transition: "all 0.3s" },
+  nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, transition: "all 0.3s" },
   navSolid: { background: "rgba(8,13,26,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.06)" },
+  navInner: { maxWidth: 1100, margin: "0 auto", padding: "0 80px", display: "flex", justifyContent: "flex-end", alignItems: "center", height: 44 },
   navLinks: { display: "flex", gap: 4 },
   navBtn: { background: "none", border: "none", color: "#94a3b8", cursor: "pointer", padding: "6px 10px", borderRadius: 6, fontSize: 13, transition: "color 0.2s" },
   // HERO
