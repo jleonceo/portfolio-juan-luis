@@ -12,7 +12,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const ids = ["inicio","proyecto","validacion","proceso","skills","stack","contacto"];
+    const ids = ["inicio","enjambres","proyecto","validacion","proceso","skills","stack","contacto"];
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
@@ -36,7 +36,7 @@ export default function Portfolio() {
             Nuevo · Enjambre de análisis de audiencias →
           </a>
           <div style={s.navLinks}>
-            {[["proyecto","El proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
+            {[["enjambres","Enjambres"],["proyecto","El proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
               <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
             ))}
           </div>
@@ -78,8 +78,38 @@ export default function Portfolio() {
             ))}
           </div>
           <div style={s.heroBtns}>
-            <button onClick={() => go("proyecto")} style={s.btnPrimary}>Ver el proyecto</button>
+            <button onClick={() => go("enjambres")} style={s.btnPrimary}>Ver los enjambres</button>
             <button onClick={() => go("contacto")} style={s.btnOutline}>Contacto</button>
+          </div>
+        </div>
+      </section>
+
+      {/* ENJAMBRES */}
+      <section id="enjambres" style={s.sectionLight}>
+        <div style={s.sectionInner}>
+          <p style={s.label}>SISTEMAS MULTI-AGENTE</p>
+          <h2 style={s.h2}>Tres enjambres de agentes, un mismo método</h2>
+          <p style={s.sectionSub}>
+            No es un proyecto, es un método replicable. Cada enjambre es un sistema de skills
+            especializadas que colaboran en cadena, cada una con su validación. Construido una vez,
+            aplicado a tres dominios distintos — incluido uno montado desde cero para demostrarlo.
+          </p>
+          <div style={s.swarmGrid}>
+            {[
+              { dom: "Contabilidad", flujo: "extractor → generador → validador", prueba: "Validado con eval automatizado sobre casos PGC reales", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
+              { dom: "Análisis de datos", flujo: "orquestador → discovery → EDA → modelado → comunicación", prueba: "Suite de evals · método portable a cualquier negocio", repo: null, color: "#3b82f6" },
+              { dom: "Audiencias digitales", flujo: "orquestador → discovery → exploración → previsión → comunicación", prueba: "Simulación real: estudio de Google Trends (interés ×80)", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
+            ].map(sw => (
+              <div key={sw.dom} style={s.swarmCard}>
+                <div style={{ ...s.swarmBar, background: sw.color }} />
+                <h3 style={s.swarmDom}>{sw.dom}</h3>
+                <p style={s.swarmFlujo}>{sw.flujo}</p>
+                <p style={s.swarmPrueba}>{sw.prueba}</p>
+                {sw.repo && (
+                  <a href={sw.repo} target="_blank" rel="noreferrer" style={{ ...s.swarmLink, color: sw.color }}>Ver en GitHub →</a>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -378,7 +408,7 @@ export default function Portfolio() {
 
       {/* SIDE NAV DOTS */}
       <div style={s.sideDots}>
-        {[["inicio","Inicio"],["proyecto","Proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
+        {[["inicio","Inicio"],["enjambres","Enjambres"],["proyecto","Proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
           <button key={id} onClick={() => go(id)} style={s.sideDot} title={label}>
             <span style={{ ...s.sideDotInner, ...(activeSection === id ? s.sideDotOn : {}) }} />
           </button>
@@ -495,6 +525,14 @@ const s = {
   skillName: { fontFamily: "monospace", fontSize: 12, color: "#60a5fa" },
   skillBadge: { fontSize: 10, fontWeight: 700, padding: "2px 7px", borderRadius: 10, border: "1px solid", whiteSpace: "nowrap" },
   skillDesc: { fontSize: 12, color: "#64748b", lineHeight: 1.6, margin: 0 },
+  // ENJAMBRES
+  swarmGrid: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 },
+  swarmCard: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "24px 20px", overflow: "hidden", position: "relative", display: "flex", flexDirection: "column", gap: 10 },
+  swarmBar: { position: "absolute", top: 0, left: 0, right: 0, height: 3 },
+  swarmDom: { fontSize: 17, fontWeight: 700, color: "#f1f5f9", margin: "6px 0 0" },
+  swarmFlujo: { fontSize: 12, color: "#60a5fa", fontFamily: "monospace", lineHeight: 1.5, margin: 0 },
+  swarmPrueba: { fontSize: 13, color: "#94a3b8", lineHeight: 1.6, margin: 0, flex: 1 },
+  swarmLink: { fontSize: 13, fontWeight: 600, textDecoration: "none", marginTop: 4 },
   // STACK
   stackGrid: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 },
   stackCard: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "18px", overflow: "hidden", position: "relative" },
