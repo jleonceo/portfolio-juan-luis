@@ -31,6 +31,10 @@ export default function Portfolio() {
       {/* NAV */}
       <nav style={{ ...s.nav, ...(scrolled ? s.navSolid : {}) }}>
         <div style={s.navInner}>
+          <a href="https://github.com/jleonceo/audience-analyst-swarm" target="_blank" rel="noreferrer" style={s.navNew}>
+            <span style={s.navNewDot} />
+            Nuevo · Enjambre de análisis de audiencias →
+          </a>
           <div style={s.navLinks}>
             {[["proyecto","El proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
               <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
@@ -389,9 +393,11 @@ const s = {
   // NAV
   nav: { position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, transition: "all 0.3s" },
   navSolid: { background: "rgba(8,13,26,0.97)", backdropFilter: "blur(12px)", borderBottom: "1px solid rgba(255,255,255,0.06)" },
-  navInner: { maxWidth: 1100, margin: "0 auto", padding: "0 80px", display: "flex", justifyContent: "flex-end", alignItems: "center", height: 44 },
+  navInner: { maxWidth: 1100, margin: "0 auto", padding: "0 80px", display: "flex", justifyContent: "space-between", alignItems: "center", height: 44 },
   navLinks: { display: "flex", gap: 4 },
   navBtn: { background: "none", border: "none", color: "#94a3b8", cursor: "pointer", padding: "6px 10px", borderRadius: 6, fontSize: 13, transition: "color 0.2s" },
+  navNew: { display: "flex", alignItems: "center", gap: 8, color: "#4ade80", textDecoration: "none", fontSize: 13, fontWeight: 600 },
+  navNewDot: { width: 8, height: 8, borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 8px #22c55e", flexShrink: 0 },
   // HERO
   hero: { display: "grid", gridTemplateColumns: "300px 1fr", gap: 64, alignItems: "center", padding: "80px 80px 44px", maxWidth: 1100, margin: "0 auto" },
   heroLeft: { display: "flex", flexDirection: "column", alignItems: "center", gap: 20 },
