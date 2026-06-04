@@ -48,8 +48,8 @@ export default function Portfolio() {
         <div style={s.heroLeft}>
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
-            <span style={s.evalBadgeNum}>100%</span>
-            <span style={s.evalBadgeText}>3 skills en eval · + simulaciones reales</span>
+            <span style={s.evalBadgeNum}>✓</span>
+            <span style={s.evalBadgeText}>Evals + simulaciones reales · mejora continua</span>
           </div>
         </div>
         <div style={s.heroRight}>
