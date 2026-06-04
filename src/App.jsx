@@ -12,7 +12,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const ids = ["inicio","enjambres","proyecto","validacion","proceso","skills","stack","contacto"];
+    const ids = ["inicio","enjambres","proyecto","validacion","skills","stack","contacto"];
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
@@ -36,7 +36,7 @@ export default function Portfolio() {
             Nuevo · Enjambre de análisis de audiencias →
           </a>
           <div style={s.navLinks}>
-            {[["enjambres","Enjambres"],["proyecto","El proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
+            {[["enjambres","Enjambres"],["proyecto","El proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
               <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
             ))}
           </div>
@@ -49,7 +49,7 @@ export default function Portfolio() {
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
             <span style={s.evalBadgeNum}>100%</span>
-            <span style={s.evalBadgeText}>3 evals · 110 casos verificados</span>
+            <span style={s.evalBadgeText}>3 skills en eval · + simulaciones reales</span>
           </div>
         </div>
         <div style={s.heroRight}>
@@ -408,7 +408,7 @@ export default function Portfolio() {
 
       {/* SIDE NAV DOTS */}
       <div style={s.sideDots}>
-        {[["inicio","Inicio"],["enjambres","Enjambres"],["proyecto","Proyecto"],["validacion","Validación"],["proceso","Proceso"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
+        {[["inicio","Inicio"],["enjambres","Enjambres"],["proyecto","Proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
           <button key={id} onClick={() => go(id)} style={s.sideDot} title={label}>
             <span style={{ ...s.sideDotInner, ...(activeSection === id ? s.sideDotOn : {}) }} />
           </button>
