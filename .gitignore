@@ -23,6 +23,15 @@ dist-ssr
 *.sln
 *.sw?
 
-# Variables de entorno — contienen contraseñas
+# Variables de entorno ï¿½ contienen contraseï¿½as
 analisis_contable/.env
 **/.env
+
+# Artefactos de notebooks y material de curso (no publicar)
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+*.pickle
+Untitled*.ipynb
+Plantillas_DS4B/
+forecasting_retail/

@@ -42,22 +42,6 @@ Clasificador para priorizar leads con mayor probabilidad de compra:
 
 ---
 
-### 📊 Forecasting Retail
-**`/forecasting_retail`**
-
-Predicción de demanda y ventas para optimización de inventario y planificación comercial.
-
-*Stack: Python, Pandas, series temporales*
-
----
-
-### 🗂️ Plantillas DS4B
-**`/Plantillas_DS4B`**
-
-Plantillas reutilizables para proyectos de Data Science: EDA, preprocesamiento, modelado y reporting.
-
----
-
 ## 🛠️ Stack Técnico
 
 | Área | Herramientas |
