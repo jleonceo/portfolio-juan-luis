@@ -27,7 +27,7 @@ dist-ssr
 analisis_contable/.env
 **/.env
 
-# Artefactos de notebooks y material de curso (no publicar)
+# Artefactos de notebooks y datos/material local (no publicar)
 .ipynb_checkpoints/
 __pycache__/
 *.pyc
@@ -35,3 +35,4 @@ __pycache__/
 Untitled*.ipynb
 Plantillas_DS4B/
 forecasting_retail/
+lead_scoring/
