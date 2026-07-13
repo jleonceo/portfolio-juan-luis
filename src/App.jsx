@@ -12,7 +12,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const ids = ["inicio","enjambres","proyecto","validacion","skills","stack","contacto"];
+    const ids = ["inicio","enjambres","validacion","proyecto","fabricas","skills","stack","contacto"];
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
@@ -31,12 +31,12 @@ export default function Portfolio() {
       {/* NAV */}
       <nav style={{ ...s.nav, ...(scrolled ? s.navSolid : {}) }}>
         <div style={s.navInner}>
-          <a href="https://github.com/jleonceo/audience-analyst-swarm" target="_blank" rel="noreferrer" style={s.navNew}>
+          <button onClick={() => go("validacion")} style={s.navNew}>
             <span style={s.navNewDot} />
-            Nuevo · Enjambre de análisis de audiencias →
-          </a>
+            48 skills: ninguna entra en producción sin pasar evals →
+          </button>
           <div style={s.navLinks}>
-            {[["enjambres","Enjambres"],["proyecto","El proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
+            {[["enjambres","Enjambres"],["validacion","Validación"],["proyecto","El proyecto"],["fabricas","Fábricas"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
               <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
             ))}
           </div>
@@ -49,27 +49,27 @@ export default function Portfolio() {
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
             <span style={s.evalBadgeNum}>✓</span>
-            <span style={s.evalBadgeText}>Evals + simulaciones reales · mejora continua</span>
+            <span style={s.evalBadgeText}>Cada skill pasa por evals antes de producción</span>
           </div>
         </div>
         <div style={s.heroRight}>
           <p style={s.eyebrow}>Analista de Datos · IA Aplicada</p>
           <h1 style={s.nombre}>Juan Luis<br/>León Rodríguez</h1>
           <p style={s.tagline}>
-            Analista de datos que construye y entrena<br/>
-            <strong style={{ color: "#e2e8f0" }}>sus propias herramientas de IA.</strong>
+            Construyo mis propias herramientas de IA<br/>
+            <strong style={{ color: "#e2e8f0" }}>y no las uso hasta haberlas medido.</strong>
           </p>
           <p style={s.bio}>
-            MySQL, Power BI, Python, n8n y Claude trabajando juntos.
-            Construí el ecosistema, diseñé las herramientas de IA
-            y validé que funcionan.
+            Un ecosistema de 48 skills en 9 enjambres sobre MySQL, Power BI, Python, n8n y Claude.
+            Del documento al cuadro de mando, con un verificador y una suite de evals en cada paso:
+            más velocidad, sin perder el céntimo.
           </p>
           <div style={s.heroStats}>
             {[
-              { n: "19,1M€", l: "volumen contable" },
-              { n: "78", l: "medidas DAX" },
-              { n: "7", l: "skills creadas" },
-              { n: "4 años", l: "de datos reales" },
+              { n: "48", l: "skills creadas" },
+              { n: "9", l: "enjambres de agentes" },
+              { n: "7", l: "suites de evals" },
+              { n: "0,00€", l: "descuadre en 21,8M€" },
             ].map(st => (
               <div key={st.l} style={s.heroStat}>
                 <span style={s.heroStatN}>{st.n}</span>
@@ -78,8 +78,8 @@ export default function Portfolio() {
             ))}
           </div>
           <div style={s.heroBtns}>
-            <button onClick={() => go("enjambres")} style={s.btnPrimary}>Ver los enjambres</button>
-            <button onClick={() => go("contacto")} style={s.btnOutline}>Contacto</button>
+            <button onClick={() => go("validacion")} style={s.btnPrimary}>Cómo lo valido</button>
+            <button onClick={() => go("contacto")} style={s.btnOutline}>Hablemos</button>
           </div>
         </div>
       </section>
@@ -88,21 +88,31 @@ export default function Portfolio() {
       <section id="enjambres" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMAS MULTI-AGENTE</p>
-          <h2 style={s.h2}>Tres enjambres de agentes, un mismo método</h2>
+          <h2 style={s.h2}>48 skills, organizadas en enjambres</h2>
           <p style={s.sectionSub}>
-            No es un proyecto, es un método replicable. Cada enjambre es un sistema de skills
-            especializadas que colaboran en cadena, cada una con su validación. Construido una vez,
-            aplicado a tres dominios distintos — incluido uno montado desde cero para demostrarlo.
+            No es un proyecto, es un método replicable. Cada enjambre es un conjunto de skills
+            especializadas que colaboran en cadena, cada una con su validación. Un orquestador maestro
+            (capa 0) decide qué enjambre y qué skill entran en cada tarea, y cuatro agentes base hacen
+            la verificación cruzada. Estas son las skills, por dominio (suman 48):
           </p>
           <div style={s.swarmGrid}>
             {[
-              { dom: "Contabilidad", flujo: "extractor → generador → validador", prueba: "Validado con eval automatizado sobre casos PGC reales", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
-              { dom: "Análisis de datos", flujo: "orquestador → discovery → EDA → modelado → comunicación", prueba: "Suite de evals · método portable a cualquier negocio", repo: null, color: "#3b82f6" },
-              { dom: "Audiencias digitales", flujo: "orquestador → discovery → exploración → previsión → comunicación", prueba: "Simulación real: estudio de Google Trends (interés ×80)", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
+              { dom: "Contabilidad", n: 10, flujo: "extractor → generador → validador → contabilizador", prueba: "Validado con evals sobre PGC español real · un verificador independiente puntea el libro vivo", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
+              { dom: "Marketing y audiencias", n: 11, flujo: "producir (copy · SEO · pricing) + analizar (discovery → exploración → previsión)", prueba: "Suite de evals de audiencias en verde · dos ramas, creativa y analítica", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
+              { dom: "Utilidad", n: 7, flujo: "documentos (Word · PDF · PPTX) · error-analysis · datos sintéticos", prueba: "Genera entregables y datos de prueba; detecta modos de fallo en pipelines LLM sobre ~100 trazas", repo: null, color: "#f59e0b" },
+              { dom: "Análisis de datos", n: 6, flujo: "discovery → EDA → modelado → comunicación", prueba: "Método portable a cualquier negocio · caso de analítica de principio a fin", repo: null, color: "#3b82f6" },
+              { dom: "Tesorería", n: 4, flujo: "control de gestión · ratios · aging · forecast de caja", prueba: "Motor determinista y verificable · backtesting rolling-origin (MASE) · integrado en Power BI", repo: null, color: "#14b8a6" },
+              { dom: "Servicio", n: 4, flujo: "automatización n8n · compliance PII · seguridad de IA · publicación de repos", prueba: "RGPD/LOPDGDD · OWASP LLM Top 10 · NIST AI RMF · AI Act: la gobernanza del sistema", repo: null, color: "#ec4899" },
+              { dom: "Programador", n: 4, flujo: "spec → verificador → constructor → verificador", prueba: "Disciplina TDD: primero el test que reproduce el fallo, luego el código", repo: null, color: "#6366f1" },
+              { dom: "Orquestador maestro", n: 1, flujo: "capa 0 · router", prueba: "Enruta cada tarea al enjambre y la skill correctos desde el Registro de Enjambres", repo: "https://github.com/jleonceo/orquestacion-enjambres-ia", color: "#cbd5e1" },
+              { dom: "Transmisión de conocimiento", n: 1, flujo: "puerta de salida transversal", prueba: "Garantiza que todo output (deck, informe, web) llegue bien a su audiencia, no solo bien de fondo", repo: null, color: "#94a3b8" },
             ].map(sw => (
               <div key={sw.dom} style={s.swarmCard}>
                 <div style={{ ...s.swarmBar, background: sw.color }} />
-                <h3 style={s.swarmDom}>{sw.dom}</h3>
+                <div style={s.swarmHead}>
+                  <h3 style={s.swarmDom}>{sw.dom}</h3>
+                  <span style={s.swarmCount}>{sw.n} {sw.n === 1 ? "skill" : "skills"}</span>
+                </div>
                 <p style={s.swarmFlujo}>{sw.flujo}</p>
                 <p style={s.swarmPrueba}>{sw.prueba}</p>
                 {sw.repo && (
@@ -114,111 +124,28 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* EL PROYECTO */}
-      <section id="proyecto" style={s.sectionDark}>
-        <div style={s.sectionInner}>
-          <p style={s.label}>EL PROYECTO</p>
-          <h2 style={s.h2}>TechAcces — ecosistema de análisis de datos con IA</h2>
-          <p style={s.sectionSub}>
-            Un e-commerce de accesorios tech con 4 años de datos reales simulados.
-            MySQL, Power BI, Python, n8n y Claude conectados en un ecosistema
-            que multiplica la productividad del analista.
-          </p>
-
-          {/* Arquitectura */}
-          <div style={s.arqRow}>
-            {[
-              { icon: "🗄️", title: "MySQL", sub: "Motor de datos", desc: "PGC español a 8 dígitos · 5 tablas · 2 vistas de verificación · FK activa · 13 tipos de operación" },
-              { icon: "→", arrow: true },
-              { icon: "📊", title: "Power BI", sub: "Reporting", desc: "78 medidas DAX · modelo dimensional · KPIs verificados SQL al céntimo · tema corporativo" },
-              { icon: "→", arrow: true },
-              { icon: "⚙️", title: "n8n", sub: "Orquestación", desc: "Workflows Gmail→Claude→MySQL · automatización de ingesta · validación en pipeline" },
-              { icon: "→", arrow: true },
-              { icon: "🤖", title: "Claude", sub: "Agente IA", desc: "7 skills personalizadas · 3 evals (110 casos) · 100% precisión validada · Sonnet 4.6 en producción" },
-            ].map((node, i) =>
-              node.arrow ? (
-                <div key={i} style={s.arqArrow}>→</div>
-              ) : (
-                <div key={i} style={s.arqNode}>
-                  <span style={s.arqIcon}>{node.icon}</span>
-                  <span style={s.arqTitle}>{node.title}</span>
-                  <span style={s.arqSub}>{node.sub}</span>
-                  <span style={s.arqDesc}>{node.desc}</span>
-                </div>
-              )
-            )}
-          </div>
-
-          {/* KPIs */}
-          <div style={s.kpiGrid}>
-            {[
-              { val: "19,1M€", label: "Volumen contable total", sub: "debe + haber · 4 años" },
-              { val: "5,0M€", label: "Ventas acumuladas", sub: "+35% CAGR 2023→2025" },
-              { val: "7.156", label: "Asientos contables", sub: "17.878 líneas contables" },
-              { val: "0,00€", label: "Descuadre global", sub: "debe = haber exactos · 19,1M€" },
-            ].map(k => (
-              <div key={k.label} style={s.kpiCard}>
-                <span style={s.kpiVal}>{k.val}</span>
-                <span style={s.kpiLabel}>{k.label}</span>
-                <span style={s.kpiSub}>{k.sub}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Ventas + Cobertura */}
-          <div style={s.grid2}>
-            <div style={s.dataCard}>
-              <h3 style={s.dataTitle}>Crecimiento de ventas</h3>
-              {[
-                { year: "2023", val: 1055, pct: 54 },
-                { year: "2024", val: 1420, pct: 73 },
-                { year: "2025", val: 1947, pct: 100 },
-                { year: "2026*", val: 578, pct: 30 },
-              ].map(b => (
-                <div key={b.year} style={s.barRow}>
-                  <span style={s.barYear}>{b.year}</span>
-                  <div style={s.barBg}>
-                    <div style={{ ...s.barFill, width: `${b.pct}%` }} />
-                  </div>
-                  <span style={s.barVal}>{b.val}K€</span>
-                </div>
-              ))}
-              <p style={s.dataNote}>* 2026 parcial hasta mayo · +35% CAGR</p>
-            </div>
-            <div style={s.dataCard}>
-              <h3 style={s.dataTitle}>Cobertura contable — 13 tipos de operación</h3>
-              <div style={s.opGrid}>
-                {["Ventas","Compras","Cobros","Pagos","Nóminas","Gastos","Amortización","Fiscal","Financiero","Existencias","Deterioro","Inversión","Apertura"].map(op => (
-                  <span key={op} style={s.opPill}>{op}</span>
-                ))}
-              </div>
-              <p style={s.dataNote}>4 canales de venta · 6 categorías de producto · 19 clientes · 11 proveedores</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* VALIDACIÓN */}
-      <section id="validacion" style={s.sectionLight}>
+      <section id="validacion" style={s.sectionDark}>
         <div style={s.sectionInner}>
           <p style={s.label}>VALIDACIÓN</p>
           <h2 style={s.h2}>Construyo y valido mis herramientas de IA antes de usarlas</h2>
           <p style={s.sectionSub}>
-            Construí una suite de evals automatizados para medir la precisión de mis herramientas de IA.
-            3 frameworks independientes · 110 casos en total · runner Python con caché de prompts · grader automático con validación al céntimo.
-            Tres skills con 100% en benchmark antes de usarlas en producción.
+            Es mi diferencial: el motor calcula, la IA no. Construí una suite de evals automatizados
+            para medir la precisión, y ningún cambio a una skill entra sin pasar una simulación ciega de
+            no-regresión. Además, cuatro agentes base (verificador independiente, escéptico, discovery e
+            investigador) hacen verificación cruzada, y un script determinista recomprueba el sistema entero sin usar IA.
           </p>
 
           <div style={s.evalWrap}>
             <div style={s.evalLeft}>
-              <h3 style={s.evalTitle}>Benchmarks — 3 evals · 110 casos · 100% en producción</h3>
+              <h3 style={s.evalTitle}>Benchmarks del enjambre contable: 110 casos</h3>
               <div style={s.evalRows}>
                 {[
-                  { eval: "contable-experto", model: "Claude Sonnet 4.6", score: "100%", detail: "50/50 casos · 12 categorías PGC", winner: true, note: "Asientos, IVA, IRPF, nóminas, cierre" },
-                  { eval: "datos-financieros-sql", model: "Claude Sonnet 4.6", score: "100%", detail: "30/30 casos · 6 categorías SQL", winner: true, note: "KPIs, agregaciones, JOINs, trimestres" },
-                  { eval: "datos-financieros-dax", model: "Claude Sonnet 4.6", score: "100%", detail: "30/30 casos · 6 categorías DAX", winner: true, note: "Medidas DAX validadas vía SQL equivalente" },
+                  { eval: "contable-experto", score: "50/50", detail: "12 categorías PGC", note: "Asientos, IVA, IRPF, nóminas, cierre" },
+                  { eval: "datos-financieros-sql", score: "30/30", detail: "6 categorías SQL", note: "KPIs, agregaciones, JOINs, trimestres" },
+                  { eval: "datos-financieros-dax", score: "30/30", detail: "6 categorías DAX", note: "Medidas DAX validadas vía SQL equivalente" },
                 ].map(r => (
-                  <div key={r.eval} style={{ ...s.evalRow, ...(r.winner ? s.evalWinner : {}) }}>
+                  <div key={r.eval} style={{ ...s.evalRow, ...s.evalWinner }}>
                     <div style={s.evalRowLeft}>
                       <span style={s.evalModel}><code style={{ ...s.code, fontSize: 12 }}>{r.eval}</code></span>
                       <span style={s.evalNote2}>{r.note}</span>
@@ -230,8 +157,12 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
+              <p style={s.evalPlus}>+ 4 suites de enjambre en verde: programador, marketer, audiencias, analista y datos sintéticos.</p>
               <a href="https://github.com/jleonceo/llm-eval-contable" target="_blank" rel="noreferrer" style={s.evalLink}>
-                Ver framework completo en GitHub →
+                Ver el framework de evals en GitHub →
+              </a>
+              <a href="https://github.com/jleonceo/verificacion-determinista-ia" target="_blank" rel="noreferrer" style={s.evalLink}>
+                Ver la verificación determinista en GitHub →
               </a>
             </div>
             <div style={s.evalRight}>
@@ -255,27 +186,27 @@ export default function Portfolio() {
 
           {/* EVOLUCIÓN */}
           <div id="proceso" style={s.evoWrap}>
-            <p style={s.evoHeader}>El camino hasta el 100% — cada fallo fue una mejora</p>
+            <p style={s.evoHeader}>El camino hasta pasar la suite: cada fallo fue una mejora</p>
             {[
               {
                 name: "contable-experto",
-                v1: "94%", v1sub: "47/50", v1Color: "#f59e0b",
+                v1: "47/50", v1sub: "94%", v1Color: "#f59e0b",
                 issue: "2 patrones no cubiertos en la skill",
                 fix: "Periodificación pasiva · traspaso resultado a reservas",
                 action: "Ejemplos F y G añadidos · skill v3.0",
               },
               {
                 name: "datos-financieros-dax",
-                v1: "10%", v1sub: "3/30", v1Color: "#ef4444",
+                v1: "3/30", v1sub: "10%", v1Color: "#ef4444",
                 issue: "Bug crítico en el runner",
-                fix: "Claude añadía backticks al SQL · conexión MySQL se corrompía en cascada",
+                fix: "Claude añadía backticks al SQL · la conexión MySQL se corrompía en cascada",
                 action: "Rediseño: conexión fresca por caso · backticks eliminados",
               },
               {
                 name: "datos-financieros-sql",
-                v1: "97%", v1sub: "29/30", v1Color: "#f59e0b",
-                issue: "Dataset incorrecto en caso 20",
-                fix: "trimestre=1 ≠ QUARTER(fecha) — descubierto analizando el fallo",
+                v1: "29/30", v1sub: "97%", v1Color: "#f59e0b",
+                issue: "Dataset incorrecto en el caso 20",
+                fix: "trimestre=1 ≠ QUARTER(fecha), descubierto analizando el fallo",
                 action: "Dataset corregido · aviso añadido a skill y RAG",
               },
             ].map(e => (
@@ -297,7 +228,7 @@ export default function Portfolio() {
                   </div>
                   <div style={s.evoEnd}>
                     <span style={{ ...s.evoScore, color: "#22c55e" }}>100%</span>
-                    <span style={s.evoSub}>verificado</span>
+                    <span style={s.evoSub}>la suite completa</span>
                   </div>
                 </div>
               </div>
@@ -307,24 +238,148 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* EL PROYECTO */}
+      <section id="proyecto" style={s.sectionLight}>
+        <div style={s.sectionInner}>
+          <p style={s.label}>EL PROYECTO</p>
+          <h2 style={s.h2}>TechAcces: ecosistema de análisis de datos con IA</h2>
+          <p style={s.sectionSub}>
+            Un e-commerce de accesorios tech con 4 años de datos reales simulados.
+            MySQL, Power BI, Python, n8n y Claude conectados en un ecosistema que multiplica
+            la productividad del analista, de la factura al cuadro de mando, con verificación en cada paso.
+            Cifras verificadas en vivo contra MySQL.
+          </p>
+
+          {/* Arquitectura */}
+          <div style={s.arqRow}>
+            {[
+              { icon: "🗄️", title: "MySQL", sub: "Motor de datos", desc: "PGC español a 8 dígitos · 16 tablas + 7 vistas de verificación · FK activa · 15 tipos de operación" },
+              { icon: "→", arrow: true },
+              { icon: "📊", title: "Power BI", sub: "Modelo y medidas", desc: "77 medidas DAX · modelo dimensional · KPIs verificados contra SQL al céntimo" },
+              { icon: "→", arrow: true },
+              { icon: "⚙️", title: "n8n", sub: "Orquestación", desc: "Workflows Gmail→Claude→MySQL · automatización de ingesta · validación en pipeline" },
+              { icon: "→", arrow: true },
+              { icon: "🤖", title: "Claude", sub: "Agentes IA", desc: "48 skills · 48 RAGs · 7 suites de evals · capa de verificación determinista" },
+            ].map((node, i) =>
+              node.arrow ? (
+                <div key={i} style={s.arqArrow}>→</div>
+              ) : (
+                <div key={i} style={s.arqNode}>
+                  <span style={s.arqIcon}>{node.icon}</span>
+                  <span style={s.arqTitle}>{node.title}</span>
+                  <span style={s.arqSub}>{node.sub}</span>
+                  <span style={s.arqDesc}>{node.desc}</span>
+                </div>
+              )
+            )}
+          </div>
+
+          {/* KPIs: verificados en vivo en MySQL */}
+          <div style={s.kpiGrid}>
+            {[
+              { val: "21,8M€", label: "Volumen contable total", sub: "por lado (debe = haber) · 4 años" },
+              { val: "6,26M€", label: "Ventas acumuladas", sub: "+36% CAGR 2023→2025" },
+              { val: "6.392", label: "Asientos contables", sub: "17.373 líneas contables" },
+              { val: "0,00€", label: "Descuadre global", sub: "debe = haber al céntimo · 21,8M€" },
+            ].map(k => (
+              <div key={k.label} style={s.kpiCard}>
+                <span style={s.kpiVal}>{k.val}</span>
+                <span style={s.kpiLabel}>{k.label}</span>
+                <span style={s.kpiSub}>{k.sub}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Ventas + Cobertura */}
+          <div style={s.grid2}>
+            <div style={s.dataCard}>
+              <h3 style={s.dataTitle}>Crecimiento de ventas</h3>
+              {[
+                { year: "2023", val: 1055, pct: 54 },
+                { year: "2024", val: 1420, pct: 73 },
+                { year: "2025", val: 1947, pct: 100 },
+                { year: "2026*", val: 1835, pct: 94 },
+              ].map(b => (
+                <div key={b.year} style={s.barRow}>
+                  <span style={s.barYear}>{b.year}</span>
+                  <div style={s.barBg}>
+                    <div style={{ ...s.barFill, width: `${b.pct}%` }} />
+                  </div>
+                  <span style={s.barVal}>{b.val}K€</span>
+                </div>
+              ))}
+              <p style={s.dataNote}>* 2026, solo hasta julio, ya casi iguala 2025 completo, año récord en curso</p>
+            </div>
+            <div style={s.dataCard}>
+              <h3 style={s.dataTitle}>Cobertura contable: 15 tipos de operación</h3>
+              <div style={s.opGrid}>
+                {["Ventas","Compras","Cobros","Pagos","Nóminas","Gastos","Amortización","Fiscal","Financiero","Existencias","Deterioro","Inversión","Apertura","Acreedor","Anulación"].map(op => (
+                  <span key={op} style={s.opPill}>{op}</span>
+                ))}
+              </div>
+              <p style={s.dataNote}>4 canales de venta · 6 categorías de producto · clientes y proveedores maestros</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FÁBRICAS */}
+      <section id="fabricas" style={s.sectionDark}>
+        <div style={s.sectionInner}>
+          <p style={s.label}>INFRAESTRUCTURA DE DATOS</p>
+          <h2 style={s.h2}>Fábricas de datos y un caso de principio a fin</h2>
+          <p style={s.sectionSub}>
+            Para entrenar y estresar los enjambres hacen falta datos. Los genero yo, de forma
+            determinista y controlada (con errores a propósito cuando toca) de modo que los datos
+            y su verificación nacen de la misma fuente.
+          </p>
+          <div style={s.grid2}>
+            {[
+              { dom: "Fábrica de Documentos", desc: "Genera el corpus de facturas, nóminas y extractos en PDF a partir de MySQL. El manifest deriva automáticamente el golden set de los evals: los datos y su verificación nacen de la misma fuente.", color: "#3b82f6" },
+              { dom: "Fábrica de CSVs", desc: "Datos sintéticos multiformato: unos perfectos y otros con errores introducidos a propósito (duplicados, huecos, formatos incoherentes) para medir cómo reacciona cada enjambre ante el dato real.", color: "#f59e0b" },
+            ].map(f => (
+              <div key={f.dom} style={s.swarmCard}>
+                <div style={{ ...s.swarmBar, background: f.color }} />
+                <h3 style={s.swarmDom}>{f.dom}</h3>
+                <p style={s.swarmPrueba}>{f.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Proyecto destacado */}
+          <div style={s.destacado}>
+            <div style={s.destacadoBar} />
+            <div>
+              <p style={s.destacadoLabel}>Proyecto destacado</p>
+              <h3 style={s.destacadoTitle}>De datos sucios a decisiones: analítica de principio a fin</h3>
+              <p style={s.destacadoDesc}>
+                Un caso completo: 20.827 filas en bruto → 20.000 ventas limpias → EDA, atípicos,
+                anonimización, machine learning y cuadro de mando. Con una lección incómoda contada
+                con honestidad: una vez limpios, los datos resultaron casi aleatorios, y lo demostré
+                con tests de permutación en lugar de inventar hallazgos. El método brilla; el mérito es saber cuándo callar.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SKILLS */}
-      <section id="skills" style={s.sectionDark}>
+      <section id="skills" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMA DE SKILLS</p>
-          <h2 style={s.h2}>7 skills que multiplican mi productividad como analista</h2>
+          <h2 style={s.h2}>Algunas de las 48 skills que forman mi entorno de trabajo</h2>
           <p style={s.sectionSub}>
-            Cada skill encapsula conocimiento estructurado en un dominio específico.
-            Juntas forman mi entorno de trabajo con IA.
+            Cada skill encapsula conocimiento estructurado en un dominio, con sus RAGs y su validación.
+            Juntas forman un entorno de trabajo con IA que se mantiene coherente entre sesiones.
           </p>
           <div style={s.skillGrid}>
             {[
-              { name: "contable-experto", badge: "Validada con evals", badgeColor: "#22c55e", desc: "PGC español completo, asientos, IVA, IRPF, nóminas, cierre contable. Incluye ejemplos didácticos A/B/C como test de regresión.", highlight: true },
-              { name: "orquestador-techacces", badge: "Core", badgeColor: "#3b82f6", desc: "Coordina el ecosistema completo. Define qué skill invocar, cuándo conectar a MySQL o Power BI, y el protocolo de arranque de sesión." },
-              { name: "datos-financieros", badge: "Validada con evals", badgeColor: "#22c55e", desc: "MySQL + DAX + protocolo de arranque. 2 evals independientes (SQL y DAX) · 60 casos · 100%. Doble verificador obligatorio tras cada INSERT contable." },
-              { name: "reporting-powerbi", badge: "BI", badgeColor: "#f59e0b", desc: "Modelo semántico Power BI, secuencia de conexión MCP, medidas DAX y validación cruzada contra SQL." },
-              { name: "automatizacion-n8n", badge: "Automatización", badgeColor: "#8b5cf6", desc: "Diseño de workflows, integración Gmail, parámetros Claude API para temperatura 0 en tareas contables." },
-              { name: "datascience-financiero", badge: "ML", badgeColor: "#6366f1", desc: "Python, Pandas, Scikit-learn. Detección de anomalías contables, clustering, predicción con XGBoost." },
-              { name: "entorno-personal", badge: "Contexto", badgeColor: "#64748b", desc: "Contexto, reglas de trabajo y estilo iterativo. Mantiene coherencia entre sesiones de trabajo." },
+              { name: "contable-experto", badge: "Validada · 50/50", badgeColor: "#22c55e", desc: "PGC español completo: asientos, IVA, IRPF, nóminas, cierre. Ejemplos didácticos A/B/C como test de regresión.", highlight: true },
+              { name: "datos-financieros", badge: "Validada · 60/60", badgeColor: "#22c55e", desc: "MySQL + DAX + protocolo de arranque. 2 evals independientes (SQL y DAX). Doble verificador tras cada INSERT contable." },
+              { name: "forecast-caja", badge: "Tesorería", badgeColor: "#14b8a6", desc: "Previsión de caja por descomposición transparente + backtesting rolling-origin (MASE). Motor determinista, no caja negra. Integrado en Power BI." },
+              { name: "seguridad-ia", badge: "Seguridad", badgeColor: "#ef4444", desc: "Auditoría del sistema agéntico: OWASP LLM Top 10, NIST AI RMF, MITRE ATLAS y gobernanza RGPD / AI Act." },
+              { name: "eda-analista", badge: "Análisis", badgeColor: "#3b82f6", desc: "Análisis exploratorio estructurado: estructura, calidad, distribuciones, correlaciones, anomalías e hipótesis. Portable a cualquier dataset." },
+              { name: "verificador-programador", badge: "Programador", badgeColor: "#6366f1", desc: "El escéptico que ejecuta. Deriva del spec la suite de aceptación ANTES de implementar. Disciplina TDD estricta." },
             ].map(sk => (
               <div key={sk.name} style={{ ...s.skillCard, ...(sk.highlight ? s.skillCardHL : {}) }}>
                 <div style={s.skillTop}>
@@ -335,36 +390,23 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-
-      {/* FILOSOFIA */}
-      <section style={s.sectionDark}>
-        <div style={s.sectionInner}>
-          <div style={s.filosofiaBox}>
-            <p style={s.filosofiaTitulo}>Una skill nunca está terminada.</p>
-            <p style={s.filosofiaTexto}>
-              Igual que una persona con curiosidad aprende cada día, una skill bien construida también.
-              Crear no es el final: observar, refinar, medir, mejorar. Y volver a empezar.
-            </p>
-          </div>
+          <p style={s.skillMore}>…y 42 skills más en los 9 enjambres.</p>
         </div>
       </section>
 
       {/* STACK */}
-      <section id="stack" style={s.sectionLight}>
+      <section id="stack" style={s.sectionDark}>
         <div style={s.sectionInner}>
           <p style={s.label}>STACK</p>
           <h2 style={s.h2}>Tecnologías del ecosistema</h2>
           <div style={s.stackGrid}>
             {[
-              { cat: "Base de datos", color: "#3b82f6", items: ["MySQL 8.0","SQL avanzado","Vistas","FK","MCP"] },
+              { cat: "Base de datos", color: "#3b82f6", items: ["MySQL 9.7","SQL avanzado","Vistas","FK","MCP"] },
               { cat: "Business Intelligence", color: "#f59e0b", items: ["Power BI Desktop","DAX","Modelo dimensional","Temas JSON"] },
-              { cat: "IA & LLMs", color: "#a855f7", items: ["Claude API","Prompt engineering","Evals","Skills","RAG"] },
+              { cat: "IA & LLMs", color: "#a855f7", items: ["Claude (Opus 4.8 · Sonnet 5)","Prompt engineering","Evals","Skills","RAG","MCP"] },
               { cat: "Automatización", color: "#22c55e", items: ["n8n","Workflows","Gmail API","HTTP nodes"] },
-              { cat: "Programación", color: "#6366f1", items: ["Python","Pandas","Anaconda","Git","React","Vite"] },
-              { cat: "Metodología", color: "#64748b", items: ["Testing automatizado","Documentación técnica","CI/CD básico","Arquitectura de sistemas"] },
+              { cat: "Programación", color: "#6366f1", items: ["Python","Pandas","scikit-learn","React","Astro","Vite","Git"] },
+              { cat: "Metodología", color: "#64748b", items: ["Evals automatizados","Simulaciones ciegas","Determinismo","Compliance RGPD","Seguridad de IA"] },
             ].map(g => (
               <div key={g.cat} style={s.stackCard}>
                 <div style={{ ...s.stackBar, background: g.color }} />
@@ -379,7 +421,7 @@ export default function Portfolio() {
       </section>
 
       {/* CONTACTO */}
-      <section id="contacto" style={s.sectionDark}>
+      <section id="contacto" style={s.sectionLight}>
         <div style={{ ...s.sectionInner, textAlign: "center" }}>
           <p style={s.label}>CONTACTO</p>
           <h2 style={s.h2}>Hablemos</h2>
@@ -408,7 +450,7 @@ export default function Portfolio() {
 
       {/* SIDE NAV DOTS */}
       <div style={s.sideDots}>
-        {[["inicio","Inicio"],["enjambres","Enjambres"],["proyecto","Proyecto"],["validacion","Validación"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
+        {[["inicio","Inicio"],["enjambres","Enjambres"],["validacion","Validación"],["proyecto","Proyecto"],["fabricas","Fábricas"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
           <button key={id} onClick={() => go(id)} style={s.sideDot} title={label}>
             <span style={{ ...s.sideDotInner, ...(activeSection === id ? s.sideDotOn : {}) }} />
           </button>
@@ -426,7 +468,7 @@ const s = {
   navInner: { maxWidth: 1100, margin: "0 auto", padding: "0 80px", display: "flex", justifyContent: "space-between", alignItems: "center", height: 44 },
   navLinks: { display: "flex", gap: 4 },
   navBtn: { background: "none", border: "none", color: "#94a3b8", cursor: "pointer", padding: "6px 10px", borderRadius: 6, fontSize: 13, transition: "color 0.2s" },
-  navNew: { display: "flex", alignItems: "center", gap: 8, color: "#4ade80", textDecoration: "none", fontSize: 13, fontWeight: 600 },
+  navNew: { display: "flex", alignItems: "center", gap: 8, color: "#4ade80", background: "none", border: "none", cursor: "pointer", padding: 0, fontSize: 13, fontWeight: 600, fontFamily: "inherit" },
   navNewDot: { width: 8, height: 8, borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 8px #22c55e", flexShrink: 0 },
   // HERO
   hero: { display: "grid", gridTemplateColumns: "300px 1fr", gap: 64, alignItems: "center", padding: "80px 80px 44px", maxWidth: 1100, margin: "0 auto" },
@@ -495,7 +537,8 @@ const s = {
   evalNote2: { fontSize: 11, color: "#475569" },
   evalScore: { fontSize: 22, fontWeight: 800 },
   evalCost: { fontSize: 11, color: "#475569" },
-  evalLink: { display: "inline-block", marginTop: 14, fontSize: 12, color: "#60a5fa", textDecoration: "none", opacity: 0.8 },
+  evalPlus: { fontSize: 12, color: "#94a3b8", margin: "14px 0 0", lineHeight: 1.6 },
+  evalLink: { display: "inline-block", marginTop: 10, fontSize: 12, color: "#60a5fa", textDecoration: "none", opacity: 0.8 },
   graderRow: { display: "flex", gap: 12, alignItems: "flex-start", marginBottom: 12 },
   graderN: { background: "rgba(96,165,250,0.1)", color: "#60a5fa", fontSize: 12, fontWeight: 700, width: 24, height: 24, borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 },
   graderT: { display: "block", fontSize: 13, fontWeight: 600, color: "#e2e8f0", marginBottom: 2 },
@@ -525,14 +568,23 @@ const s = {
   skillName: { fontFamily: "monospace", fontSize: 12, color: "#60a5fa" },
   skillBadge: { fontSize: 10, fontWeight: 700, padding: "2px 7px", borderRadius: 10, border: "1px solid", whiteSpace: "nowrap" },
   skillDesc: { fontSize: 12, color: "#64748b", lineHeight: 1.6, margin: 0 },
+  skillMore: { fontSize: 13, color: "#475569", margin: "18px 0 0", textAlign: "center", fontStyle: "italic" },
   // ENJAMBRES
   swarmGrid: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 },
   swarmCard: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "24px 20px", overflow: "hidden", position: "relative", display: "flex", flexDirection: "column", gap: 10 },
   swarmBar: { position: "absolute", top: 0, left: 0, right: 0, height: 3 },
-  swarmDom: { fontSize: 17, fontWeight: 700, color: "#f1f5f9", margin: "6px 0 0" },
+  swarmHead: { display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 8, marginTop: 6 },
+  swarmDom: { fontSize: 17, fontWeight: 700, color: "#f1f5f9", margin: 0 },
+  swarmCount: { fontSize: 11, fontWeight: 700, color: "#64748b", whiteSpace: "nowrap" },
   swarmFlujo: { fontSize: 12, color: "#60a5fa", fontFamily: "monospace", lineHeight: 1.5, margin: 0 },
   swarmPrueba: { fontSize: 13, color: "#94a3b8", lineHeight: 1.6, margin: 0, flex: 1 },
   swarmLink: { fontSize: 13, fontWeight: 600, textDecoration: "none", marginTop: 4 },
+  // DESTACADO
+  destacado: { display: "flex", gap: 0, marginTop: 28, background: "rgba(96,165,250,0.05)", border: "1px solid rgba(96,165,250,0.18)", borderRadius: 14, overflow: "hidden" },
+  destacadoBar: { width: 4, background: "linear-gradient(#3b82f6,#a855f7)", flexShrink: 0 },
+  destacadoLabel: { fontSize: 10, color: "#60a5fa", fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, margin: "22px 0 0", padding: "0 24px" },
+  destacadoTitle: { fontSize: 18, fontWeight: 800, color: "#f1f5f9", margin: "6px 0 8px", padding: "0 24px" },
+  destacadoDesc: { fontSize: 13, color: "#94a3b8", lineHeight: 1.7, margin: "0 0 22px", padding: "0 24px" },
   // STACK
   stackGrid: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 },
   stackCard: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "18px", overflow: "hidden", position: "relative" },
@@ -545,9 +597,6 @@ const s = {
   contactCard: { background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "24px 40px", display: "flex", flexDirection: "column", gap: 8, alignItems: "center", textDecoration: "none" },
   contactLabel: { fontSize: 10, color: "#475569", fontWeight: 700, textTransform: "uppercase", letterSpacing: 2 },
   contactVal: { fontSize: 14, color: "#60a5fa", fontWeight: 500 },
-  filosofiaBox: { maxWidth: 680, margin: "0 auto", textAlign: "center" },
-  filosofiaTitulo: { fontSize: 20, fontWeight: 800, color: "#f1f5f9", margin: "0 0 12px" },
-  filosofiaTexto: { fontSize: 15, color: "#64748b", lineHeight: 1.8, margin: 0, fontStyle: "italic" },
   footer: { textAlign: "center", padding: "24px", color: "#1e293b", fontSize: 12, borderTop: "1px solid rgba(255,255,255,0.04)" },
   // SIDE NAV
   sideDots: { position: "fixed", right: 20, top: "50%", transform: "translateY(-50%)", display: "flex", flexDirection: "column", gap: 10, zIndex: 99 },
