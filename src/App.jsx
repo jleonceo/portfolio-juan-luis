@@ -33,7 +33,7 @@ export default function Portfolio() {
         <div style={s.navInner}>
           <button onClick={() => go("validacion")} style={s.navNew}>
             <span style={s.navNewDot} />
-            48 skills: ninguna entra en producción sin pasar evals →
+            51 skills: ninguna entra en producción sin pasar evals →
           </button>
           <div style={s.navLinks}>
             {[["enjambres","Enjambres"],["validacion","Validación"],["proyecto","El proyecto"],["fabricas","Fábricas"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
@@ -60,13 +60,13 @@ export default function Portfolio() {
             <strong style={{ color: "#e2e8f0" }}>y no las uso hasta haberlas medido.</strong>
           </p>
           <p style={s.bio}>
-            Un ecosistema de 48 skills en 9 enjambres sobre MySQL, Power BI, Python, n8n y Claude.
+            Un ecosistema de 51 skills en 9 enjambres sobre MySQL, Power BI, Python, n8n y Claude.
             Del documento al cuadro de mando, con un verificador y una suite de evals en cada paso:
             más velocidad, sin perder el céntimo.
           </p>
           <div style={s.heroStats}>
             {[
-              { n: "48", l: "skills creadas" },
+              { n: "51", l: "skills creadas" },
               { n: "9", l: "enjambres de agentes" },
               { n: "7", l: "suites de evals" },
               { n: "0,00€", l: "descuadre en 21,8M€" },
@@ -88,12 +88,12 @@ export default function Portfolio() {
       <section id="enjambres" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMAS MULTI-AGENTE</p>
-          <h2 style={s.h2}>48 skills, organizadas en enjambres</h2>
+          <h2 style={s.h2}>51 skills, organizadas en enjambres</h2>
           <p style={s.sectionSub}>
             No es un proyecto, es un método replicable. Cada enjambre es un conjunto de skills
             especializadas que colaboran en cadena, cada una con su validación. Un orquestador maestro
             (capa 0) decide qué enjambre y qué skill entran en cada tarea, y cuatro agentes base hacen
-            la verificación cruzada. Estas son las skills, por dominio (suman 48):
+            la verificación cruzada. Estas son las skills, por dominio:
           </p>
           <div style={s.swarmGrid}>
             {[
@@ -158,7 +158,7 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
-              <p style={s.evalPlus}>+ 4 suites de enjambre en verde: programador, marketer, audiencias, analista y datos sintéticos.</p>
+              <p style={s.evalPlus}>+ 5 suites de enjambre en verde: programador, marketer, audiencias, analista y datos sintéticos.</p>
               <a href="https://github.com/jleonceo/llm-eval-contable" target="_blank" rel="noreferrer" style={s.evalLink}>
                 Ver el framework de evals en GitHub →
               </a>
@@ -254,13 +254,13 @@ export default function Portfolio() {
           {/* Arquitectura */}
           <div style={s.arqRow}>
             {[
-              { icon: "🗄️", title: "MySQL", sub: "Motor de datos", desc: "PGC español a 8 dígitos · 16 tablas + 7 vistas de verificación · FK activa · 15 tipos de operación" },
+              { icon: "🗄️", title: "MySQL", sub: "Motor de datos", desc: "PGC español a 8 dígitos · 18 tablas + 7 vistas de verificación · FK activa · 15 tipos de operación" },
               { icon: "→", arrow: true },
               { icon: "📊", title: "Power BI", sub: "Modelo y medidas", desc: "77 medidas DAX · modelo dimensional · KPIs verificados contra SQL al céntimo" },
               { icon: "→", arrow: true },
               { icon: "⚙️", title: "n8n", sub: "Orquestación", desc: "Workflows Gmail→Claude→MySQL · automatización de ingesta · validación en pipeline" },
               { icon: "→", arrow: true },
-              { icon: "🤖", title: "Claude", sub: "Agentes IA", desc: "48 skills · 48 RAGs · 7 suites de evals · capa de verificación determinista" },
+              { icon: "🤖", title: "Claude", sub: "Agentes IA", desc: "51 skills · 55 RAGs · 7 suites de evals · capa de verificación determinista" },
             ].map((node, i) =>
               node.arrow ? (
                 <div key={i} style={s.arqArrow}>→</div>
@@ -368,7 +368,7 @@ export default function Portfolio() {
       <section id="skills" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMA DE SKILLS</p>
-          <h2 style={s.h2}>Algunas de las 48 skills que forman mi entorno de trabajo</h2>
+          <h2 style={s.h2}>Algunas de las 51 skills que forman mi entorno de trabajo</h2>
           <p style={s.sectionSub}>
             Cada skill encapsula conocimiento estructurado en un dominio, con sus RAGs y su validación.
             Juntas forman un entorno de trabajo con IA que se mantiene coherente entre sesiones.
@@ -392,7 +392,7 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <p style={s.skillMore}>…y 42 skills más en los 9 enjambres.</p>
+          <p style={s.skillMore}>…y 44 skills más en los 9 enjambres.</p>
         </div>
       </section>
 

@@ -10,7 +10,7 @@ Sitio en vivo: **[juanluisleon.vercel.app](https://juanluisleon.vercel.app)**
 
 ## Español
 
-Código de mi portfolio web. La página explica el sistema que construyo: 48 AI Skills organizadas en 9 enjambres de agentes sobre MySQL, Power BI, Python, n8n y Claude, con un verificador y una suite de evals en cada paso.
+Código de mi portfolio web. La página explica el sistema que construyo: 51 AI Skills organizadas en 9 enjambres de agentes sobre MySQL, Power BI, Python, n8n y Claude, con un verificador y una suite de evals en cada paso.
 
 No es una colección de notebooks, es el método de construir y **validar** herramientas de IA antes de usarlas: cada skill pasa por evals automatizados antes de producción, y ningún cambio entra sin una simulación ciega de no-regresión.
 
@@ -48,7 +48,7 @@ jleonceo@gmail.com · [LinkedIn](https://www.linkedin.com/in/jlleonrodriguez/) �
 
 ## English
 
-Source of my portfolio site. The page explains the system I build: 48 AI Skills organised into 9 agent swarms over MySQL, Power BI, Python, n8n and Claude, with a verifier and an eval suite at every step.
+Source of my portfolio site. The page explains the system I build: 51 AI Skills organised into 9 agent swarms over MySQL, Power BI, Python, n8n and Claude, with a verifier and an eval suite at every step.
 
 It is not a notebook collection, it is the method of building and **validating** AI tools before using them: every skill passes automated evals before production, and no change ships without a blind no-regression simulation.
 
