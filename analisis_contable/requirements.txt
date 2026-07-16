@@ -1,7 +1,0 @@
-pandas
-sqlalchemy
-pymysql
-matplotlib
-seaborn
-openpyxl
-python-dotenv

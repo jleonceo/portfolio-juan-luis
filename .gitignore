@@ -27,7 +27,6 @@ dist-ssr
 .claude/
 
 # Variables de entorno (contienen contraseñas)
-analisis_contable/.env
 **/.env
 
 # Artefactos de notebooks y datos/material local (no publicar)
