@@ -23,7 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 
-# Variables de entorno � contienen contrase�as
+# Configuración local del asistente (no publicar)
+.claude/
+
+# Variables de entorno (contienen contraseñas)
 analisis_contable/.env
 **/.env
 
