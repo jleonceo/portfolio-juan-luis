@@ -260,7 +260,7 @@ export default function Portfolio() {
               { icon: "→", arrow: true },
               { icon: "⚙️", title: "n8n", sub: "Orquestación", desc: "Workflows Gmail→Claude→MySQL · automatización de ingesta · validación en pipeline" },
               { icon: "→", arrow: true },
-              { icon: "🤖", title: "Claude", sub: "Agentes IA", desc: "51 skills · 55 RAGs · 7 suites de evals · capa de verificación determinista" },
+              { icon: "🤖", title: "Claude", sub: "Agentes IA", desc: "51 skills · 58 RAGs · 7 suites de evals · capa de verificación determinista" },
             ].map((node, i) =>
               node.arrow ? (
                 <div key={i} style={s.arqArrow}>→</div>
