@@ -16,7 +16,7 @@ Son **51 AI Skills** repartidas en seis enjambres de dominio: contabilidad, aná
 
 Esto no es una colección de notebooks. Es el método de construir herramientas de IA y **validarlas antes de usarlas**. Cada skill pasa por evaluaciones automáticas antes de producción. Ningún cambio entra sin una simulación ciega de no regresión.
 
-### El sistema, en repos abiertos
+### El sistema en repos abiertos
 
 Una serie ordenada, de lo básico a lo avanzado (N0 a N3):
 
@@ -57,7 +57,7 @@ Source of my portfolio site. The page explains the system I build.
 
 This is not a notebook collection. It is the method of building AI tools and **validating them before use**. Every skill faces automated evaluation before production. No change ships without a blind no-regression simulation.
 
-### The system, in open repos
+### The system in open repos
 
 An ordered series, from basics to advanced (N0 to N3):
 
