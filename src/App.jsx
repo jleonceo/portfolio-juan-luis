@@ -60,7 +60,7 @@ export default function Portfolio() {
             <strong style={{ color: "#e2e8f0" }}>y no las uso hasta haberlas medido.</strong>
           </p>
           <p style={s.bio}>
-            Un ecosistema de 51 skills en 9 enjambres sobre MySQL, Power BI, Python, n8n y Claude.
+            Un ecosistema de 51 skills en seis enjambres de dominio y un router, sobre MySQL, Power BI, Python, n8n y Claude.
             Del documento al cuadro de mando, con un verificador y una suite de evals en cada paso:
             más velocidad, sin perder el céntimo.
           </p>
@@ -392,7 +392,7 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <p style={s.skillMore}>…y 44 skills más en los 9 enjambres.</p>
+          <p style={s.skillMore}>…y 44 skills más repartidas en los seis enjambres.</p>
         </div>
       </section>
 
