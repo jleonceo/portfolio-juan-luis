@@ -18,7 +18,7 @@ Tres palabras que conviene fijar antes de seguir. Una **skill** es un fichero de
 
 Un ejemplo de lo que hace, de principio a fin: entra el PDF de una factura de proveedor, una skill extrae los datos y dice «ilegible» antes que inventarse un hueco, otra escribe el asiento con las cuentas reales de la empresa, y una tercera comprueba el cuadre y decide si se contabiliza o se frena. El asiento aprobado cae en una tabla de borradores y lo inserta una persona.
 
-El método consiste en construir esas herramientas y **validarlas antes de usarlas**. Cada skill pasa por evaluaciones automáticas antes de producción, y ningún cambio entra sin una simulación ciega que compruebe que lo que ya funcionaba sigue funcionando.
+El método consiste en construir esas herramientas y **validarlas antes de usarlas**. Cada skill pasa por evaluaciones automáticas antes de producción. Ningún cambio entra sin una simulación ciega que compruebe que lo que ya funcionaba sigue funcionando.
 
 ### El sistema en repos abiertos
 
@@ -41,8 +41,8 @@ El portafolio tiene dos mitades. Esta es la de **estructurar la IA**: darle encu
 
 ### La otra mitad del portafolio: el oficio de los datos
 
-Antes de estructurar la IA hay que saber leer los datos. Esta serie es la del oficio de origen, y
-varios de estos casos son los que después se automatizaron:
+Antes de estructurar la IA hay que saber leer los datos. Esta serie es la del oficio de origen.
+Varios de estos casos son los que después se automatizaron:
 
 - [analisis-contable](https://github.com/jleonceo/analisis-contable): leer un ejercicio contable entero desde la base de datos, del margen al flujo de caja.
 - [RFM-Customer-Analytics](https://github.com/jleonceo/RFM-Customer-Analytics): qué clientes se están yendo sin avisar, y por qué el total anual no lo dice.
