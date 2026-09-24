@@ -12,7 +12,7 @@ Sitio en vivo: **[juanluisleon.vercel.app](https://juanluisleon.vercel.app)**
 
 Código de mi portfolio web. La página explica el sistema que construyo.
 
-Son cerca de **50 skills propias** repartidas en seis enjambres de dominio: contabilidad, análisis, marketing, tesorería, programación y recursos humanos. Un router decide a cuál va cada encargo. Debajo, MySQL, Power BI, Python, n8n y Claude.
+Son **55 skills** repartidas en seis enjambres de dominio: contabilidad, análisis, marketing, tesorería, programación y recursos humanos. Un router decide a cuál va cada encargo. Debajo, MySQL, Power BI, Python, n8n y Claude.
 
 Tres palabras que conviene fijar antes de seguir. Una **skill** es un fichero de texto que le da criterio a un modelo: qué reglas aplicar, qué cuentas usar, cuándo frenar y pedir revisión. Un **enjambre** es un grupo de skills que se reparten un dominio, cada una con su parcela, de forma que la que juzga no sea la que produjo. Y el **router** es la pieza que lee la petición y decide a qué enjambre va, para que el sistema no se rompa al crecer.
 
@@ -71,7 +71,7 @@ jleonceo@gmail.com · [LinkedIn](https://www.linkedin.com/in/jlleonrodriguez/) �
 
 Source of my portfolio site. The page explains the system I build.
 
-Close to **50 in-house skills**, grouped into six domain swarms: accounting, analytics, marketing, treasury, programming and HR. A router decides which one takes each request. Underneath sit MySQL, Power BI, Python, n8n and Claude.
+**55 skills**, grouped into six domain swarms: accounting, analytics, marketing, treasury, programming and HR. A router decides which one takes each request. Underneath sit MySQL, Power BI, Python, n8n and Claude.
 
 Three words worth pinning down first. A **skill** is a text file that gives a model its criteria: which rules to apply, which accounts to use, when to stop and ask for review. A **swarm** is a group of skills sharing a domain, each with its own patch, so that whoever judges is never whoever produced. The **router** reads the request and decides which swarm takes it, so the system does not break as it grows.
 

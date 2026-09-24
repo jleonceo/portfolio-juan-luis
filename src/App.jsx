@@ -60,13 +60,13 @@ export default function Portfolio() {
             <strong style={{ color: "#e2e8f0" }}>y no las uso hasta haberlas medido.</strong>
           </p>
           <p style={s.bio}>
-            Cerca de 50 skills propias repartidas en seis enjambres de dominio, con un enrutador que decide
+            55 skills repartidas en seis enjambres de dominio, con un enrutador que decide
             cuál entra en cada tarea, sobre MySQL, Power BI, Python, n8n y Claude. Van del documento al
             cuadro de mando, y ninguna cifra sale sin cuadrar al céntimo con la base de datos.
           </p>
           <div style={s.heroStats}>
             {[
-              { n: "~50", l: "skills propias" },
+              { n: "55", l: "skills" },
               { n: "6", l: "enjambres y un enrutador" },
               { n: "24", l: "skills con evals ejecutadas" },
               { n: "0,00 €", l: "de descuadre en 22,0 M€" },
@@ -88,13 +88,13 @@ export default function Portfolio() {
       <section id="enjambres" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMAS MULTI-AGENTE</p>
-          <h2 style={s.h2}>Cerca de 50 skills, organizadas en seis enjambres</h2>
+          <h2 style={s.h2}>55 skills, organizadas en seis enjambres</h2>
           <p style={s.sectionSub}>
             El método se puede repetir en cualquier dominio. Cada enjambre es un conjunto de skills
             especializadas que colaboran en cadena, cada una con su validación. Un orquestador maestro
             (capa 0) decide qué enjambre y qué skill entran en cada tarea, y cuatro agentes base
-            revisan el trabajo de los demás. Son 55 en total; al menos cuatro vienen de terceros, entre ellas
-            las de Word, PDF y PowerPoint, que son de Anthropic. Estas son, por dominio:
+            revisan el trabajo de los demás. Seis de ellas son de terceros o están adaptadas de ellos: las de
+            Word, PDF y PowerPoint, que son de Anthropic, y tres de método. Estas son, por dominio:
           </p>
           <div style={s.swarmGrid}>
             {[
@@ -263,7 +263,7 @@ export default function Portfolio() {
               { arrow: true },
               { title: "n8n", sub: "Orquestación", desc: "Entrada de facturas de proveedor por correo, diseñada en 19 fases y hoy en fase piloto" },
               { arrow: true },
-              { title: "Claude", sub: "Agentes IA", desc: "Cerca de 50 skills · 62 RAG · servidor MCP contable propio, sin permiso para borrar · capa de verificación determinista" },
+              { title: "Claude", sub: "Agentes IA", desc: "55 skills · 62 RAG · servidor MCP contable propio, sin permiso para borrar · capa de verificación determinista" },
             ].map((node, i) =>
               node.arrow ? (
                 <div key={i} style={s.arqArrow}>→</div>
