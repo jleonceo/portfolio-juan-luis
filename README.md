@@ -1,6 +1,6 @@
 # Portfolio de Juan Luis León Rodríguez
 
-**Data Analyst · Business Intelligence · IA Aplicada al Negocio**
+**Controller financiero · Business Intelligence · IA aplicada a la contabilidad**
 
 Sitio en vivo: **[juanluisleon.vercel.app](https://juanluisleon.vercel.app)**
 
@@ -12,13 +12,13 @@ Sitio en vivo: **[juanluisleon.vercel.app](https://juanluisleon.vercel.app)**
 
 Código de mi portfolio web. La página explica el sistema que construyo.
 
-Son **51 AI Skills** repartidas en seis enjambres de dominio: contabilidad, análisis, marketing, tesorería, programación y recursos humanos. Un router decide a cuál va cada encargo. Debajo, MySQL, Power BI, Python, n8n y Claude.
+Son cerca de **50 skills propias** repartidas en seis enjambres de dominio: contabilidad, análisis, marketing, tesorería, programación y recursos humanos. Un router decide a cuál va cada encargo. Debajo, MySQL, Power BI, Python, n8n y Claude.
 
 Tres palabras que conviene fijar antes de seguir. Una **skill** es un fichero de texto que le da criterio a un modelo: qué reglas aplicar, qué cuentas usar, cuándo frenar y pedir revisión. Un **enjambre** es un grupo de skills que se reparten un dominio, cada una con su parcela, de forma que la que juzga no sea la que produjo. Y el **router** es la pieza que lee la petición y decide a qué enjambre va, para que el sistema no se rompa al crecer.
 
 Un ejemplo de lo que hace, de principio a fin: entra el PDF de una factura de proveedor, una skill extrae los datos y dice «ilegible» antes que inventarse un hueco, otra escribe el asiento con las cuentas reales de la empresa, y una tercera comprueba el cuadre y decide si se contabiliza o se frena. El asiento aprobado cae en una tabla de borradores y lo inserta una persona.
 
-El método consiste en construir esas herramientas y **validarlas antes de usarlas**. Cada skill pasa por evaluaciones automáticas antes de producción. Ningún cambio entra sin una simulación ciega que compruebe que lo que ya funcionaba sigue funcionando.
+El método consiste en construir esas herramientas y **validarlas antes de usarlas**. Hoy 24 skills tienen evaluaciones automáticas ejecutadas, con sus resultados guardados. Y el método exige que cada cambio pase una simulación ciega que compruebe que lo que ya funcionaba sigue funcionando.
 
 ### El sistema en repos abiertos
 
@@ -48,6 +48,7 @@ Varios de estos casos son los que después se automatizaron:
 - [RFM-Customer-Analytics](https://github.com/jleonceo/RFM-Customer-Analytics): qué clientes se están yendo sin avisar, y por qué el total anual no lo dice.
 - [lead-scoring-ml](https://github.com/jleonceo/lead-scoring-ml): a qué contacto llama primero el equipo comercial, con el modelo verificado por dos vías.
 - [accident-intelligent-agent](https://github.com/jleonceo/accident-intelligent-agent): un primer agente sobre datos públicos de siniestralidad, con sus fallos documentados.
+- [de-datos-en-bruto-a-decisiones](https://github.com/jleonceo/de-datos-en-bruto-a-decisiones): un fichero de ventas en bruto analizado de principio a fin, con una [web](https://de-datos-en-bruto-a-decisiones.vercel.app) que lo cuenta.
 
 ### Stack
 
@@ -62,7 +63,7 @@ npm run dev
 
 ### Contacto
 
-jleonceo@gmail.com · [LinkedIn](https://www.linkedin.com/in/jlleonrodriguez/) · [GitHub](https://github.com/jleonceo)
+jleonceo@gmail.com · [LinkedIn](https://www.linkedin.com/in/jlleonrodriguez/) · [GitHub](https://github.com/jleonceo) · [CV](https://jleonceo.github.io/cv/)
 
 ---
 
@@ -70,13 +71,13 @@ jleonceo@gmail.com · [LinkedIn](https://www.linkedin.com/in/jlleonrodriguez/) �
 
 Source of my portfolio site. The page explains the system I build.
 
-**51 AI Skills**, grouped into six domain swarms: accounting, analytics, marketing, treasury, programming and HR. A router decides which one takes each request. Underneath sit MySQL, Power BI, Python, n8n and Claude.
+Close to **50 in-house skills**, grouped into six domain swarms: accounting, analytics, marketing, treasury, programming and HR. A router decides which one takes each request. Underneath sit MySQL, Power BI, Python, n8n and Claude.
 
 Three words worth pinning down first. A **skill** is a text file that gives a model its criteria: which rules to apply, which accounts to use, when to stop and ask for review. A **swarm** is a group of skills sharing a domain, each with its own patch, so that whoever judges is never whoever produced. The **router** reads the request and decides which swarm takes it, so the system does not break as it grows.
 
 An example of what it does, end to end: a supplier invoice PDF comes in, one skill extracts the data and says «unreadable» rather than inventing a missing field, another writes the journal entry with the company's real accounts, and a third checks that it balances and decides whether to post it or hold it. Approved entries land in a drafts table and a person is the one who posts them.
 
-The method is building those tools and **validating them before use**. Every skill faces automated evaluation before production. No change ships without a blind simulation checking that what already worked still works.
+The method is building those tools and **validating them before use**. Today 24 skills have automated evaluations run, with their results stored. And the method requires every change to pass a blind simulation checking that what already worked still works.
 
 ### The system in open repos
 
@@ -106,6 +107,7 @@ these cases are the ones later automated:
 - [RFM-Customer-Analytics](https://github.com/jleonceo/RFM-Customer-Analytics): which customers are leaving without warning, and why the annual total hides them.
 - [lead-scoring-ml](https://github.com/jleonceo/lead-scoring-ml): who the sales team should call first, with the model verified two independent ways.
 - [accident-intelligent-agent](https://github.com/jleonceo/accident-intelligent-agent): an early agent over public road-safety data, with its failures documented.
+- [de-datos-en-bruto-a-decisiones](https://github.com/jleonceo/de-datos-en-bruto-a-decisiones): a raw sales file analysed end to end, with a [website](https://de-datos-en-bruto-a-decisiones.vercel.app) that tells the story.
 
 ### Stack
 
@@ -120,4 +122,4 @@ npm run dev
 
 ### Contact
 
-jleonceo@gmail.com · [LinkedIn](https://www.linkedin.com/in/jlleonrodriguez/) · [GitHub](https://github.com/jleonceo)
+jleonceo@gmail.com · [LinkedIn](https://www.linkedin.com/in/jlleonrodriguez/) · [GitHub](https://github.com/jleonceo) · [CV](https://jleonceo.github.io/cv/)

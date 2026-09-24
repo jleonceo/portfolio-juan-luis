@@ -33,7 +33,7 @@ export default function Portfolio() {
         <div style={s.navInner}>
           <button onClick={() => go("validacion")} style={s.navNew}>
             <span style={s.navNewDot} />
-            51 skills: ninguna entra en producción sin pasar evals →
+            24 skills con evals ejecutadas: así las valido →
           </button>
           <div style={s.navLinks}>
             {[["enjambres","Enjambres"],["validacion","Validación"],["proyecto","El proyecto"],["fabricas","Fábricas"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
@@ -48,28 +48,28 @@ export default function Portfolio() {
         <div style={s.heroLeft}>
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
-            <span style={s.evalBadgeNum}>✓</span>
-            <span style={s.evalBadgeText}>Cada skill pasa por evals antes de producción</span>
+            <span style={s.evalBadgeNum}>24</span>
+            <span style={s.evalBadgeText}>skills con evals ejecutadas y sus resultados guardados</span>
           </div>
         </div>
         <div style={s.heroRight}>
-          <p style={s.eyebrow}>Analista de Datos · IA Aplicada</p>
+          <p style={s.eyebrow}>Controller financiero · BI · IA aplicada a la contabilidad</p>
           <h1 style={s.nombre}>Juan Luis<br/>León Rodríguez</h1>
           <p style={s.tagline}>
             Construyo mis propias herramientas de IA<br/>
             <strong style={{ color: "#e2e8f0" }}>y no las uso hasta haberlas medido.</strong>
           </p>
           <p style={s.bio}>
-            Un ecosistema de 51 skills en seis enjambres de dominio y un router, sobre MySQL, Power BI, Python, n8n y Claude.
-            Del documento al cuadro de mando, con un verificador y una suite de evals en cada paso:
-            más velocidad, sin perder el céntimo.
+            Cerca de 50 skills propias repartidas en seis enjambres de dominio, con un enrutador que decide
+            cuál entra en cada tarea, sobre MySQL, Power BI, Python, n8n y Claude. Van del documento al
+            cuadro de mando, y ninguna cifra sale sin cuadrar al céntimo con la base de datos.
           </p>
           <div style={s.heroStats}>
             {[
-              { n: "51", l: "skills creadas" },
-              { n: "9", l: "enjambres de agentes" },
-              { n: "7", l: "suites de evals" },
-              { n: "0,00€", l: "descuadre en 21,8M€" },
+              { n: "~50", l: "skills propias" },
+              { n: "6", l: "enjambres y un enrutador" },
+              { n: "24", l: "skills con evals ejecutadas" },
+              { n: "0,00 €", l: "de descuadre en 22,0 M€" },
             ].map(st => (
               <div key={st.l} style={s.heroStat}>
                 <span style={s.heroStatN}>{st.n}</span>
@@ -88,25 +88,27 @@ export default function Portfolio() {
       <section id="enjambres" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMAS MULTI-AGENTE</p>
-          <h2 style={s.h2}>51 skills, organizadas en enjambres</h2>
+          <h2 style={s.h2}>Cerca de 50 skills, organizadas en seis enjambres</h2>
           <p style={s.sectionSub}>
-            No es un proyecto, es un método replicable. Cada enjambre es un conjunto de skills
+            El método se puede repetir en cualquier dominio. Cada enjambre es un conjunto de skills
             especializadas que colaboran en cadena, cada una con su validación. Un orquestador maestro
-            (capa 0) decide qué enjambre y qué skill entran en cada tarea, y cuatro agentes base hacen
-            la verificación cruzada. Estas son las skills, por dominio:
+            (capa 0) decide qué enjambre y qué skill entran en cada tarea, y cuatro agentes base
+            revisan el trabajo de los demás. Son 55 en total; al menos cuatro vienen de terceros, entre ellas
+            las de Word, PDF y PowerPoint, que son de Anthropic. Estas son, por dominio:
           </p>
           <div style={s.swarmGrid}>
             {[
-              { dom: "Contabilidad", n: 10, flujo: "extractor → generador → validador → contabilizador", prueba: "Validado con evals sobre PGC español real · un verificador independiente puntea el libro vivo", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
-              { dom: "Marketing y audiencias", n: 11, flujo: "producir (copy · SEO · pricing) + analizar (discovery → exploración → previsión)", prueba: "Suite de evals de audiencias en verde · dos ramas, creativa y analítica", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
-              { dom: "Utilidad", n: 7, flujo: "documentos (Word · PDF · PPTX) · error-analysis · datos sintéticos", prueba: "Genera entregables y datos de prueba; detecta modos de fallo en pipelines LLM sobre ~100 trazas", repo: null, color: "#f59e0b" },
+              { dom: "Contabilidad", n: 9, flujo: "extractor → generador → validador → contabilizador", prueba: "Cinco agentes con permisos separados: el que lee la factura no propone el asiento y el que lo verifica no puede escribir. Human in the loop antes del libro diario", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
+              { dom: "Marketing y audiencias", n: 11, flujo: "producir (copy · SEO · pricing) + analizar (discovery → exploración → previsión)", prueba: "Suite de evals de audiencias en verde, con una rama creativa y otra analítica", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
+              { dom: "Utilidad", n: 8, flujo: "documentos (Word · PDF · PPTX) · análisis de errores · datos sintéticos · tutor de estudio", prueba: "Genera entregables y datos de prueba, y clasifica los fallos de un sistema con IA revisando unas cien ejecuciones", repo: null, color: "#f59e0b" },
               { dom: "Análisis de datos", n: 6, flujo: "discovery → EDA → modelado → comunicación", prueba: "Método portable a cualquier negocio · caso de analítica de principio a fin", repo: null, color: "#3b82f6" },
               { dom: "Tesorería", n: 4, flujo: "control de gestión · ratios · aging · forecast de caja", prueba: "Motor determinista y verificable · backtesting rolling-origin (MASE) · integrado en Power BI", repo: "https://github.com/jleonceo/tesoreria-forecast-ia", color: "#14b8a6" },
               { dom: "Control interno", n: 1, flujo: "Benford · duplicados · fraccionamiento · tercero fantasma · coherencia de fechas", prueba: "Batería forense determinista con control negativo por prueba · propone candidatos, no acusa · marco COSO-lite", repo: "https://github.com/jleonceo/control-interno-fraude-ia", color: "#e11d48" },
-              { dom: "Servicio", n: 4, flujo: "automatización n8n · compliance PII · seguridad de IA · publicación de repos", prueba: "RGPD/LOPDGDD · OWASP LLM Top 10 · NIST AI RMF · AI Act: la gobernanza del sistema", repo: null, color: "#ec4899" },
-              { dom: "Programador", n: 4, flujo: "spec → verificador → constructor → verificador", prueba: "Disciplina TDD: primero el test que reproduce el fallo, luego el código", repo: null, color: "#6366f1" },
+              { dom: "Recursos humanos", n: 2, flujo: "orquestador · experto laboral", prueba: "El criterio laboral va aparte del contable: indemnización, cotización y convenio los decide RRHH, y el asiento, contabilidad", repo: null, color: "#f97316" },
+              { dom: "Servicio", n: 5, flujo: "automatización n8n · compliance PII · seguridad de IA · publicación de repos · consejo de decisión", prueba: "RGPD/LOPDGDD · OWASP LLM Top 10 · NIST AI RMF · AI Act: la gobernanza del sistema", repo: null, color: "#ec4899" },
+              { dom: "Programador", n: 6, flujo: "spec → verificador → constructor → verificador · detector de control negativo", prueba: "Disciplina TDD: primero el test que reproduce el fallo, luego el código", repo: "https://github.com/jleonceo/detector-control-negativo", color: "#6366f1" },
               { dom: "Orquestador maestro", n: 1, flujo: "capa 0 · router", prueba: "Enruta cada tarea al enjambre y la skill correctos desde el Registro de Enjambres", repo: "https://github.com/jleonceo/orquestacion-enjambres-ia", color: "#cbd5e1" },
-              { dom: "Transmisión de conocimiento", n: 1, flujo: "puerta de salida transversal", prueba: "Garantiza que todo output (deck, informe, web) llegue bien a su audiencia, no solo bien de fondo", repo: null, color: "#94a3b8" },
+              { dom: "Método transversal", n: 2, flujo: "puerta de salida de textos · adherencia a las reglas", prueba: "Todo texto publicado pasa por una puerta que mide su prosa contra un corpus humano, y otra skill cuenta cuántas reglas del proyecto se cumplen de verdad", repo: "https://github.com/jleonceo/adherencia-reglas", color: "#94a3b8" },
             ].map(sw => (
               <div key={sw.dom} style={s.swarmCard}>
                 <div style={{ ...s.swarmBar, background: sw.color }} />
@@ -131,10 +133,11 @@ export default function Portfolio() {
           <p style={s.label}>VALIDACIÓN</p>
           <h2 style={s.h2}>Construyo y valido mis herramientas de IA antes de usarlas</h2>
           <p style={s.sectionSub}>
-            Es mi diferencial: el motor calcula, la IA no. Construí una suite de evals automatizados
-            para medir la precisión, y ningún cambio a una skill entra sin pasar una simulación ciega de
-            no-regresión. Además, cuatro agentes base (verificador independiente, escéptico, discovery e
-            investigador) hacen verificación cruzada, y un script determinista recomprueba el sistema entero sin usar IA.
+            Las cifras las calcula el código, y la IA decide. Construí una suite de evals automatizados
+            para medir la precisión, y mi método exige que cada cambio a una skill pase una simulación
+            ciega de no-regresión antes de aceptarse. Además, cuatro agentes base (verificador
+            independiente, escéptico, discovery e investigador) revisan el trabajo de los demás, y un script
+            determinista recomprueba el sistema entero sin usar IA.
           </p>
 
           <div style={s.evalWrap}>
@@ -158,9 +161,9 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
-              <p style={s.evalPlus}>+ 5 suites de enjambre en verde: programador, marketer, audiencias, analista y datos sintéticos.</p>
+              <p style={s.evalPlus}>En todo el sistema, 24 skills tienen evals ejecutadas con sus resultados guardados, y 29 más, cobertura parcial (registro de cobertura revisado el 04/08/2026).</p>
               <a href="https://github.com/jleonceo/llm-eval-contable" target="_blank" rel="noreferrer" style={s.evalLink}>
-                Ver el framework de evals en GitHub →
+                Ver cómo se evalúa una skill en GitHub →
               </a>
               <a href="https://github.com/jleonceo/verificacion-determinista-ia" target="_blank" rel="noreferrer" style={s.evalLink}>
                 Ver la verificación determinista en GitHub →
@@ -243,30 +246,29 @@ export default function Portfolio() {
       <section id="proyecto" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>EL PROYECTO</p>
-          <h2 style={s.h2}>TechAcces: ecosistema de análisis de datos con IA</h2>
+          <h2 style={s.h2}>TechAcces: un sistema contable con IA sobre una empresa simulada</h2>
           <p style={s.sectionSub}>
-            Un e-commerce de accesorios tech con 4 años de datos reales simulados.
-            MySQL, Power BI, Python, n8n y Claude conectados en un ecosistema que multiplica
-            la productividad del analista, de la factura al cuadro de mando, con verificación en cada paso.
-            Cifras verificadas en vivo contra MySQL.
+            Un comercio electrónico de accesorios tecnológicos con datos simulados de enero de 2023 a
+            julio de 2026. MySQL, Power BI, Python, n8n y Claude trabajan conectados de la factura al
+            cuadro de mando, con verificación en cada paso. Las cifras de esta sección se comprobaron
+            contra MySQL el 24/09/2026.
           </p>
 
           {/* Arquitectura */}
           <div style={s.arqRow}>
             {[
-              { icon: "🗄️", title: "MySQL", sub: "Motor de datos", desc: "PGC español a 8 dígitos · 18 tablas + 7 vistas de verificación · FK activa · 15 tipos de operación" },
-              { icon: "→", arrow: true },
-              { icon: "📊", title: "Power BI", sub: "Modelo y medidas", desc: "77 medidas DAX · modelo dimensional · KPIs verificados contra SQL al céntimo" },
-              { icon: "→", arrow: true },
-              { icon: "⚙️", title: "n8n", sub: "Orquestación", desc: "Workflows Gmail→Claude→MySQL · automatización de ingesta · validación en pipeline" },
-              { icon: "→", arrow: true },
-              { icon: "🤖", title: "Claude", sub: "Agentes IA", desc: "51 skills · 58 RAGs · 7 suites de evals · capa de verificación determinista" },
+              { title: "MySQL", sub: "Motor de datos", desc: "PGC español a 8 dígitos · 19 tablas + 7 vistas de verificación · claves foráneas activas · 15 tipos de operación" },
+              { arrow: true },
+              { title: "Power BI", sub: "Modelo y medidas", desc: "77 medidas DAX · modelo dimensional · KPIs verificados contra SQL al céntimo" },
+              { arrow: true },
+              { title: "n8n", sub: "Orquestación", desc: "Entrada de facturas de proveedor por correo, diseñada en 19 fases y hoy en fase piloto" },
+              { arrow: true },
+              { title: "Claude", sub: "Agentes IA", desc: "Cerca de 50 skills · 62 RAG · servidor MCP contable propio, sin permiso para borrar · capa de verificación determinista" },
             ].map((node, i) =>
               node.arrow ? (
                 <div key={i} style={s.arqArrow}>→</div>
               ) : (
                 <div key={i} style={s.arqNode}>
-                  <span style={s.arqIcon}>{node.icon}</span>
                   <span style={s.arqTitle}>{node.title}</span>
                   <span style={s.arqSub}>{node.sub}</span>
                   <span style={s.arqDesc}>{node.desc}</span>
@@ -278,10 +280,10 @@ export default function Portfolio() {
           {/* KPIs: verificados en vivo en MySQL */}
           <div style={s.kpiGrid}>
             {[
-              { val: "21,8M€", label: "Volumen contable total", sub: "por lado (debe = haber) · 4 años" },
-              { val: "6,26M€", label: "Ventas acumuladas", sub: "+36% CAGR 2023→2025" },
-              { val: "6.392", label: "Asientos contables", sub: "17.373 líneas contables" },
-              { val: "0,00€", label: "Descuadre global", sub: "debe = haber al céntimo · 21,8M€" },
+              { val: "22,0 M€", label: "Volumen contable total", sub: "por lado (debe = haber) · 2023 a julio de 2026" },
+              { val: "6,26 M€", label: "Ventas acumuladas", sub: "+36 % de crecimiento anual compuesto, 2023 a 2025" },
+              { val: "6.399", label: "Asientos contables", sub: "17.399 líneas contables" },
+              { val: "0,00 €", label: "Descuadre global", sub: "debe = haber al céntimo sobre 22,0 M€" },
             ].map(k => (
               <div key={k.label} style={s.kpiCard}>
                 <span style={s.kpiVal}>{k.val}</span>
@@ -352,12 +354,16 @@ export default function Portfolio() {
             <div style={s.destacadoBar} />
             <div>
               <p style={s.destacadoLabel}>Proyecto destacado</p>
-              <h3 style={s.destacadoTitle}>De datos sucios a decisiones: analítica de principio a fin</h3>
+              <h3 style={s.destacadoTitle}>De datos en bruto a decisiones: analítica de principio a fin</h3>
               <p style={s.destacadoDesc}>
-                Un caso completo: 20.827 filas en bruto → 20.000 ventas limpias → EDA, atípicos,
-                anonimización, machine learning y cuadro de mando. Con una lección incómoda contada
-                con honestidad: una vez limpios, los datos resultaron casi aleatorios, y lo demostré
-                con tests de permutación en lugar de inventar hallazgos. El método brilla; el mérito es saber cuándo callar.
+                Un caso completo con datos sintéticos: de 20.827 filas en bruto a 19.984 ventas válidas,
+                y de ahí a la exploración, los atípicos, la anonimización, el contraste estadístico y el
+                cuadro de mando. Las tres preguntas del negocio acaban en lo mismo: con esos datos no se
+                puede concluir lo que daban por hecho, y la web lo demuestra con tests de permutación.
+              </p>
+              <p style={s.destacadoLinks}>
+                <a href="https://de-datos-en-bruto-a-decisiones.vercel.app" target="_blank" rel="noreferrer" style={s.evalLink}>Ver la web del caso →</a>
+                <a href="https://github.com/jleonceo/de-datos-en-bruto-a-decisiones" target="_blank" rel="noreferrer" style={s.evalLink}>Ver el repositorio →</a>
               </p>
             </div>
           </div>
@@ -368,10 +374,11 @@ export default function Portfolio() {
       <section id="skills" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMA DE SKILLS</p>
-          <h2 style={s.h2}>Algunas de las 51 skills que forman mi entorno de trabajo</h2>
+          <h2 style={s.h2}>Algunas de las skills que forman mi entorno de trabajo</h2>
           <p style={s.sectionSub}>
-            Cada skill encapsula conocimiento estructurado en un dominio, con sus RAGs y su validación.
-            Juntas forman un entorno de trabajo con IA que se mantiene coherente entre sesiones.
+            Cada skill encapsula conocimiento estructurado en un dominio, con sus RAG y su validación.
+            Juntas forman un entorno de trabajo con IA que se mantiene coherente entre sesiones. Sobre
+            este método di una charla en Codemarketers el 26 de junio de 2026.
           </p>
           <div style={s.skillGrid}>
             {[
@@ -392,7 +399,7 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
-          <p style={s.skillMore}>…y 44 skills más repartidas en los seis enjambres.</p>
+          <p style={s.skillMore}>…y 48 más, repartidas en los seis enjambres.</p>
         </div>
       </section>
 
@@ -400,14 +407,14 @@ export default function Portfolio() {
       <section id="stack" style={s.sectionDark}>
         <div style={s.sectionInner}>
           <p style={s.label}>STACK</p>
-          <h2 style={s.h2}>Tecnologías del ecosistema</h2>
+          <h2 style={s.h2}>Tecnologías que uso</h2>
           <div style={s.stackGrid}>
             {[
               { cat: "Base de datos", color: "#3b82f6", items: ["MySQL 9.7","SQL avanzado","Vistas","FK","MCP"] },
               { cat: "Business Intelligence", color: "#f59e0b", items: ["Power BI Desktop","DAX","Modelo dimensional","Temas JSON"] },
-              { cat: "IA & LLMs", color: "#a855f7", items: ["Claude (Opus 4.8 · Sonnet 5)","Prompt engineering","Evals","Skills","RAG","MCP"] },
-              { cat: "Automatización", color: "#22c55e", items: ["n8n","Workflows","Gmail API","HTTP nodes"] },
-              { cat: "Programación", color: "#6366f1", items: ["Python","Pandas","scikit-learn","React","Astro","Vite","Git"] },
+              { cat: "IA & LLMs", color: "#a855f7", items: ["Claude y Claude Code","Prompt engineering","Evals","Skills","RAG","MCP","Human in the loop"] },
+              { cat: "Automatización", color: "#22c55e", items: ["n8n","Workflows","Gmail API","HTTP nodes","Power Automate"] },
+              { cat: "Programación", color: "#6366f1", items: ["Python","Pandas","scikit-learn","React","Astro","Vite","Git","Vercel"] },
               { cat: "Metodología", color: "#64748b", items: ["Evals automatizados","Simulaciones ciegas","Determinismo","Compliance RGPD","Seguridad de IA"] },
             ].map(g => (
               <div key={g.cat} style={s.stackCard}>
@@ -436,6 +443,7 @@ export default function Portfolio() {
               { label: "Email", val: "jleonceo@gmail.com", href: "mailto:jleonceo@gmail.com" },
               { label: "LinkedIn", val: "jlleonrodriguez", href: "https://linkedin.com/in/jlleonrodriguez" },
               { label: "GitHub", val: "@jleonceo", href: "https://github.com/jleonceo" },
+              { label: "CV", val: "jleonceo.github.io/cv", href: "https://jleonceo.github.io/cv/" },
             ].map(c => (
               <a key={c.label} href={c.href} target="_blank" rel="noreferrer" style={s.contactCard}>
                 <span style={s.contactLabel}>{c.label}</span>
@@ -583,10 +591,11 @@ const s = {
   swarmLink: { fontSize: 13, fontWeight: 600, textDecoration: "none", marginTop: 4 },
   // DESTACADO
   destacado: { display: "flex", gap: 0, marginTop: 28, background: "rgba(96,165,250,0.05)", border: "1px solid rgba(96,165,250,0.18)", borderRadius: 14, overflow: "hidden" },
-  destacadoBar: { width: 4, background: "linear-gradient(#3b82f6,#a855f7)", flexShrink: 0 },
+  destacadoBar: { width: 4, background: "#3b82f6", flexShrink: 0 },
   destacadoLabel: { fontSize: 10, color: "#60a5fa", fontWeight: 700, textTransform: "uppercase", letterSpacing: 2, margin: "22px 0 0", padding: "0 24px" },
   destacadoTitle: { fontSize: 18, fontWeight: 800, color: "#f1f5f9", margin: "6px 0 8px", padding: "0 24px" },
-  destacadoDesc: { fontSize: 13, color: "#94a3b8", lineHeight: 1.7, margin: "0 0 22px", padding: "0 24px" },
+  destacadoDesc: { fontSize: 13, color: "#94a3b8", lineHeight: 1.7, margin: "0 0 4px", padding: "0 24px" },
+  destacadoLinks: { display: "flex", gap: 18, flexWrap: "wrap", justifyContent: "center", margin: "0 0 22px", padding: "0 24px" },
   // STACK
   stackGrid: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 },
   stackCard: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 10, padding: "18px", overflow: "hidden", position: "relative" },
