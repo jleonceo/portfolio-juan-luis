@@ -98,8 +98,8 @@ export default function Portfolio() {
           </p>
           <div style={s.swarmGrid}>
             {[
-              { dom: "Contabilidad", n: 9, flujo: "extractor → generador → validador → contabilizador", prueba: "Cinco agentes con permisos separados: el que lee la factura no propone el asiento y el que lo verifica no puede escribir. Human in the loop antes del libro diario", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
-              { dom: "Marketing y audiencias", n: 11, flujo: "producir (copy · SEO · pricing) + analizar (discovery → exploración → previsión)", prueba: "Suite de evals de audiencias en verde, con una rama creativa y otra analítica", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
+              { dom: "Contabilidad", n: 9, flujo: "extractor → generador → verificador → escribano, y un punteador para la conciliación", prueba: "Cinco agentes con permisos separados: el que lee la factura no propone el asiento y el que lo verifica no puede escribir. Una persona aprueba antes del libro diario. El repositorio público muestra la versión anterior, de cuatro", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
+              { dom: "Marketing y audiencias", n: 11, flujo: "producir (copy · SEO · pricing) + analizar (discovery → exploración → previsión)", prueba: "Probado en privado: la exploración acierta 5 de 5 casos con su respuesta de referencia. El repositorio público no incluye esas pruebas", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
               { dom: "Utilidad", n: 8, flujo: "documentos (Word · PDF · PPTX) · análisis de errores · datos sintéticos · tutor de estudio", prueba: "Genera entregables y datos de prueba, y clasifica los fallos de un sistema con IA revisando unas cien ejecuciones", repo: null, color: "#f59e0b" },
               { dom: "Análisis de datos", n: 6, flujo: "discovery → EDA → modelado → comunicación", prueba: "Método portable a cualquier negocio · caso de analítica de principio a fin", repo: null, color: "#3b82f6" },
               { dom: "Tesorería", n: 4, flujo: "control de gestión · ratios · aging · forecast de caja", prueba: "Motor determinista y verificable · backtesting rolling-origin (MASE) · integrado en Power BI", repo: "https://github.com/jleonceo/tesoreria-forecast-ia", color: "#14b8a6" },
@@ -145,7 +145,7 @@ export default function Portfolio() {
               <h3 style={s.evalTitle}>Benchmarks del enjambre contable: 110 casos</h3>
               <div style={s.evalRows}>
                 {[
-                  { eval: "contable-experto", score: "50/50", detail: "12 categorías PGC", note: "Asientos, IVA, IRPF, nóminas, cierre" },
+                  { eval: "contable-experto", score: "50/50", detail: "12 categorías PGC · examen de junio", note: "Dos casos se corrigieron en julio y falta repetir el examen" },
                   { eval: "datos-financieros-sql", score: "30/30", detail: "6 categorías SQL", note: "KPIs, agregaciones, JOINs, trimestres" },
                   { eval: "datos-financieros-dax", score: "30/30", detail: "6 categorías DAX", note: "Medidas DAX validadas vía SQL equivalente" },
                 ].map(r => (
@@ -382,7 +382,7 @@ export default function Portfolio() {
           </p>
           <div style={s.skillGrid}>
             {[
-              { name: "contable-experto", badge: "Validada · 50/50", badgeColor: "#22c55e", desc: "PGC español completo: asientos, IVA, IRPF, nóminas, cierre. Ejemplos didácticos A/B/C como test de regresión.", highlight: true },
+              { name: "contable-experto", badge: "50/50 en junio", badgeColor: "#22c55e", desc: "PGC español completo: asientos, IVA, IRPF, nóminas, cierre. Ejemplos didácticos A/B/C como test de regresión. Dos casos del examen se corrigieron en julio y falta repetirlo.", highlight: true },
               { name: "datos-financieros", badge: "Validada · 60/60", badgeColor: "#22c55e", desc: "MySQL + DAX + protocolo de arranque. 2 evals independientes (SQL y DAX). Doble verificador tras cada INSERT contable." },
               { name: "forecast-caja", badge: "Tesorería", badgeColor: "#14b8a6", desc: "Previsión de caja por descomposición transparente + backtesting rolling-origin (MASE). Motor determinista, no caja negra. Integrado en Power BI." },
               { name: "control-interno-experto", badge: "Control interno", badgeColor: "#e11d48", desc: "Batería forense sobre el diario: Ley de Benford, duplicados, fraccionamiento, tercero fantasma, coherencia de fechas. Cada prueba con su control negativo; propone candidatos, no acusa." },
