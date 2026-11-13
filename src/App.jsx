@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import foto from "./assets/foto-juanluis.jpg";
+import imgAlquiler from "./assets/alquiler_cuadro_de_mando.png";
+import imgVentas from "./assets/ventas_prevision.png";
+import imgRfm from "./assets/rfm_segmentos.png";
 
 export default function Portfolio() {
   const [scrolled, setScrolled] = useState(false);
@@ -12,7 +15,7 @@ export default function Portfolio() {
   }, []);
 
   useEffect(() => {
-    const ids = ["inicio","enjambres","validacion","proyecto","fabricas","skills","stack","contacto"];
+    const ids = ["inicio","enjambres","validacion","proyecto","datos","trayectoria","stack","contacto"];
     const observer = new IntersectionObserver(
       entries => {
         entries.forEach(e => { if (e.isIntersecting) setActiveSection(e.target.id); });
@@ -33,10 +36,10 @@ export default function Portfolio() {
         <div style={s.navInner}>
           <button onClick={() => go("validacion")} style={s.navNew}>
             <span style={s.navNewDot} />
-            23 skills con evals ejecutadas: así las valido →
+            23 skills con su examen ejecutado: así las valido →
           </button>
           <div style={s.navLinks}>
-            {[["enjambres","Enjambres"],["validacion","Validación"],["proyecto","El proyecto"],["fabricas","Fábricas"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
+            {[["enjambres","Enjambres"],["validacion","Validación"],["proyecto","El proyecto"],["datos","Datos"],["trayectoria","Trayectoria"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
               <button key={id} onClick={() => go(id)} style={s.navBtn}>{label}</button>
             ))}
           </div>
@@ -49,7 +52,7 @@ export default function Portfolio() {
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
             <span style={s.evalBadgeNum}>23</span>
-            <span style={s.evalBadgeText}>skills con evals ejecutadas y sus resultados guardados</span>
+            <span style={s.evalBadgeText}>skills con su examen ejecutado y el resultado guardado</span>
           </div>
         </div>
         <div style={s.heroRight}>
@@ -60,15 +63,16 @@ export default function Portfolio() {
             <strong style={{ color: "#e2e8f0" }}>y no las uso hasta haberlas medido.</strong>
           </p>
           <p style={s.bio}>
-            55 skills repartidas en seis enjambres de dominio, con un enrutador que decide
-            cuál entra en cada tarea, sobre MySQL, Power BI, Python, n8n y Claude. Van del documento al
-            cuadro de mando, y ninguna cifra sale sin cuadrar al céntimo con la base de datos.
+            Más de 25 años entre contabilidad, formación y dirección de empresa. Desde 2026 construyo un
+            sistema de IA para una empresa completa: 55 skills repartidas en seis enjambres, sobre MySQL,
+            Power BI, Python, n8n y Claude. Va del documento al cuadro de mando, y ninguna cifra sale sin
+            cuadrar al céntimo con la base de datos.
           </p>
           <div style={s.heroStats}>
             {[
               { n: "55", l: "skills" },
               { n: "6", l: "enjambres y un enrutador" },
-              { n: "23", l: "skills con evals ejecutadas" },
+              { n: "23", l: "skills con examen ejecutado" },
               { n: "0,00 €", l: "de descuadre en 22,0 M€" },
             ].map(st => (
               <div key={st.l} style={s.heroStat}>
@@ -88,35 +92,41 @@ export default function Portfolio() {
       <section id="enjambres" style={s.sectionLight}>
         <div style={s.sectionInner}>
           <p style={s.label}>SISTEMAS MULTI-AGENTE</p>
-          <h2 style={s.h2}>55 skills, organizadas en seis enjambres</h2>
+          <h2 style={s.h2}>55 skills: seis enjambres y lo que les da servicio</h2>
           <p style={s.sectionSub}>
-            El método se puede repetir en cualquier dominio. Cada enjambre es un conjunto de skills
-            especializadas que colaboran en cadena, cada una con su validación. Un orquestador maestro
-            (capa 0) decide qué enjambre y qué skill entran en cada tarea, y cuatro agentes base
-            revisan el trabajo de los demás. Seis de ellas son de terceros o están adaptadas de ellos: las de
-            Word, PDF y PowerPoint, que son de Anthropic, y tres de método. Estas son, por dominio:
+            Una skill es un conjunto de instrucciones para una tarea concreta. Un enjambre es un grupo de
+            skills que se reparten un trabajo en cadena, cada una con su comprobación. Un enrutador decide
+            qué enjambre entra en cada tarea, y cuatro agentes revisan el trabajo de los demás. Seis de las
+            55 son de terceros o están adaptadas de ellos: las de Word, PDF y PowerPoint, que son de
+            Anthropic, y tres de método.
           </p>
+          {[
+            ["Los seis enjambres de dominio", ["Contabilidad","Análisis de datos","Marketing y audiencias","Tesorería","Programador","Recursos humanos"]],
+            ["Lo que les da servicio", ["Orquestador maestro","Control interno","Servicio","Utilidad","Método transversal"]],
+          ].map(([grupo, doms]) => (
+          <div key={grupo}>
+          <h3 style={s.swarmGroup}>{grupo}</h3>
           <div style={s.swarmGrid}>
             {[
               { dom: "Contabilidad", n: 9, flujo: "extractor → generador → verificador → escribano, y un punteador para la conciliación", prueba: "Cinco agentes con permisos separados: el que lee la factura no propone el asiento y el que lo verifica no puede escribir. Una persona aprueba antes del libro diario. El repositorio público muestra la versión anterior, de cuatro", repo: "https://github.com/jleonceo/accounting-agent-swarm", color: "#22c55e" },
               { dom: "Marketing y audiencias", n: 11, flujo: "producir (copy · SEO · pricing) + analizar (discovery → exploración → previsión)", prueba: "Probado en privado: la exploración acierta 5 de 5 casos con su respuesta de referencia. El repositorio público no incluye esas pruebas", repo: "https://github.com/jleonceo/audience-analyst-swarm", color: "#a855f7" },
               { dom: "Utilidad", n: 8, flujo: "documentos (Word · PDF · PPTX) · análisis de errores · datos sintéticos · tutor de estudio", prueba: "Genera entregables y datos de prueba, y clasifica los fallos de un sistema con IA revisando unas cien ejecuciones", repo: null, color: "#f59e0b" },
-              { dom: "Análisis de datos", n: 6, flujo: "discovery → EDA → modelado → comunicación", prueba: "Método portable a cualquier negocio · caso de analítica de principio a fin", repo: null, color: "#3b82f6" },
-              { dom: "Tesorería", n: 4, flujo: "control de gestión · ratios · aging · forecast de caja", prueba: "Motor determinista y verificable · backtesting rolling-origin (MASE) · integrado en Power BI", repo: "https://github.com/jleonceo/tesoreria-forecast-ia", color: "#14b8a6" },
-              { dom: "Control interno", n: 1, flujo: "Benford · duplicados · fraccionamiento · tercero fantasma · coherencia de fechas", prueba: "Batería forense determinista con control negativo por prueba · propone candidatos, no acusa · marco COSO-lite", repo: "https://github.com/jleonceo/control-interno-fraude-ia", color: "#e11d48" },
+              { dom: "Análisis de datos", n: 6, flujo: "pregunta → exploración → modelo → comunicación", prueba: "El mismo método sirve para cualquier negocio. Más abajo, en Datos, están los casos hechos con él", repo: null, color: "#3b82f6" },
+              { dom: "Tesorería", n: 4, flujo: "control de gestión · ratios · aging · forecast de caja", prueba: "El cálculo lo hace código, sin IA. La previsión de caja se contrasta contra el pasado, mes a mes, y va integrada en Power BI", repo: "https://github.com/jleonceo/tesoreria-forecast-ia", color: "#14b8a6" },
+              { dom: "Control interno", n: 1, flujo: "Benford · duplicados · fraccionamiento · tercero fantasma · coherencia de fechas", prueba: "Ocho pruebas de auditoría hechas con código. Cada una lleva un caso normal que no debe marcar. Propone candidatos y decide el auditor", repo: "https://github.com/jleonceo/control-interno-fraude-ia", color: "#e11d48" },
               { dom: "Recursos humanos", n: 2, flujo: "orquestador · experto laboral", prueba: "El criterio laboral va aparte del contable: indemnización, cotización y convenio los decide RRHH, y el asiento, contabilidad", repo: null, color: "#f97316" },
-              { dom: "Servicio", n: 5, flujo: "automatización n8n · compliance PII · seguridad de IA · publicación de repos · consejo de decisión", prueba: "RGPD/LOPDGDD · OWASP LLM Top 10 · NIST AI RMF · AI Act: la gobernanza del sistema", repo: null, color: "#ec4899" },
-              { dom: "Programador", n: 6, flujo: "spec → verificador → constructor → verificador · detector de control negativo", prueba: "Disciplina TDD: primero el test que reproduce el fallo, luego el código", repo: "https://github.com/jleonceo/detector-control-negativo", color: "#6366f1" },
-              { dom: "Orquestador maestro", n: 1, flujo: "capa 0 · router", prueba: "Enruta cada tarea al enjambre y la skill correctos desde el Registro de Enjambres", repo: "https://github.com/jleonceo/orquestacion-enjambres-ia", color: "#cbd5e1" },
+              { dom: "Servicio", n: 5, flujo: "automatización n8n · datos personales · seguridad de IA · publicación de repos · consejo de decisión", prueba: "RGPD/LOPDGDD · OWASP LLM Top 10 · NIST AI RMF · AI Act: la gobernanza del sistema", repo: null, color: "#ec4899" },
+              { dom: "Programador", n: 6, flujo: "spec → verificador → constructor → verificador · detector de control negativo", prueba: "Primero se escribe la prueba que reproduce el fallo y después el código", repo: "https://github.com/jleonceo/detector-control-negativo", color: "#6366f1" },
+              { dom: "Orquestador maestro", n: 1, flujo: "enrutador", prueba: "Lee un registro de todos los agentes y manda cada tarea al enjambre y a la skill que toca", repo: "https://github.com/jleonceo/orquestacion-enjambres-ia", color: "#cbd5e1" },
               { dom: "Método transversal", n: 2, flujo: "puerta de salida de textos · adherencia a las reglas", prueba: "Todo texto publicado pasa por una puerta que mide su prosa contra un corpus humano, y otra skill cuenta cuántas reglas del proyecto se cumplen de verdad", repo: "https://github.com/jleonceo/adherencia-reglas", color: "#94a3b8" },
-            ].map(sw => (
+            ].filter(sw => doms.includes(sw.dom)).map(sw => (
               <div key={sw.dom} style={s.swarmCard}>
                 <div style={{ ...s.swarmBar, background: sw.color }} />
                 <div style={s.swarmHead}>
                   <h3 style={s.swarmDom}>{sw.dom}</h3>
                   <span style={s.swarmCount}>{sw.n} {sw.n === 1 ? "skill" : "skills"}</span>
                 </div>
-                <p style={s.swarmFlujo}>{sw.flujo}</p>
+                {grupo.startsWith("Los seis") && <p style={s.swarmFlujo}>{sw.flujo}</p>}
                 <p style={s.swarmPrueba}>{sw.prueba}</p>
                 {sw.repo && (
                   <a href={sw.repo} target="_blank" rel="noreferrer" style={{ ...s.swarmLink, color: sw.color }}>Ver en GitHub →</a>
@@ -124,6 +134,8 @@ export default function Portfolio() {
               </div>
             ))}
           </div>
+          </div>
+          ))}
         </div>
       </section>
 
@@ -133,21 +145,21 @@ export default function Portfolio() {
           <p style={s.label}>VALIDACIÓN</p>
           <h2 style={s.h2}>Construyo y valido mis herramientas de IA antes de usarlas</h2>
           <p style={s.sectionSub}>
-            Las cifras las calcula el código, y la IA decide. Construí una suite de evals automatizados
-            para medir la precisión, y mi método exige que cada cambio a una skill pase una simulación
-            ciega de no-regresión antes de aceptarse. Además, cuatro agentes base (verificador
-            independiente, escéptico, discovery e investigador) revisan el trabajo de los demás, y un script
-            determinista recomprueba el sistema entero sin usar IA.
+            Las cifras las calcula el código, y la IA decide. Cada skill importante tiene un examen
+            automático: una batería de casos con la respuesta correcta fijada de antemano. Ningún cambio
+            se acepta sin repetir el examen y comprobar que lo que funcionaba sigue funcionando. Además,
+            cuatro agentes revisan el trabajo de los demás, y un programa sin IA recomprueba el sistema
+            entero.
           </p>
 
           <div style={s.evalWrap}>
             <div style={s.evalLeft}>
-              <h3 style={s.evalTitle}>Benchmarks del enjambre contable: 110 casos</h3>
+              <h3 style={s.evalTitle}>Exámenes del enjambre contable: 110 casos</h3>
               <div style={s.evalRows}>
                 {[
-                  { eval: "contable-experto", score: "50/50", detail: "12 categorías PGC · examen de junio", note: "Dos casos se corrigieron en julio y falta repetir el examen" },
+                  { eval: "contable-experto", score: "48/50", detail: "12 categorías del PGC", note: "Sacó 50 de 50 en junio. Con el examen corregido en julio, esas respuestas acertarían 48" },
                   { eval: "datos-financieros-sql", score: "30/30", detail: "6 categorías SQL", note: "KPIs, agregaciones, JOINs, trimestres" },
-                  { eval: "datos-financieros-dax", score: "30/30", detail: "6 categorías DAX", note: "Medidas DAX validadas vía SQL equivalente" },
+                  { eval: "datos-financieros-dax", score: "30/30", detail: "6 categorías DAX", note: "Cada medida DAX se comprueba con su consulta SQL equivalente" },
                 ].map(r => (
                   <div key={r.eval} style={{ ...s.evalRow, ...s.evalWinner }}>
                     <div style={s.evalRowLeft}>
@@ -161,7 +173,7 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
-              <p style={s.evalPlus}>En todo el sistema, 23 skills tienen evals ejecutadas con sus resultados guardados, y 30 más, cobertura parcial (registro de cobertura revisado el 02/10/2026).</p>
+              <p style={s.evalPlus}>En todo el sistema, 23 skills tienen su examen ejecutado y el resultado guardado, y 30 más, cobertura parcial (registro revisado el 02/10/2026).</p>
               <a href="https://github.com/jleonceo/llm-eval-contable" target="_blank" rel="noreferrer" style={s.evalLink}>
                 Ver cómo se evalúa una skill en GitHub →
               </a>
@@ -170,12 +182,12 @@ export default function Portfolio() {
               </a>
             </div>
             <div style={s.evalRight}>
-              <h3 style={s.evalTitle}>Cómo funciona el grader</h3>
+              <h3 style={s.evalTitle}>Cómo corrige el examen contable</h3>
               {[
                 { n: "1", t: "Cuadre debe = haber", d: "El asiento tiene que cuadrar al céntimo exacto" },
                 { n: "2", t: "Prefijos PGC válidos", d: "Todas las cuentas deben pertenecer al PGC español" },
                 { n: "3", t: "Importes exactos", d: "Los importes deben coincidir con el caso de prueba" },
-                { n: "4", t: "Flags semánticos", d: "Tipo de operación, IVA, IRPF detectados correctamente" },
+                { n: "4", t: "Tipo de operación", d: "El tipo de operación, el IVA y el IRPF están bien identificados" },
               ].map(g => (
                 <div key={g.n} style={s.graderRow}>
                   <span style={s.graderN}>{g.n}</span>
@@ -190,28 +202,29 @@ export default function Portfolio() {
 
           {/* EVOLUCIÓN */}
           <div id="proceso" style={s.evoWrap}>
-            <p style={s.evoHeader}>El camino hasta pasar la suite: cada fallo fue una mejora</p>
+            <p style={s.evoHeader}>El camino hasta aprobar: cada fallo fue una mejora</p>
             {[
               {
                 name: "contable-experto",
                 v1: "47/50", v1sub: "94%", v1Color: "#f59e0b",
                 issue: "2 patrones no cubiertos en la skill",
                 fix: "Periodificación pasiva · traspaso resultado a reservas",
-                action: "Ejemplos F y G añadidos · skill v3.0",
+                action: "Dos ejemplos añadidos a la skill",
+                fin: "48/50", finSub: "con el examen corregido",
               },
               {
                 name: "datos-financieros-dax",
                 v1: "3/30", v1sub: "10%", v1Color: "#ef4444",
-                issue: "Bug crítico en el runner",
+                issue: "Fallo en el programa que lanza el examen",
                 fix: "Claude añadía backticks al SQL · la conexión MySQL se corrompía en cascada",
                 action: "Rediseño: conexión fresca por caso · backticks eliminados",
               },
               {
                 name: "datos-financieros-sql",
                 v1: "29/30", v1sub: "97%", v1Color: "#f59e0b",
-                issue: "Dataset incorrecto en el caso 20",
+                issue: "El caso 20 del examen estaba mal",
                 fix: "trimestre=1 ≠ QUARTER(fecha), descubierto analizando el fallo",
-                action: "Dataset corregido · aviso añadido a skill y RAG",
+                action: "Caso corregido y aviso añadido a la skill",
               },
             ].map(e => (
               <div key={e.name} style={s.evoRow}>
@@ -231,8 +244,8 @@ export default function Portfolio() {
                     <div style={s.evoLineRight} />
                   </div>
                   <div style={s.evoEnd}>
-                    <span style={{ ...s.evoScore, color: "#22c55e" }}>100%</span>
-                    <span style={s.evoSub}>la suite completa</span>
+                    <span style={{ ...s.evoScore, color: "#22c55e" }}>{e.fin || "100%"}</span>
+                    <span style={s.evoSub}>{e.finSub || "el examen entero"}</span>
                   </div>
                 </div>
               </div>
@@ -263,7 +276,7 @@ export default function Portfolio() {
               { arrow: true },
               { title: "n8n", sub: "Orquestación", desc: "Entrada de facturas de proveedor por correo, diseñada en 19 fases y hoy en fase piloto" },
               { arrow: true },
-              { title: "Claude", sub: "Agentes IA", desc: "55 skills · 62 RAG · servidor MCP contable propio, sin permiso para borrar · capa de verificación determinista" },
+              { title: "Claude", sub: "Agentes IA", desc: "55 skills · 62 documentos de consulta · servidor propio de herramientas contables (MCP), sin permiso para borrar · comprobación final con código" },
             ].map((node, i) =>
               node.arrow ? (
                 <div key={i} style={s.arqArrow}>→</div>
@@ -281,7 +294,7 @@ export default function Portfolio() {
           <div style={s.kpiGrid}>
             {[
               { val: "22,0 M€", label: "Volumen contable total", sub: "por lado (debe = haber) · 2023 a julio de 2026" },
-              { val: "6,26 M€", label: "Ventas acumuladas", sub: "+36 % de crecimiento anual compuesto, 2023 a 2025" },
+              { val: "6,26 M€", label: "Ventas acumuladas", sub: "datos simulados, 2023 a julio de 2026" },
               { val: "6.399", label: "Asientos contables", sub: "17.399 líneas contables" },
               { val: "0,00 €", label: "Descuadre global", sub: "debe = haber al céntimo sobre 22,0 M€" },
             ].map(k => (
@@ -293,58 +306,37 @@ export default function Portfolio() {
             ))}
           </div>
 
-          {/* Ventas + Cobertura */}
-          <div style={s.grid2}>
-            <div style={s.dataCard}>
-              <h3 style={s.dataTitle}>Crecimiento de ventas</h3>
-              {[
-                { year: "2023", val: 1055, pct: 54 },
-                { year: "2024", val: 1420, pct: 73 },
-                { year: "2025", val: 1947, pct: 100 },
-                { year: "2026*", val: 1835, pct: 94 },
-              ].map(b => (
-                <div key={b.year} style={s.barRow}>
-                  <span style={s.barYear}>{b.year}</span>
-                  <div style={s.barBg}>
-                    <div style={{ ...s.barFill, width: `${b.pct}%` }} />
-                  </div>
-                  <span style={s.barVal}>{b.val}K€</span>
-                </div>
-              ))}
-              <p style={s.dataNote}>* 2026, solo hasta julio, ya casi iguala 2025 completo, año récord en curso</p>
-            </div>
-            <div style={s.dataCard}>
-              <h3 style={s.dataTitle}>Cobertura contable: 15 tipos de operación</h3>
-              <div style={s.opGrid}>
-                {["Ventas","Compras","Cobros","Pagos","Nóminas","Gastos","Amortización","Fiscal","Financiero","Existencias","Deterioro","Inversión","Apertura","Acreedor","Anulación"].map(op => (
-                  <span key={op} style={s.opPill}>{op}</span>
-                ))}
-              </div>
-              <p style={s.dataNote}>4 canales de venta · 6 categorías de producto · clientes y proveedores maestros</p>
-            </div>
-          </div>
+          <p style={s.dataNote2}>
+            Los documentos de prueba también los genero yo: facturas, nóminas y extractos en PDF sacados de
+            MySQL, y ficheros CSV con errores puestos a propósito. Así el examen y sus datos nacen de la
+            misma fuente.
+          </p>
         </div>
       </section>
 
-      {/* FÁBRICAS */}
-      <section id="fabricas" style={s.sectionDark}>
+      {/* DATOS */}
+      <section id="datos" style={s.sectionDark}>
         <div style={s.sectionInner}>
-          <p style={s.label}>INFRAESTRUCTURA DE DATOS</p>
-          <h2 style={s.h2}>Fábricas de datos y un caso de principio a fin</h2>
+          <p style={s.label}>ANÁLISIS DE DATOS</p>
+          <h2 style={s.h2}>Proyectos de datos, de la pregunta a la decisión</h2>
           <p style={s.sectionSub}>
-            Para entrenar y estresar los enjambres hacen falta datos. Los genero yo, de forma
-            determinista y controlada (con errores a propósito cuando toca) de modo que los datos
-            y su verificación nacen de la misma fuente.
+            Antes de automatizar con IA hay que dominar el análisis. Cada proyecto parte de una pregunta de
+            negocio, está publicado con su código y da una cifra que se puede rehacer.
           </p>
-          <div style={s.grid2}>
+          <div style={s.projGrid}>
             {[
-              { dom: "Fábrica de Documentos", desc: "Genera el corpus de facturas, nóminas y extractos en PDF a partir de MySQL. El manifest deriva automáticamente el golden set de los evals: los datos y su verificación nacen de la misma fuente.", color: "#3b82f6" },
-              { dom: "Fábrica de CSVs", desc: "Datos sintéticos multiformato: unos perfectos y otros con errores introducidos a propósito (duplicados, huecos, formatos incoherentes) para medir cómo reacciona cada enjambre ante el dato real.", color: "#f59e0b" },
-            ].map(f => (
-              <div key={f.dom} style={s.swarmCard}>
-                <div style={{ ...s.swarmBar, background: f.color }} />
-                <h3 style={s.swarmDom}>{f.dom}</h3>
-                <p style={s.swarmPrueba}>{f.desc}</p>
+              { t: "Previsión de ventas a 8 días", img: imgVentas, alt: "Venta real, previsión del modelo y regla de la semana anterior en dos tiendas", d: "Un modelo por producto y tienda, que se ejecuta cada día. En el mes reservado para la prueba se equivoca en 7,45 unidades al prever el día siguiente, frente a 10,43 de repetir la semana anterior.", repo: "https://github.com/jleonceo/store-sales-forecasting-ml" },
+              { t: "Dónde comprar pisos para alquiler turístico", img: imgAlquiler, alt: "Cuadro de mando con la recomendación de barrios y sus cifras", d: "Con datos públicos de Airbnb y del Ayuntamiento de Madrid: 256 anuncios en tres barrios, con una rentabilidad bruta del 12,1 % en mediana. Incluye cuadro de mando.", repo: "https://github.com/jleonceo/alquiler-turistico-madrid" },
+              { t: "Segmentación de clientes RFM", img: imgRfm, alt: "Clientes por segmento según recencia, frecuencia e importe", d: "La cartera dividida en cinco grupos, con una acción comercial para cada uno. Los 246 mejores clientes son el 26 % de la cartera y el 66,5 % de las ventas.", repo: "https://github.com/jleonceo/RFM-Customer-Analytics" },
+              { t: "Reposición de inventario", d: "Decide cada día si hay que pedir al proveedor, con la previsión de demanda y el plazo real de entrega. En el semestre de prueba, con datos sintéticos, el coste baja de 40.707 € a 9.340 €.", repo: "https://github.com/jleonceo/reposicion-inventario-prevision-ml" },
+              { t: "A qué contacto llamar primero", d: "Un modelo ordena la lista del equipo comercial. Llamando solo al 20 % mejor puntuado se llega a la mitad de los compradores.", repo: "https://github.com/jleonceo/lead-scoring-ml" },
+              { t: "Cuenta de resultados desde el libro diario", d: "El resultado y el movimiento del banco de un ejercicio con Python y MySQL. El beneficio de 2024, 592.245,36 €, coincide al céntimo con el asiento de cierre.", repo: "https://github.com/jleonceo/analisis-contable" },
+            ].map(pr => (
+              <div key={pr.t} style={s.projCard}>
+                {pr.img && <img src={pr.img} alt={pr.alt} style={s.projImg} />}
+                <h3 style={s.projTitle}>{pr.t}</h3>
+                <p style={s.swarmPrueba}>{pr.d}</p>
+                <a href={pr.repo} target="_blank" rel="noreferrer" style={{ ...s.swarmLink, color: "#60a5fa" }}>Ver en GitHub →</a>
               </div>
             ))}
           </div>
@@ -359,7 +351,7 @@ export default function Portfolio() {
                 Un caso completo con datos sintéticos: de 20.827 filas en bruto a 19.984 ventas válidas,
                 y de ahí a la exploración, los atípicos, la anonimización, el contraste estadístico y el
                 cuadro de mando. Las tres preguntas del negocio acaban en lo mismo: con esos datos no se
-                puede concluir lo que daban por hecho, y la web lo demuestra con tests de permutación.
+                puede concluir lo que daban por hecho, y la web lo demuestra.
               </p>
               <p style={s.destacadoLinks}>
                 <a href="https://de-datos-en-bruto-a-decisiones.vercel.app" target="_blank" rel="noreferrer" style={s.evalLink}>Ver la web del caso →</a>
@@ -370,36 +362,55 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* SKILLS */}
-      <section id="skills" style={s.sectionLight}>
+      {/* TRAYECTORIA */}
+      <section id="trayectoria" style={s.sectionLight}>
         <div style={s.sectionInner}>
-          <p style={s.label}>SISTEMA DE SKILLS</p>
-          <h2 style={s.h2}>Algunas de las skills que forman mi entorno de trabajo</h2>
+          <p style={s.label}>TRAYECTORIA Y FORMACIÓN</p>
+          <h2 style={s.h2}>Más de 25 años entre contabilidad, formación y dirección de empresa</h2>
           <p style={s.sectionSub}>
-            Cada skill encapsula conocimiento estructurado en un dominio, con sus RAG y su validación.
-            Juntas forman un entorno de trabajo con IA que se mantiene coherente entre sesiones. Sobre
-            este método di una charla en Codemarketers el 26 de junio de 2026.
+            Fui formador técnico y contable durante doce años y dirigí mi propio negocio durante trece.
+            Después llevé las operaciones y el control de gestión de una empresa de hostelería. Sobre el
+            método de este sistema di una charla en Codemarketers el 26 de junio de 2026.
           </p>
-          <div style={s.skillGrid}>
-            {[
-              { name: "contable-experto", badge: "50/50 en junio", badgeColor: "#22c55e", desc: "PGC español completo: asientos, IVA, IRPF, nóminas, cierre. Ejemplos didácticos A/B/C como test de regresión. Dos casos del examen se corrigieron en julio y falta repetirlo.", highlight: true },
-              { name: "datos-financieros", badge: "Validada · 60/60", badgeColor: "#22c55e", desc: "MySQL + DAX + protocolo de arranque. 2 evals independientes (SQL y DAX). Doble verificador tras cada INSERT contable." },
-              { name: "forecast-caja", badge: "Tesorería", badgeColor: "#14b8a6", desc: "Previsión de caja por descomposición transparente + backtesting rolling-origin (MASE). Motor determinista, no caja negra. Integrado en Power BI." },
-              { name: "control-interno-experto", badge: "Control interno", badgeColor: "#e11d48", desc: "Batería forense sobre el diario: Ley de Benford, duplicados, fraccionamiento, tercero fantasma, coherencia de fechas. Cada prueba con su control negativo; propone candidatos, no acusa." },
-              { name: "seguridad-ia", badge: "Seguridad", badgeColor: "#ef4444", desc: "Auditoría del sistema agéntico: OWASP LLM Top 10, NIST AI RMF, MITRE ATLAS y gobernanza RGPD / AI Act." },
-              { name: "eda-analista", badge: "Análisis", badgeColor: "#3b82f6", desc: "Análisis exploratorio estructurado: estructura, calidad, distribuciones, correlaciones, anomalías e hipótesis. Portable a cualquier dataset." },
-              { name: "verificador-programador", badge: "Programador", badgeColor: "#6366f1", desc: "El escéptico que ejecuta. Deriva del spec la suite de aceptación ANTES de implementar. Disciplina TDD estricta." },
-            ].map(sk => (
-              <div key={sk.name} style={{ ...s.skillCard, ...(sk.highlight ? s.skillCardHL : {}) }}>
-                <div style={s.skillTop}>
-                  <code style={s.skillName}>{sk.name}</code>
-                  <span style={{ ...s.skillBadge, color: sk.badgeColor, borderColor: sk.badgeColor }}>{sk.badge}</span>
+          <div style={s.grid2}>
+            <div style={s.dataCard}>
+              <h3 style={s.dataTitle}>Trayectoria</h3>
+              {[
+                ["2024 – 2026", "Responsable de operaciones y control de gestión, Nou Mestres 2022 SL", "Reporting operativo y control de desviaciones. Coste de personal un 21 % más bajo con la operativa completa."],
+                ["2011 – 2024", "Propietario y gerente, León Beach Club", "Trece años de dirección: equipo, proveedores, bancos y control económico. La facturación creció un 90 % entre 2012 y 2023."],
+                ["1999 – 2011", "Formador técnico y contable", "Más de 10.000 horas de formación en contabilidad e informática para empresas y administración pública."],
+              ].map(([f, t, d]) => (
+                <div key={f} style={s.trayRow}>
+                  <span style={s.trayFecha}>{f}</span>
+                  <div>
+                    <span style={s.graderT}>{t}</span>
+                    <span style={s.graderD}>{d}</span>
+                  </div>
                 </div>
-                <p style={s.skillDesc}>{sk.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div style={s.dataCard}>
+              <h3 style={s.dataTitle}>Formación</h3>
+              {[
+                ["2026", "Máster en IA Aplicada y Optimización de Procesos Productivos", "Visual Business School"],
+                ["2026", "Data Analytics Mastery y Python Data Science Mastery, IA Edition", "Data Science for Business (DS4B). El segundo, en curso"],
+                ["2022 – 2023", "Data Analytics Mastery y Python Data Science Mastery", "Data Science for Business (DS4B)"],
+                ["Desde 2022", "Grado en Ciencia de Datos", "Universitat Carlemany. En curso"],
+                ["2021 – 2022", "Certificación Data Scientist, Big Data y Business IT", "Índice IFC, ENEB e I3"],
+                ["2008", "Certificación MCAS de Microsoft", "Access, Excel, Word y PowerPoint"],
+                ["1997 – 1999", "Diplomatura en Relaciones Laborales y especialización contable", "URV, CEF (450 horas) e INTECT (800 horas)"],
+              ].map(([f, t, d]) => (
+                <div key={f + t} style={s.trayRow}>
+                  <span style={s.trayFecha}>{f}</span>
+                  <div>
+                    <span style={s.graderT}>{t}</span>
+                    <span style={s.graderD}>{d}</span>
+                  </div>
+                </div>
+              ))}
+              <a href="https://jleonceo.github.io/cv/" target="_blank" rel="noreferrer" style={s.evalLink}>Ver el currículum completo →</a>
+            </div>
           </div>
-          <p style={s.skillMore}>…y 48 más, repartidas en los seis enjambres.</p>
         </div>
       </section>
 
@@ -415,7 +426,7 @@ export default function Portfolio() {
               { cat: "IA & LLMs", color: "#a855f7", items: ["Claude y Claude Code","Prompt engineering","Evals","Skills","RAG","MCP","Human in the loop"] },
               { cat: "Automatización", color: "#22c55e", items: ["n8n","Workflows","Gmail API","HTTP nodes","Power Automate"] },
               { cat: "Programación", color: "#6366f1", items: ["Python","Pandas","scikit-learn","React","Astro","Vite","Git","Vercel"] },
-              { cat: "Metodología", color: "#64748b", items: ["Evals automatizados","Simulaciones ciegas","Determinismo","Compliance RGPD","Seguridad de IA"] },
+              { cat: "Metodología", color: "#64748b", items: ["Exámenes automáticos","Simulaciones a ciegas","Cálculo con código","RGPD","Seguridad de IA"] },
             ].map(g => (
               <div key={g.cat} style={s.stackCard}>
                 <div style={{ ...s.stackBar, background: g.color }} />
@@ -435,8 +446,8 @@ export default function Portfolio() {
           <p style={s.label}>CONTACTO</p>
           <h2 style={s.h2}>Hablemos</h2>
           <p style={{ ...s.sectionSub, maxWidth: 500, margin: "0 auto 36px" }}>
-            Abierto a oportunidades en datos, IA aplicada y automatización.
-            Si construyes algo con datos, puedo ayudarte.
+            Busco puestos de control de gestión, análisis de datos y BI o automatización con IA.
+            Vivo en Reus, Tarragona.
           </p>
           <div style={s.contactRow}>
             {[
@@ -460,7 +471,7 @@ export default function Portfolio() {
 
       {/* SIDE NAV DOTS */}
       <div style={s.sideDots}>
-        {[["inicio","Inicio"],["enjambres","Enjambres"],["validacion","Validación"],["proyecto","Proyecto"],["fabricas","Fábricas"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
+        {[["inicio","Inicio"],["enjambres","Enjambres"],["validacion","Validación"],["proyecto","Proyecto"],["datos","Datos"],["trayectoria","Trayectoria"],["stack","Stack"],["contacto","Contacto"]].map(([id, label]) => (
           <button key={id} onClick={() => go(id)} style={s.sideDot} title={label}>
             <span style={{ ...s.sideDotInner, ...(activeSection === id ? s.sideDotOn : {}) }} />
           </button>
@@ -589,6 +600,16 @@ const s = {
   swarmFlujo: { fontSize: 12, color: "#60a5fa", fontFamily: "monospace", lineHeight: 1.5, margin: 0 },
   swarmPrueba: { fontSize: 13, color: "#94a3b8", lineHeight: 1.6, margin: 0, flex: 1 },
   swarmLink: { fontSize: 13, fontWeight: 600, textDecoration: "none", marginTop: 4 },
+  swarmGroup: { fontSize: 13, fontWeight: 700, color: "#94a3b8", textTransform: "uppercase", letterSpacing: 1.5, margin: "28px 0 14px" },
+  // DATOS
+  projGrid: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16 },
+  projCard: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 12, padding: "18px", display: "flex", flexDirection: "column", gap: 10 },
+  projImg: { width: "100%", height: 150, objectFit: "cover", objectPosition: "top left", borderRadius: 8, background: "#fff" },
+  projTitle: { fontSize: 16, fontWeight: 700, color: "#f1f5f9", margin: 0 },
+  dataNote2: { fontSize: 13, color: "#64748b", lineHeight: 1.7, margin: "4px 0 0" },
+  // TRAYECTORIA
+  trayRow: { display: "grid", gridTemplateColumns: "92px 1fr", gap: 12, marginBottom: 14, textAlign: "left" },
+  trayFecha: { fontSize: 12, color: "#60a5fa", fontWeight: 700, paddingTop: 1 },
   // DESTACADO
   destacado: { display: "flex", gap: 0, marginTop: 28, background: "rgba(96,165,250,0.05)", border: "1px solid rgba(96,165,250,0.18)", borderRadius: 14, overflow: "hidden" },
   destacadoBar: { width: 4, background: "#3b82f6", flexShrink: 0 },
