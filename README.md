@@ -99,7 +99,7 @@ flowchart LR
     subgraph F3[Producción]
         direction TB
         A8[8. Limpieza para<br/>producción] --> A9[9. Código de<br/>producción]
-        A9 --> A10[10. Ejecución<br/>por lotes<br/>11. API<br/>12. Aplicación]
+        A9 --> A10[Despliegue, tres vías<br/>10. Por lotes<br/>11. API<br/>12. Aplicación]
     end
     F1 --> F2
     F2 --> P{Human in<br/>the loop}
