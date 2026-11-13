@@ -55,16 +55,18 @@ published is decided by a person.
 ### Accounting: posting a supplier invoice
 
 ```mermaid
-flowchart TD
-    A[Invoice PDF] --> B{Router}
-    B -->|Accounting swarm| C[1. Extraction skill]
-    C -->|Unreadable data| D[Stop: human in the loop]
-    C -->|Clear data| E[2. Proposal skill<br/>journal entry]
-    E --> F[3. Audit skill<br/>arithmetic balance]
-    F -->|Does not balance| D
-    F -->|Balances| G[Drafts table<br/>MySQL]
-    G --> H[Human in the loop<br/>validation by the controller or accountant]
-    H --> I[General ledger]
+flowchart LR
+    A[Invoice<br/>PDF] --> B{Router}
+    B --> SG
+    subgraph SG[Accounting swarm]
+        direction TB
+        C[1. Extraction skill] -->|Clear data| E[2. Proposal skill<br/>journal entry]
+        E --> F[3. Audit skill<br/>arithmetic balance]
+    end
+    SG -->|Balances| G[Drafts<br/>table<br/>MySQL]
+    SG -->|Unreadable data or<br/>does not balance| D[Stop: human<br/>in the loop]
+    G --> H[Human in the loop<br/>validation by the controller<br/>or accountant]
+    H --> I[General<br/>ledger]
 
     style D fill:#ffebee,stroke:#c62828,color:#b71c1c
     style G fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
@@ -81,20 +83,27 @@ flowchart TD
 ### Data analysis: one case from raw data to a model in production
 
 ```mermaid
-flowchart TD
-    D[Raw data] --> A1[1. Importer]
-    A1 --> A2[2. Data quality]
-    A2 --> A3[3. Exploratory analysis]
-    A3 --> A4[4. Preparation]
-    A4 --> A5[5. Feature selection]
-    A5 --> A6[6. Class balancing]
-    A6 --> A7[7. Model]
-    A7 --> P{Human in the loop}
-    P -->|Approved| A8[8. Cleaning for production]
-    A8 --> A9[9. Production code]
-    A9 --> A10[10. Batch runs]
-    A9 --> A11[11. API]
-    A9 --> A12[12. Application]
+flowchart LR
+    D[Raw<br/>data] --> F1
+    subgraph F1[Prepare the data]
+        direction TB
+        A1[1. Importer] --> A2[2. Data quality]
+        A2 --> A3[3. Exploratory<br/>analysis]
+        A3 --> A4[4. Preparation]
+    end
+    subgraph F2[Model]
+        direction TB
+        A5[5. Feature<br/>selection] --> A6[6. Class<br/>balancing]
+        A6 --> A7[7. Model]
+    end
+    subgraph F3[Production]
+        direction TB
+        A8[8. Cleaning for<br/>production] --> A9[9. Production<br/>code]
+        A9 --> A10[10. Batch runs<br/>11. API<br/>12. Application]
+    end
+    F1 --> F2
+    F2 --> P{Human in<br/>the loop}
+    P -->|Approved| F3
 
     style P fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
 ```

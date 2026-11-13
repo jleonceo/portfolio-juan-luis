@@ -55,16 +55,18 @@ persona.
 ### Contabilidad: la entrada de una factura
 
 ```mermaid
-flowchart TD
-    A[Factura PDF] --> B{Router}
-    B -->|Enjambre contable| C[1. Skill de extracción]
-    C -->|Dato ilegible| D[Freno: human in the loop]
-    C -->|Datos claros| E[2. Skill de propuesta<br/>asiento contable]
-    E --> F[3. Skill de auditoría<br/>cuadre aritmético]
-    F -->|No cuadra| D
-    F -->|Cuadra| G[Tabla de borradores<br/>MySQL]
-    G --> H[Human in the loop<br/>validación del controller o contable]
-    H --> I[Libro diario]
+flowchart LR
+    A[Factura<br/>PDF] --> B{Router}
+    B --> SG
+    subgraph SG[Enjambre contable]
+        direction TB
+        C[1. Skill de extracción] -->|Datos claros| E[2. Skill de propuesta<br/>asiento contable]
+        E --> F[3. Skill de auditoría<br/>cuadre aritmético]
+    end
+    SG -->|Cuadra| G[Tabla de<br/>borradores<br/>MySQL]
+    SG -->|Dato ilegible<br/>o no cuadra| D[Freno: human<br/>in the loop]
+    G --> H[Human in the loop<br/>validación del controller<br/>o contable]
+    H --> I[Libro<br/>diario]
 
     style D fill:#ffebee,stroke:#c62828,color:#b71c1c
     style G fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
@@ -81,20 +83,27 @@ flowchart TD
 ### Análisis de datos: un caso del dato en bruto al modelo en producción
 
 ```mermaid
-flowchart TD
-    D[Datos en bruto] --> A1[1. Importador]
-    A1 --> A2[2. Calidad del dato]
-    A2 --> A3[3. Análisis exploratorio]
-    A3 --> A4[4. Preparación]
-    A4 --> A5[5. Selección de variables]
-    A5 --> A6[6. Balanceo de clases]
-    A6 --> A7[7. Modelo]
-    A7 --> P{Human in the loop}
-    P -->|Aprobado| A8[8. Limpieza para producción]
-    A8 --> A9[9. Código de producción]
-    A9 --> A10[10. Ejecución por lotes]
-    A9 --> A11[11. API]
-    A9 --> A12[12. Aplicación]
+flowchart LR
+    D[Datos<br/>en bruto] --> F1
+    subgraph F1[Preparar el dato]
+        direction TB
+        A1[1. Importador] --> A2[2. Calidad<br/>del dato]
+        A2 --> A3[3. Análisis<br/>exploratorio]
+        A3 --> A4[4. Preparación]
+    end
+    subgraph F2[Modelar]
+        direction TB
+        A5[5. Selección<br/>de variables] --> A6[6. Balanceo<br/>de clases]
+        A6 --> A7[7. Modelo]
+    end
+    subgraph F3[Producción]
+        direction TB
+        A8[8. Limpieza para<br/>producción] --> A9[9. Código de<br/>producción]
+        A9 --> A10[10. Ejecución<br/>por lotes<br/>11. API<br/>12. Aplicación]
+    end
+    F1 --> F2
+    F2 --> P{Human in<br/>the loop}
+    P -->|Aprobado| F3
 
     style P fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
 ```
