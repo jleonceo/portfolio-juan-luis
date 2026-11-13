@@ -147,7 +147,7 @@ comprobaciones que no dependen de la IA. Van ordenados de lo básico a lo avanza
 
 ## Análisis de datos
 
-Antes de automatizar con IA hay que saber leer el negocio. Estos son los análisis de partida. Varios sirvieron
+Antes de automatizar con IA hay que dominar el análisis de datos. Estos son los análisis de partida. Varios sirvieron
 después de base para construir los agentes:
 
 - [analisis-contable](https://github.com/jleonceo/analisis-contable): la cuenta de resultados y el movimiento del

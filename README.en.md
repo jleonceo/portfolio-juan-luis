@@ -147,7 +147,7 @@ on AI. They go from basic to advanced:
 
 ## Data analysis
 
-Before automating with AI you have to be able to read the business. These are the starting analyses. Several of
+Before automating with AI you have to master data analysis. These are the starting analyses. Several of
 them later became the basis for building the agents:
 
 - [analisis-contable](https://github.com/jleonceo/analisis-contable): the income statement and bank movements of one
