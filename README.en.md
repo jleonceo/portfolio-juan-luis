@@ -6,11 +6,10 @@ Versión en español: [README.md](README.md)
 
 [![Live site](https://img.shields.io/badge/Live_site-juanluisleon.vercel.app-111111?style=for-the-badge&logo=vercel&logoColor=white)](https://juanluisleon.vercel.app)
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
-![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
-![Claude](https://img.shields.io/badge/Claude-D97757?style=flat-square&logo=anthropic&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black) ![DAX](https://img.shields.io/badge/DAX-F2C811?style=flat-square) ![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white) ![Sage](https://img.shields.io/badge/Sage-00D639?style=flat-square&logo=sage&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-D97757?style=flat-square&logo=anthropic&logoColor=white) ![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white) ![MCP](https://img.shields.io/badge/MCP_own_servers-555555?style=flat-square) ![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 This repository holds the code of my portfolio site and documents the automation system I build. It has 55 skills
 grouped into six domain swarms: accounting, analytics, marketing, treasury, software development and human
@@ -30,18 +29,38 @@ from raw data to a model in production. This second workflow is not published ye
 - **Router.** The central piece that reads each request and sends it to the right swarm. Thanks to it, the system can
   grow without breaking.
 
-## One case end to end: posting a supplier invoice
+## The system at a glance
 
 ```mermaid
-flowchart LR
+flowchart TD
+    P[Request or document] --> R{Router}
+    R --> C[Accounting<br/>entries, VAT and closing]
+    R --> A[Data analysis<br/>from raw data to model]
+    R --> M[Marketing<br/>web audits, copy and audiences]
+    R --> T[Treasury<br/>cash forecast, receivables and ratios]
+    R --> G[Software development<br/>specification, tests and code]
+    R --> H[Human resources<br/>employment criteria]
+    C & A & M & T & G & H --> V[Reviewed by a different skill<br/>from the one that produced it]
+    V --> J[A person decides]
+
+    style R fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    style J fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+```
+
+The rule is the same in all six: whoever produces is not whoever reviews, and anything that changes data or gets
+published is decided by a person.
+
+## Two cases end to end
+
+### Accounting: posting a supplier invoice
+
+```mermaid
+flowchart TD
     A[Invoice PDF] --> B{Router}
     B -->|Accounting swarm| C[1. Extraction skill]
-
     C -->|Unreadable data| D[Stop: human review]
     C -->|Clear data| E[2. Proposal skill<br/>journal entry]
-
     E --> F[3. Audit skill<br/>arithmetic balance]
-
     F -->|Does not balance| D
     F -->|Balances| G[Drafts table<br/>MySQL]
     G --> H[Final validation<br/>controller or accountant]
@@ -58,6 +77,30 @@ flowchart LR
 3. **Audit.** A third skill checks that the entry balances and decides whether it moves on or stops.
 4. **Human supervision.** Approved entries go to a drafts table. None reaches the ledger on its own: a person moves
    it there after validating it.
+
+### Data analysis: one case from raw data to a model in production
+
+```mermaid
+flowchart TD
+    D[Raw data] --> A1[1. Importer]
+    A1 --> A2[2. Data quality]
+    A2 --> A3[3. Exploratory analysis]
+    A3 --> A4[4. Preparation]
+    A4 --> A5[5. Feature selection]
+    A5 --> A6[6. Class balancing]
+    A6 --> A7[7. Model]
+    A7 --> P{Review by a person}
+    P -->|Approved| A8[8. Cleaning for production]
+    A8 --> A9[9. Production code]
+    A9 --> A10[10. Batch runs]
+    A9 --> A11[11. API]
+    A9 --> A12[12. Application]
+
+    style P fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+```
+
+Twelve agents of my own, one per task. Each step leaves its files on disk, and nothing counts as done until what the
+agent says it did has been checked.
 
 ## The method: validate before use
 

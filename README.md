@@ -6,11 +6,10 @@ English version: [README.en.md](README.en.md)
 
 [![Sitio en vivo](https://img.shields.io/badge/Sitio_en_vivo-juanluisleon.vercel.app-111111?style=for-the-badge&logo=vercel&logoColor=white)](https://juanluisleon.vercel.app)
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
-![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
-![Claude](https://img.shields.io/badge/Claude-D97757?style=flat-square&logo=anthropic&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black) ![DAX](https://img.shields.io/badge/DAX-F2C811?style=flat-square) ![Excel](https://img.shields.io/badge/Excel-217346?style=flat-square&logo=microsoftexcel&logoColor=white) ![Sage](https://img.shields.io/badge/Sage-00D639?style=flat-square&logo=sage&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![pandas](https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-D97757?style=flat-square&logo=anthropic&logoColor=white) ![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=anthropic&logoColor=white) ![MCP](https://img.shields.io/badge/MCP_servidores_propios-555555?style=flat-square) ![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white)
 
 Este repositorio contiene el código de mi portfolio web y documenta el sistema de automatización que construyo. Son
 55 skills repartidas en seis enjambres de dominio: contabilidad, análisis, marketing, tesorería, programación y
@@ -30,18 +29,38 @@ producción. Este segundo workflow todavía no está publicado.
 - **Router.** La pieza central que lee cada petición y la dirige al enjambre adecuado. Gracias a ella, el sistema
   puede crecer sin romperse.
 
-## Un caso de principio a fin: la contabilización de una factura
+## El sistema de un vistazo
 
 ```mermaid
-flowchart LR
+flowchart TD
+    P[Petición o documento] --> R{Router}
+    R --> C[Contabilidad<br/>asientos, IVA y cierre]
+    R --> A[Análisis de datos<br/>del dato en bruto al modelo]
+    R --> M[Marketing<br/>auditoría web, textos y audiencias]
+    R --> T[Tesorería<br/>previsión de caja, cobros y ratios]
+    R --> G[Programación<br/>especificación, pruebas y código]
+    R --> H[Recursos humanos<br/>criterio laboral]
+    C & A & M & T & G & H --> V[Revisa una skill distinta<br/>de la que produjo]
+    V --> J[Decide una persona]
+
+    style R fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    style J fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+```
+
+La regla es la misma en los seis: quien produce no es quien revisa, y lo que cambia datos o se publica lo decide una
+persona.
+
+## Dos casos de principio a fin
+
+### Contabilidad: la entrada de una factura
+
+```mermaid
+flowchart TD
     A[Factura PDF] --> B{Router}
     B -->|Enjambre contable| C[1. Skill de extracción]
-
     C -->|Dato ilegible| D[Freno: revisión humana]
     C -->|Datos claros| E[2. Skill de propuesta<br/>asiento contable]
-
     E --> F[3. Skill de auditoría<br/>cuadre aritmético]
-
     F -->|No cuadra| D
     F -->|Cuadra| G[Tabla de borradores<br/>MySQL]
     G --> H[Validación final<br/>controller o contable]
@@ -58,6 +77,30 @@ flowchart LR
 3. **Auditoría.** Una tercera skill comprueba el cuadre y decide si el asiento avanza o se frena.
 4. **Supervisión humana.** Los asientos aprobados pasan a una tabla de borradores. Ninguno llega solo al libro
    diario: lo lleva una persona, después de validarlo.
+
+### Análisis de datos: un caso del dato en bruto al modelo en producción
+
+```mermaid
+flowchart TD
+    D[Datos en bruto] --> A1[1. Importador]
+    A1 --> A2[2. Calidad del dato]
+    A2 --> A3[3. Análisis exploratorio]
+    A3 --> A4[4. Preparación]
+    A4 --> A5[5. Selección de variables]
+    A5 --> A6[6. Balanceo de clases]
+    A6 --> A7[7. Modelo]
+    A7 --> P{Revisión de una persona}
+    P -->|Aprobado| A8[8. Limpieza para producción]
+    A8 --> A9[9. Código de producción]
+    A9 --> A10[10. Ejecución por lotes]
+    A9 --> A11[11. API]
+    A9 --> A12[12. Aplicación]
+
+    style P fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+```
+
+Doce agentes propios, uno por tarea. Cada paso deja sus ficheros en disco y no se da por hecho hasta que se comprueba
+lo que el agente dice haber hecho.
 
 ## El método: validar antes de usar
 
