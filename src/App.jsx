@@ -33,7 +33,7 @@ export default function Portfolio() {
         <div style={s.navInner}>
           <button onClick={() => go("validacion")} style={s.navNew}>
             <span style={s.navNewDot} />
-            24 skills con evals ejecutadas: así las valido →
+            23 skills con evals ejecutadas: así las valido →
           </button>
           <div style={s.navLinks}>
             {[["enjambres","Enjambres"],["validacion","Validación"],["proyecto","El proyecto"],["fabricas","Fábricas"],["skills","Skills"],["stack","Stack"],["contacto","Contacto"]].map(([id,label]) => (
@@ -48,7 +48,7 @@ export default function Portfolio() {
         <div style={s.heroLeft}>
           <img src={foto} alt="Juan Luis León" style={s.foto} />
           <div style={s.evalBadge}>
-            <span style={s.evalBadgeNum}>24</span>
+            <span style={s.evalBadgeNum}>23</span>
             <span style={s.evalBadgeText}>skills con evals ejecutadas y sus resultados guardados</span>
           </div>
         </div>
@@ -68,7 +68,7 @@ export default function Portfolio() {
             {[
               { n: "55", l: "skills" },
               { n: "6", l: "enjambres y un enrutador" },
-              { n: "24", l: "skills con evals ejecutadas" },
+              { n: "23", l: "skills con evals ejecutadas" },
               { n: "0,00 €", l: "de descuadre en 22,0 M€" },
             ].map(st => (
               <div key={st.l} style={s.heroStat}>
@@ -161,7 +161,7 @@ export default function Portfolio() {
                   </div>
                 ))}
               </div>
-              <p style={s.evalPlus}>En todo el sistema, 24 skills tienen evals ejecutadas con sus resultados guardados, y 29 más, cobertura parcial (registro de cobertura revisado el 04/08/2026).</p>
+              <p style={s.evalPlus}>En todo el sistema, 23 skills tienen evals ejecutadas con sus resultados guardados, y 30 más, cobertura parcial (registro de cobertura revisado el 02/10/2026).</p>
               <a href="https://github.com/jleonceo/llm-eval-contable" target="_blank" rel="noreferrer" style={s.evalLink}>
                 Ver cómo se evalúa una skill en GitHub →
               </a>

@@ -2,45 +2,118 @@ Versión en español: [README.md](README.md)
 
 # Juan Luis León Rodríguez's portfolio
 
-Source of my portfolio site. The page explains the system I build.
+**Financial controller · Business Intelligence · AI applied to accounting**
 
-**55 skills**, grouped into six domain swarms: accounting, analytics, marketing, treasury, programming and HR. A router decides which one takes each request. Underneath sit MySQL, Power BI, Python, n8n and Claude.
+[![Live site](https://img.shields.io/badge/Live_site-juanluisleon.vercel.app-111111?style=for-the-badge&logo=vercel&logoColor=white)](https://juanluisleon.vercel.app)
 
-Three words worth pinning down first. A **skill** is a text file that gives a model its criteria: which rules to apply, which accounts to use, when to stop and ask for review. A **swarm** is a group of skills sharing a domain, each with its own patch, so that whoever judges is never whoever produced. The **router** reads the request and decides which swarm takes it, so the system does not break as it grows.
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power_BI-F2C811?style=flat-square&logo=powerbi&logoColor=black)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
+![Claude](https://img.shields.io/badge/Claude-D97757?style=flat-square&logo=anthropic&logoColor=white)
 
-An example of what it does, end to end: a supplier invoice PDF comes in, one skill extracts the data and says «unreadable» rather than inventing a missing field, another writes the journal entry with the company's real accounts, and a third checks that it balances and decides whether to post it or hold it. Approved entries land in a drafts table and a person is the one who posts them.
+This repository holds the code of my portfolio site and documents the automation system I build. It has 55 skills
+grouped into six domain swarms: accounting, analytics, marketing, treasury, software development and human
+resources. A router coordinates them, and they run on MySQL, Power BI, Python, n8n and Claude.
 
-The method is building those tools and **validating them before use**. Today 24 skills have automated evaluations run, with their results stored. And the method requires every change to pass a blind simulation checking that what already worked still works.
+## The system in three concepts
 
-## The system in open repos
+- **Skill.** A text file that gives a model its working criteria. It sets which rules to apply, which accounts to
+  use and when to stop and ask a person to review.
+- **Swarm.** A group of skills specialised in the same domain. They split the work with segregation of duties: the
+  skill that reviews is never the one that produced the data.
+- **Router.** The central piece that reads each request and sends it to the right swarm. Thanks to it, the system can
+  grow without breaking.
 
-The portfolio has two halves. This one is about **structuring AI**: giving it framing, controls and verification. Ordered from basics to advanced (N0 to N3):
+## One case end to end: posting a supplier invoice
 
-- [tu-primer-asistente-ia-web](https://github.com/jleonceo/tu-primer-asistente-ia-web): what an AI assistant is and how you instruct it, for beginners.
-- [llm-eval-contable](https://github.com/jleonceo/llm-eval-contable): evaluating a skill the way you examine a student, with the six exam rounds and what each one taught.
-- [accounting-agent-swarm](https://github.com/jleonceo/accounting-agent-swarm): a four-agent accounting swarm end to end, with its drops explained.
-- [orquestacion-enjambres-ia](https://github.com/jleonceo/orquestacion-enjambres-ia): multi-agent routing, which agent handles each request without breaking as it grows.
-- [gobernanza-skills-analiticas](https://github.com/jleonceo/gobernanza-skills-analiticas): five rules for governing skills, each with its real scar.
-- [verificacion-determinista-ia](https://github.com/jleonceo/verificacion-determinista-ia): checking state coherence by pure arithmetic, without AI.
-- [agent-memory-governance](https://github.com/jleonceo/agent-memory-governance): keeping the agent's memory from turning into a junkyard.
-- [claude-code-context-management](https://github.com/jleonceo/claude-code-context-management): keeping the context files small and current, without flooding the window.
-- [tesoreria-forecast-ia](https://github.com/jleonceo/tesoreria-forecast-ia): cash-flow forecasting with backtesting, ratios and aging.
-- [control-interno-fraude-ia](https://github.com/jleonceo/control-interno-fraude-ia): accounting fraud detection with arithmetic, inside an internal-control framework.
-- [audience-analyst-swarm](https://github.com/jleonceo/audience-analyst-swarm): the same method ported to another domain, audience analytics reusing about 70% of the accounting swarm.
-- [pii-output-gate](https://github.com/jleonceo/pii-output-gate): an output gate that refuses to publish anything carrying personal data, without relying on the model behaving.
-- [guardianes-verificados-ia](https://github.com/jleonceo/guardianes-verificados-ia): how you check that a guardrail actually protects, by breaking it on purpose and demanding it fires.
-- [gobernanza-agentes-verificada](https://github.com/jleonceo/gobernanza-agentes-verificada): an agent's rules wired to something that enforces them, rather than written in a document.
+```mermaid
+flowchart LR
+    A[Invoice PDF] --> B{Router}
+    B -->|Accounting swarm| C[1. Extraction skill]
 
-## The other half of the portfolio: the data trade
+    C -->|Unreadable data| D[Stop: human review]
+    C -->|Clear data| E[2. Proposal skill<br/>journal entry]
 
-Before structuring AI you have to read the data. This series is the original trade, and several of
-these cases are the ones later automated:
+    E --> F[3. Audit skill<br/>arithmetic balance]
 
-- [analisis-contable](https://github.com/jleonceo/analisis-contable): reading a full financial year straight from the database, from margin to cash flow.
-- [RFM-Customer-Analytics](https://github.com/jleonceo/RFM-Customer-Analytics): which customers are leaving without warning, and why the annual total hides them.
-- [lead-scoring-ml](https://github.com/jleonceo/lead-scoring-ml): who the sales team should call first, with the model verified two independent ways.
-- [accident-intelligent-agent](https://github.com/jleonceo/accident-intelligent-agent): an early agent over public road-safety data, with its failures documented.
-- [de-datos-en-bruto-a-decisiones](https://github.com/jleonceo/de-datos-en-bruto-a-decisiones): a raw sales file analysed end to end, with a [website](https://de-datos-en-bruto-a-decisiones.vercel.app) that tells the story.
+    F -->|Does not balance| D
+    F -->|Balances| G[Drafts table<br/>MySQL]
+    G --> H[Final validation<br/>controller or accountant]
+    H --> I[General ledger]
+
+    style D fill:#ffebee,stroke:#c62828,color:#b71c1c
+    style G fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    style B fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+```
+
+1. **Extraction.** A supplier invoice PDF comes in. A skill extracts the data and marks the document as unreadable
+   rather than inventing a missing field.
+2. **Proposal.** A second skill drafts the journal entry with the company's chart of accounts.
+3. **Audit.** A third skill checks that the entry balances and decides whether it moves on or stops.
+4. **Human supervision.** Approved entries go to a drafts table. None reaches the ledger on its own: a person moves
+   it there after validating it.
+
+## The method: validate before use
+
+In finance, an agent without controls is a risk. That is why 23 skills have automated evaluations run, with their
+results stored. Another 30 have partial coverage. On top of that, every change to the system goes through a blind
+simulation: a regression test that checks that what already worked still works.
+
+## Structuring and governing AI
+
+Open repositories on how to frame, control and check the work of a language model, with checks that do not depend
+on AI. They go from basic to advanced:
+
+- [tu-primer-asistente-ia-web](https://github.com/jleonceo/tu-primer-asistente-ia-web): what an AI assistant is and
+  how you instruct it, explained without jargon.
+- [llm-eval-contable](https://github.com/jleonceo/llm-eval-contable): how a skill is evaluated the way you examine
+  a student. Across six versions of its instructions, the model went from 33 of 50 cases right to all of them.
+- [accounting-agent-swarm](https://github.com/jleonceo/accounting-agent-swarm): a swarm of four accounting agents
+  end to end, with its errors explained. Over 128 documents, it decided correctly in 97.7 % of cases whether to post
+  the entry or hold it for review.
+- [orquestacion-enjambres-ia](https://github.com/jleonceo/orquestacion-enjambres-ia): how each request is sent to
+  the right agent so that the system does not fail as it grows.
+- [gobernanza-skills-analiticas](https://github.com/jleonceo/gobernanza-skills-analiticas): five checks that keep a
+  skill right on real data, each born from a real failure.
+- [verificacion-determinista-ia](https://github.com/jleonceo/verificacion-determinista-ia): coherence checks done
+  with arithmetic, which do not depend on AI.
+- [agent-memory-governance](https://github.com/jleonceo/agent-memory-governance): three pieces that keep an agent's
+  long-term memory from turning into a junkyard.
+- [claude-code-context-management](https://github.com/jleonceo/claude-code-context-management): how to keep the
+  context files small and current without flooding the model's window.
+- [tesoreria-forecast-ia](https://github.com/jleonceo/tesoreria-forecast-ia): a cash forecast checked against the
+  past, liquidity ratios and the age of receivables and payables. One month ahead it is off by 4,334 € on average,
+  against 5,082 € for the same month of the previous year plus the trend.
+- [control-interno-fraude-ia](https://github.com/jleonceo/control-interno-fraude-ia): eight audit tests on the
+  ledger. On a sample ledger they find the seven planted anomalies without flagging any of the four legitimate
+  cases.
+- [audience-analyst-swarm](https://github.com/jleonceo/audience-analyst-swarm): the same method applied to another
+  domain, audience analytics, with the swarm pattern and the exploration method of the data-analysis swarm.
+- [pii-output-gate](https://github.com/jleonceo/pii-output-gate): an output gate that blocks any text carrying
+  personal data without trusting the model to behave.
+- [guardianes-verificados-ia](https://github.com/jleonceo/guardianes-verificados-ia): how to check that a safety
+  filter really protects: it is broken on purpose and the alarm is required to fire.
+- [gobernanza-agentes-verificada](https://github.com/jleonceo/gobernanza-agentes-verificada): the rules of an agent
+  system wired to the code that enforces them, rather than left only written in a document.
+
+## Data analysis
+
+Before automating with AI you have to be able to read the business. These are the starting analyses. Several of
+them later became the basis for building the agents:
+
+- [analisis-contable](https://github.com/jleonceo/analisis-contable): the income statement and bank movements of one
+  financial year, from the ledger. The 2024 profit, 592,245.36 €, matches to the cent the closing entry, which
+  comes from another table.
+- [RFM-Customer-Analytics](https://github.com/jleonceo/RFM-Customer-Analytics): the customer base split into five
+  groups by how recently, how often and how much they buy. The 246 best customers are 26 % of the base and 66.5 %
+  of sales.
+- [lead-scoring-ml](https://github.com/jleonceo/lead-scoring-ml): which contact the sales team calls first. Calling
+  only the top-scored 20 % of the list reaches half of the buyers.
+- [accident-intelligent-agent](https://github.com/jleonceo/accident-intelligent-agent): Madrid's open data on road
+  accidents, from a spreadsheet to MySQL, with a model that is right in 71 % of cases.
+- [de-datos-en-bruto-a-decisiones](https://github.com/jleonceo/de-datos-en-bruto-a-decisiones): a raw sales file
+  analysed end to end, with a [website](https://de-datos-en-bruto-a-decisiones.vercel.app) that tells the results.
 
 ## Stack
 
