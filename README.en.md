@@ -16,8 +16,10 @@ This repository holds the code of my portfolio site and documents the automation
 grouped into six domain swarms: accounting, analytics, marketing, treasury, software development and human
 resources. A router coordinates them, and they run on MySQL, Power BI, Python, n8n and Claude.
 
-In data analysis, the method is a *bring your own agents* workflow: twelve agents of my own, from the data importer
-to deployment, that take each case from raw data to a model in production. It is not published yet.
+Accounting and data analysis follow the same approach, *bring your own agents*: agents of my own, each with its task
+and its permissions. In accounting there are five, from the one that reads the invoice to the one that leaves the
+entry in drafts. In data analysis there are twelve, from the data importer to deployment, and they take each case
+from raw data to a model in production. This second workflow is not published yet.
 
 ## The system in three concepts
 

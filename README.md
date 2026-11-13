@@ -16,9 +16,10 @@ Este repositorio contiene el código de mi portfolio web y documenta el sistema 
 55 skills repartidas en seis enjambres de dominio: contabilidad, análisis, marketing, tesorería, programación y
 recursos humanos. Las coordina un router y se apoyan en MySQL, Power BI, Python, n8n y Claude.
 
-En análisis de datos, el método es un workflow de tipo *bring your own agents*: doce agentes propios, del
-importador de datos al despliegue, que acompañan cada caso del dato en bruto al modelo en producción. Todavía no está
-publicado.
+Contabilidad y análisis de datos siguen el mismo enfoque, *bring your own agents*: agentes propios, cada uno con su
+tarea y sus permisos. En contabilidad son cinco, del que lee la factura al que deja el asiento en borradores. En
+análisis de datos son doce, del importador de datos al despliegue, y llevan cada caso del dato en bruto al modelo en
+producción. Este segundo workflow todavía no está publicado.
 
 ## El sistema en tres conceptos
 
