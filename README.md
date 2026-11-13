@@ -41,7 +41,7 @@ flowchart TD
     R --> G[Programación<br/>especificación, pruebas y código]
     R --> H[Recursos humanos<br/>criterio laboral]
     C & A & M & T & G & H --> V[Revisa una skill distinta<br/>de la que produjo]
-    V --> J[Decide una persona]
+    V --> J[Human in the loop]
 
     style R fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
     style J fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
@@ -58,12 +58,12 @@ persona.
 flowchart TD
     A[Factura PDF] --> B{Router}
     B -->|Enjambre contable| C[1. Skill de extracción]
-    C -->|Dato ilegible| D[Freno: revisión humana]
+    C -->|Dato ilegible| D[Freno: human in the loop]
     C -->|Datos claros| E[2. Skill de propuesta<br/>asiento contable]
     E --> F[3. Skill de auditoría<br/>cuadre aritmético]
     F -->|No cuadra| D
     F -->|Cuadra| G[Tabla de borradores<br/>MySQL]
-    G --> H[Validación final<br/>controller o contable]
+    G --> H[Human in the loop<br/>validación del controller o contable]
     H --> I[Libro diario]
 
     style D fill:#ffebee,stroke:#c62828,color:#b71c1c
@@ -89,7 +89,7 @@ flowchart TD
     A4 --> A5[5. Selección de variables]
     A5 --> A6[6. Balanceo de clases]
     A6 --> A7[7. Modelo]
-    A7 --> P{Revisión de una persona}
+    A7 --> P{Human in the loop}
     P -->|Aprobado| A8[8. Limpieza para producción]
     A8 --> A9[9. Código de producción]
     A9 --> A10[10. Ejecución por lotes]
