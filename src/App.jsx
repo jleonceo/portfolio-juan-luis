@@ -53,7 +53,7 @@ export default function Portfolio() {
           </div>
         </div>
         <div style={s.heroRight}>
-          <p style={s.eyebrow}>Controller financiero · BI · IA aplicada a la contabilidad</p>
+          <p style={s.eyebrow}>Controller financiero y analista de datos · Contabilidad · Business Intelligence · Sistemas de IA para la empresa</p>
           <h1 style={s.nombre}>Juan Luis<br/>León Rodríguez</h1>
           <p style={s.tagline}>
             Construyo mis propias herramientas de IA<br/>

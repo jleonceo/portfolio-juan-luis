@@ -2,7 +2,7 @@ Versión en español: [README.md](README.md)
 
 # Juan Luis León Rodríguez's portfolio
 
-**Financial controller · Business Intelligence · AI applied to accounting**
+**Financial controller and data analyst · Accounting · Business Intelligence · AI systems for business**
 
 [![Live site](https://img.shields.io/badge/Live_site-juanluisleon.vercel.app-111111?style=for-the-badge&logo=vercel&logoColor=white)](https://juanluisleon.vercel.app)
 
@@ -15,6 +15,9 @@ Versión en español: [README.md](README.md)
 This repository holds the code of my portfolio site and documents the automation system I build. It has 55 skills
 grouped into six domain swarms: accounting, analytics, marketing, treasury, software development and human
 resources. A router coordinates them, and they run on MySQL, Power BI, Python, n8n and Claude.
+
+In data analysis, the method is a *bring your own agents* workflow: twelve agents of my own, from the data importer
+to deployment, that take each case from raw data to a model in production. It is not published yet.
 
 ## The system in three concepts
 

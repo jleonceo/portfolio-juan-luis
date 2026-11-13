@@ -2,7 +2,7 @@ English version: [README.en.md](README.en.md)
 
 # Portfolio de Juan Luis León Rodríguez
 
-**Controller financiero · Business Intelligence · IA aplicada a la contabilidad**
+**Controller financiero y analista de datos · Contabilidad · Business Intelligence · Sistemas de IA para la empresa**
 
 [![Sitio en vivo](https://img.shields.io/badge/Sitio_en_vivo-juanluisleon.vercel.app-111111?style=for-the-badge&logo=vercel&logoColor=white)](https://juanluisleon.vercel.app)
 
@@ -15,6 +15,10 @@ English version: [README.en.md](README.en.md)
 Este repositorio contiene el código de mi portfolio web y documenta el sistema de automatización que construyo. Son
 55 skills repartidas en seis enjambres de dominio: contabilidad, análisis, marketing, tesorería, programación y
 recursos humanos. Las coordina un router y se apoyan en MySQL, Power BI, Python, n8n y Claude.
+
+En análisis de datos, el método es un workflow de tipo *bring your own agents*: doce agentes propios, del
+importador de datos al despliegue, que acompañan cada caso del dato en bruto al modelo en producción. Todavía no está
+publicado.
 
 ## El sistema en tres conceptos
 
