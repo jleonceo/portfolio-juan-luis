@@ -146,8 +146,6 @@ on AI. They go from basic to advanced:
 - [control-interno-fraude-ia](https://github.com/jleonceo/control-interno-fraude-ia): eight audit tests on the
   ledger. On a sample ledger they find the seven planted anomalies without flagging any of the four legitimate
   cases.
-- [audience-analyst-swarm](https://github.com/jleonceo/audience-analyst-swarm): the same method applied to another
-  domain, audience analytics, with the swarm pattern and the exploration method of the data-analysis swarm.
 - [pii-output-gate](https://github.com/jleonceo/pii-output-gate): an output gate that blocks any text carrying
   personal data without trusting the model to behave.
 - [guardianes-verificados-ia](https://github.com/jleonceo/guardianes-verificados-ia): how to check that a safety

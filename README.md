@@ -146,8 +146,6 @@ comprobaciones que no dependen de la IA. Van ordenados de lo básico a lo avanza
 - [control-interno-fraude-ia](https://github.com/jleonceo/control-interno-fraude-ia): ocho pruebas de auditoría
   sobre el libro diario. En un libro de ejemplo encuentran las siete anomalías plantadas sin marcar ninguno de los
   cuatro casos legítimos.
-- [audience-analyst-swarm](https://github.com/jleonceo/audience-analyst-swarm): el mismo método aplicado a otro
-  dominio, la analítica de audiencias, con el patrón de enjambre y el método de exploración del análisis de datos.
 - [pii-output-gate](https://github.com/jleonceo/pii-output-gate): una puerta de salida que bloquea cualquier texto
   con datos personales sin fiarse de que el modelo se porte bien.
 - [guardianes-verificados-ia](https://github.com/jleonceo/guardianes-verificados-ia): cómo se comprueba que un
