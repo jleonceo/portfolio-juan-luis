@@ -127,8 +127,8 @@ comprobaciones que no dependen de la IA. Van ordenados de lo básico a lo avanza
 - [llm-eval-contable](https://github.com/jleonceo/llm-eval-contable): cómo se evalúa una skill como se examina a un
   alumno. A lo largo de seis versiones de sus instrucciones, el modelo pasó de acertar 33 de 50 casos a acertarlos todos.
   Con el examen corregido en julio, aquellas respuestas acertarían 48 de 50.
-- [accounting-agent-swarm](https://github.com/jleonceo/accounting-agent-swarm): el enjambre de agentes
-  contables de principio a fin, medido en su versión de cuatro agentes, con sus errores explicados. Sobre 128 documentos, decidió bien en el 97,7 % de los casos
+- [accounting-agent-swarm](https://github.com/jleonceo/accounting-agent-swarm): cinco agentes
+  contables con permisos separados, de principio a fin, con sus errores explicados. Medido en su versión de cuatro agentes: sobre 128 documentos, decidió bien en el 97,7 % de los casos
   si había que registrar el asiento o pararlo para revisión.
 - [orquestacion-enjambres-ia](https://github.com/jleonceo/orquestacion-enjambres-ia): cómo se decide a qué agente
   va cada petición para que el sistema no falle al crecer.

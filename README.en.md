@@ -127,8 +127,8 @@ on AI. They go from basic to advanced:
 - [llm-eval-contable](https://github.com/jleonceo/llm-eval-contable): how a skill is evaluated the way you examine
   a student. Across six versions of its instructions, the model went from 33 of 50 cases right to all of them.
   With the exam corrected in July, those answers would score 48 of 50.
-- [accounting-agent-swarm](https://github.com/jleonceo/accounting-agent-swarm): the accounting agent swarm
-  end to end, measured in its four-agent version, with its errors explained. Over 128 documents, it decided correctly in 97.7 % of cases whether to post
+- [accounting-agent-swarm](https://github.com/jleonceo/accounting-agent-swarm): five accounting agents
+  with separate permissions, end to end, with their errors explained. Measured in its four-agent version: over 128 documents, it decided correctly in 97.7 % of cases whether to post
   the entry or hold it for review.
 - [orquestacion-enjambres-ia](https://github.com/jleonceo/orquestacion-enjambres-ia): how each request is sent to
   the right agent so that the system does not fail as it grows.
